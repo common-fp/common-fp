@@ -104,5 +104,5 @@ Common FP is not for everyone. You may prefer other libraries if you...
 - Learn more at [common-fp.org](https://common-fp.org)
 - [Reference documentation](https://common-fp.org/docs)
 - [Try it out in-browser](https://common-fp.org/try-it)
-- [View the source](https://github.com/common-fp/common-fp/pkg/common-fp-types) for `common-fp-types`
+- [View the source](../../pkg/common-fp-types) for `common-fp-types`
 - [Join our Discord](https://discord.gg/N8e7mtfwNM) or [raise a Github issue](https://github.com/common-fp/common-fp/issues/new) if you have questions, suggestions, or anything else.

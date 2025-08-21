@@ -33,7 +33,7 @@ const SiteHeader = ({ customDocsLinks }) => (
       </nav>
       <Link
         target="_blank"
-        href="https://github.com/cfp/common-fp"
+        href="https://github.com/common-fp/common-fp"
         className="icon-link"
         prefetch={false}
       >
