@@ -1,0 +1,4 @@
+{
+  "extends": "@common-fp/tsconfig",
+  "exclude": ["./test-types/**"]
+}

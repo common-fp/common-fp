@@ -1,0 +1,41 @@
+@use '@/styles/vars.module' as v;
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+@mixin _tooltip-container-padding {
+  padding: 8px 12px;
+}
+
+@mixin ts-hover {
+  .cm-tooltip {
+    font-size: var(--fs-xs);
+    max-width: min(80%, calc(v.$content-size - var(--frame-padding) * 2));
+
+    .quick-info-space {
+      white-space: pre-wrap;
+    }
+
+    .cm-tooltip-section {
+      @include _tooltip-container-padding;
+    }
+
+    &.cm-tooltip-lint {
+      @include _tooltip-container-padding;
+
+      .cm-diagnostic + .cm-diagnostic {
+        margin-top: 12px;
+      }
+    }
+
+    .cm-diagnosticSource {
+      margin-top: 6px;
+    }
+
+    @include vs.mobile {
+      max-width: 90%;
+    }
+
+    @include vs.mobile-small {
+      max-width: 98%;
+    }
+  }
+}

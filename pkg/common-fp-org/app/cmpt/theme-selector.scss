@@ -1,0 +1,67 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+html[data-theme='light'] .cfp-theme-selector > button {
+  .theme-dark {
+    display: none;
+  }
+  @include m.hover {
+    border-color: var(--primary);
+  }
+}
+
+html:not([data-theme='light']) .cfp-theme-selector > button {
+  .theme-light {
+    display: none;
+  }
+  @include m.hover {
+    border-color: var(--accent);
+  }
+}
+
+.cfp-theme-selector {
+  > button {
+    border-color: var(--bg);
+    border-radius: var(--common-radius);
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    padding: 12px;
+    @include m.transition(border-color);
+
+    > .theme-icon {
+      height: var(--header-icon-height);
+    }
+  }
+
+  .menu {
+    background-color: var(--bg);
+    border: 1px solid var(--primary);
+    border-radius: var(--common-radius);
+    font-size: 20px;
+    padding: 8px 12px;
+    position: absolute;
+    right: 0;
+    top: calc(var(--site-header-height) - 1px);
+    z-index: var(--z-theme-selector-menu);
+
+    > button {
+      border-radius: var(--common-radius-sm);
+      display: block;
+      padding: 8px 12px;
+      text-align: left;
+      width: 100%;
+
+      &:before {
+        color: transparent;
+        content: '•';
+        margin-right: 4px;
+      }
+      &.active:before {
+        color: var(--primary);
+      }
+
+      @include m.trans-border;
+    }
+  }
+}

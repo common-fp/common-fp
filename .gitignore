@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vscode/
+/test.*
+/pkg/*/test.*
+/todo.*
+/pkg/*/todo.*
+.DS_Store
+*.pem

@@ -1,0 +1,54 @@
+@use './vars.module' as v;
+
+html {
+  --transition-dur: #{v.$transition-dur};
+  --transition-dur-slow: #{v.$transition-dur-slow};
+  --common-radius: 8px;
+  --common-radius-sm: 4px;
+  --z-tooltip: 2;
+  --z-theme-selector-menu: 5;
+  --z-notification: 6;
+  --main-padding-top: 30px;
+}
+
+html:not([data-theme='light']) {
+  --bg: #191919;
+  --bg-off: color-mix(in srgb, var(--bg), var(--fg) 8%); // #2b2b2b
+  --bg-off-2: color-mix(in srgb, var(--bg), var(--fg) 16%); // #3b3b3b
+  --bg-off-3: color-mix(in srgb, var(--bg), var(--fg) 24%); // #505050
+  --bg-off-4: color-mix(in srgb, var(--bg), var(--fg) 34%); // #676767
+  --bg-off-5: color-mix(in srgb, var(--bg), var(--fg) 48%); // #878787
+  --fg: white;
+  --fg-off: color-mix(in srgb, var(--fg), var(--bg) 8%); // #ededed
+  --fg-off-2: color-mix(in srgb, var(--fg), var(--bg) 16%); // #dadada
+  --fg-off-3: color-mix(in srgb, var(--fg), var(--bg) 24%); // #c8c8c8
+  --fg-off-4: color-mix(in srgb, var(--fg), var(--bg) 34%); // #b1b1b1
+  --fg-off-5: color-mix(in srgb, var(--fg), var(--bg) 48%); // #919191
+  --primary: #9793ff;
+  --accent: #ff9736;
+  --error: #{v.$error-dark};
+  --warning: #{v.$warning-dark};
+  --inline-utility: #99f58e;
+  --mutable: #ff8973;
+}
+
+html[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-off: color-mix(in srgb, var(--bg), var(--fg) 14%); // #dddddd
+  --bg-off-2: color-mix(in srgb, var(--bg), var(--fg) 28%); // #bbbbbb
+  --bg-off-3: color-mix(in srgb, var(--bg), var(--fg) 34%); // #adadad
+  --bg-off-4: color-mix(in srgb, var(--bg), var(--fg) 44%); // #959595
+  --bg-off-5: color-mix(in srgb, var(--bg), var(--fg) 54%); // #7c7c7c
+  --fg: #0d0d0d;
+  --fg-off: color-mix(in srgb, var(--fg), var(--bg) 8%); // #202020
+  --fg-off-2: color-mix(in srgb, var(--fg), var(--bg) 16%); // #343434
+  --fg-off-3: color-mix(in srgb, var(--fg), var(--bg) 24%); // #474747
+  --fg-off-4: color-mix(in srgb, var(--fg), var(--bg) 34%); // #5f5f5f
+  --fg-off-5: color-mix(in srgb, var(--fg), var(--bg) 48%); // #818181
+  --primary: #3742c4;
+  --accent: #dd8100;
+  --error: #{v.$error-light};
+  --warning: #{v.$warning-light};
+  --inline-utility: #0f9400;
+  --mutable: #c13318;
+}

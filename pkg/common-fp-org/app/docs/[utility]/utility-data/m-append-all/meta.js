@@ -1,0 +1,20 @@
+import { TArray } from '@/cmpt/inline-types'
+import { nbsp } from '@/utils'
+import l from '../../labels'
+
+const labels = [l.data.array, l.mutable]
+const name = 'mAppendAll'
+const signatures = [
+  () => (
+    <>
+      {`(appended:${nbsp}`}
+      <TArray />
+      {`)${nbsp}=> (base:${nbsp}`}
+      <TArray />
+      {`)${nbsp}=> base`}
+    </>
+  ),
+]
+const srcDir = 'mutable/array'
+
+export { labels, name, signatures, srcDir }

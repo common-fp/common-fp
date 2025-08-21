@@ -1,0 +1,73 @@
+@use './mixins/viewport-sizes' as vs;
+
+.desktop {
+  @include vs.tablet-and-smaller {
+    display: none !important;
+  }
+}
+
+.tablet {
+  @include vs.all-but-tablet {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @include vs.all-but-mobile {
+    display: none !important;
+  }
+}
+
+.mobile-small {
+  @include vs.all-but-mobile-small {
+    display: none !important;
+  }
+}
+
+.tablet-and-larger {
+  @include vs.mobile-and-smaller {
+    display: none !important;
+  }
+}
+
+.mobile-and-larger {
+  @include vs.mobile-small {
+    display: none !important;
+  }
+}
+
+.tablet-and-smaller {
+  @include vs.desktop {
+    display: none !important;
+  }
+}
+
+.mobile-and-smaller {
+  @include vs.tablet-and-larger {
+    display: none !important;
+  }
+}
+
+.all-but-mobile {
+  @include vs.mobile {
+    display: none !important;
+  }
+}
+
+.all-but-tablet {
+  @include vs.tablet {
+    display: none !important;
+  }
+}
+
+.desktop-and-mobile {
+  @include vs.tablet-and-mobile-small {
+    display: none !important;
+  }
+}
+
+.tablet-and-mobile-small {
+  @include vs.desktop-and-mobile {
+    display: none !important;
+  }
+}

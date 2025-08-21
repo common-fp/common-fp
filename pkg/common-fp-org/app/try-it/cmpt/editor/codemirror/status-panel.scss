@@ -1,0 +1,23 @@
+.cfp-codemirror {
+  .cm-status-panel {
+    align-items: center;
+    display: flex;
+    font-family: 'Nunito Sans', sans;
+    font-size: var(--fs-xs);
+    justify-content: flex-end;
+  }
+  .cm-status-element {
+    align-items: center;
+    display: flex;
+  }
+  .cm-status-label {
+    color: var(--fg-off-5);
+  }
+  .cm-status-value {
+    margin-left: 4px;
+  }
+  .cm-status-column {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}

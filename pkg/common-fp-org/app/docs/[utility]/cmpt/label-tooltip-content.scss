@@ -1,0 +1,17 @@
+@use '@/styles/mixins/index' as m;
+
+.alias,
+.one-alias {
+  a > .inline-code {
+    @include m.transition(background-color);
+  }
+  @include m.hover {
+    > .inline-code {
+      background-color: var(--bg-off-2);
+    }
+  }
+}
+
+.data-content {
+  text-align: center;
+}

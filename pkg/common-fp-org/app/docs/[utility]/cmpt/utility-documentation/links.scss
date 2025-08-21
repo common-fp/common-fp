@@ -1,0 +1,37 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+.links {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1px;
+
+  a {
+    display: inline-block;
+    padding: 8px;
+
+    @include m.trans-underline;
+  }
+
+  .link-wrapper {
+    align-items: center;
+    display: flex;
+  }
+
+  @include vs.desktop {
+    margin-left: 60px;
+
+    svg {
+      height: 32px;
+      width: 32px;
+    }
+  }
+  @include vs.mobile {
+    margin-left: 40px;
+
+    svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}

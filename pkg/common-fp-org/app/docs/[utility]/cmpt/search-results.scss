@@ -1,0 +1,49 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+.search-results {
+  --search-results-margin-top: 12px;
+
+  height: min(var(--search-results-min-height), 500px);
+  margin-top: var(--search-results-margin-top);
+  position: relative;
+
+  .no-matches {
+    padding-left: 12px;
+    // extra padding-top to make it visually similar to actual results
+    padding-top: 4px;
+  }
+
+  .overflow-fade {
+    background: linear-gradient(transparent, var(--bg));
+    height: 80px;
+    pointer-events: none;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+  }
+
+  @include vs.mobile-and-smaller {
+    // prettier-ignore
+    --search-results-min-height: calc(
+      100vh - (
+        var(--site-header-height)
+        + var(--docs-header-height)
+        + 50px /* search bar height: no css var for this yet */
+        + 80px /* arbitrary buffer from bottom of the page */
+        + var(--search-results-margin-top)
+      )
+    );
+  }
+  @include vs.tablet-and-larger {
+    // prettier-ignore
+    --search-results-min-height: calc(
+      100vh - (
+        var(--site-header-height)
+        + var(--main-padding-top)
+        + 50px /* search bar height: no css var for this yet */
+        + 80px /* arbitrary buffer from bottom of the page */
+        + var(--search-results-margin-top)
+      )
+    );
+  }
+}

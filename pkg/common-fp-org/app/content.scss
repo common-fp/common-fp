@@ -1,0 +1,30 @@
+.page-content.home {
+  .code-description {
+    margin-top: 32px;
+  }
+
+  .goals {
+    padding-left: 24px;
+  }
+
+  .get-started {
+    list-style-position: var(--content-list-style-pos);
+    padding-left: var(--content-list-padding);
+
+    > li {
+      margin-top: 24px;
+    }
+  }
+
+  .who-is-this-for,
+  .who-isnt-this-for {
+    margin: var(--content-more-info-margin);
+
+    font-size: var(--fs-sm);
+    margin-top: 16px;
+
+    > li {
+      margin-top: 8px;
+    }
+  }
+}

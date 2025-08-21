@@ -1,0 +1,38 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+:root {
+  // initializing here so it can be referenced elsewhere
+  --docs-header-height: auto;
+
+  @include vs.mobile-and-smaller {
+    --docs-header-height: 75px;
+  }
+}
+
+.docs-header {
+  align-items: center;
+  display: flex;
+  margin-bottom: 14px;
+
+  h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: normal;
+
+    &.utility-name {
+      font-family: 'Noto Sans Mono', monospace;
+    }
+
+    @include vs.tablet-and-larger {
+      &.select-a-utility {
+        margin-left: 32px;
+      }
+    }
+  }
+
+  @include vs.mobile-and-smaller {
+    height: var(--docs-header-height);
+    padding-bottom: 1px;
+    margin-bottom: 0;
+  }
+}

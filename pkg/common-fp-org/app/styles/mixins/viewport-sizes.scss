@@ -1,0 +1,115 @@
+@use '../vars.module' as v;
+
+@mixin desktop {
+  @media (min-width: #{v.$desktop-min}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{v.$tablet-min}) and (max-width: #{v.$tablet-max}) {
+    @content;
+  }
+}
+
+@mixin tablet-and-larger {
+  @media (min-width: #{v.$tablet-min}) {
+    @content;
+  }
+}
+
+@mixin tablet-and-smaller {
+  @media (max-width: #{v.$tablet-max}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: #{v.$mobile-min}) and (max-width: #{v.$mobile-max}) {
+    @content;
+  }
+}
+
+@mixin mobile-and-larger {
+  @media (min-width: #{v.$mobile-min}) {
+    @content;
+  }
+}
+
+@mixin mobile-and-smaller {
+  @media (max-width: #{v.$mobile-max}) {
+    @content;
+  }
+}
+
+@mixin mobile-small {
+  @media (max-width: #{v.$mobile-small-max}) {
+    @content;
+  }
+}
+
+@mixin all-but-desktop {
+  @include mobile {
+    @content;
+  }
+  @include mobile-small {
+    @content;
+  }
+  @include tablet {
+    @content;
+  }
+}
+
+@mixin all-but-mobile {
+  @include desktop {
+    @content;
+  }
+  @include mobile-small {
+    @content;
+  }
+  @include tablet {
+    @content;
+  }
+}
+
+@mixin all-but-mobile-small {
+  @include desktop {
+    @content;
+  }
+  @include mobile {
+    @content;
+  }
+  @include tablet {
+    @content;
+  }
+}
+
+@mixin all-but-tablet {
+  @include desktop {
+    @content;
+  }
+  @include mobile {
+    @content;
+  }
+  @include mobile-small {
+    @content;
+  }
+}
+
+@mixin desktop-and-mobile {
+  @include desktop {
+    @content;
+  }
+  @include mobile {
+    @content;
+  }
+}
+
+@mixin tablet-and-mobile-small {
+  @include tablet {
+    @content;
+  }
+  @include mobile-small {
+    @content;
+  }
+}

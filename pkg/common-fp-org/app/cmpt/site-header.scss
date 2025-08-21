@@ -1,0 +1,89 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+:root {
+  --site-header-height: 100px;
+
+  @include vs.tablet {
+    --site-header-height: 92px;
+  }
+  @include vs.mobile {
+    --site-header-height: 84px;
+  }
+  @include vs.mobile-small {
+    --site-header-height: 76px;
+  }
+}
+
+.site-header {
+  border-bottom: 1px solid var(--primary);
+  height: var(--site-header-height);
+  width: 100%;
+
+  --header-icon-height: 40px;
+  --link-margin: 70px;
+  --nav-fs: 30px;
+
+  > .content-frame {
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+
+  nav {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    font-family: Quicksand;
+    font-size: var(--nav-fs);
+    height: 100%;
+    justify-content: flex-start;
+
+    a {
+      text-decoration: none;
+
+      &:not(.nav-logo) {
+        padding: 4px 8px;
+        @include m.trans-underline;
+      }
+
+      + a {
+        margin-left: var(--link-margin);
+      }
+    }
+  }
+
+  .icon-link {
+    padding: 12px;
+
+    @include m.trans-underline;
+
+    @include vs.mobile-and-larger {
+      margin-right: 20px;
+    }
+    @include vs.mobile-small {
+      margin-right: 12px;
+    }
+  }
+
+  @include vs.tablet {
+    --site-header-height: 92px;
+    --header-icon-height: 36px;
+    --link-margin: 40px;
+    --nav-fs: 28px;
+  }
+  @include vs.mobile {
+    --site-header-height: 84px;
+    --header-icon-height: 32px;
+    --link-margin: 30px;
+    --nav-fs: 26px;
+    font-weight: 600;
+  }
+  @include vs.mobile-small {
+    --site-header-height: 76px;
+    --header-icon-height: 28px;
+    --link-margin: 16px;
+    --nav-fs: 24px;
+    font-weight: 600;
+  }
+}

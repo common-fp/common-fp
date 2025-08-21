@@ -1,0 +1,32 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/vars.module' as v;
+
+.anchored-heading {
+  cursor: pointer;
+  scroll-padding-top: v.$common-scroll-padding-top;
+  width: fit-content;
+
+  .hashtag {
+    color: var(--primary);
+    margin-left: 24px;
+    opacity: 0;
+    @include m.transition(opacity);
+  }
+
+  .text {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--bg);
+    @include m.transition(border-bottom-color);
+  }
+
+  @include m.hover {
+    .hashtag {
+      opacity: 1;
+    }
+
+    .text {
+      border-bottom-color: var(--fg);
+    }
+  }
+}

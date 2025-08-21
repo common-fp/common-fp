@@ -1,0 +1,26 @@
+{
+  "name": "@common-fp/prettier-plugin-comments",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "main": "src/index.mjs",
+  "scripts": {
+    "lint": "eslint 'src/**/*' 'test/*'",
+    "test": "mocha --ui tdd test"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "chai": "^5.1.2",
+    "change-case": "^5.4.4",
+    "eslint": "^9.32.0",
+    "mocha": "^10.6.0",
+    "prettier": "^3.3.3"
+  },
+  "peerDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

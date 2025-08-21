@@ -1,0 +1,27 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/styles/mixins/index.scss' as m;
+
+.tab-panel {
+  padding-top: 24px;
+  opacity: 0;
+
+  transition-property: opacity;
+  transition-duration: var(--transition-dur-slow);
+
+  &.visible {
+    opacity: 1;
+  }
+  &:not(.displayed) {
+    display: none;
+  }
+
+  > :first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  @include vs.mobile-small {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

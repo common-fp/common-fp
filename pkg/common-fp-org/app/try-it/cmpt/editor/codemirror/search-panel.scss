@@ -1,0 +1,88 @@
+@use './vars.module' as v;
+@use '@/styles/mixins/index' as m;
+
+.cfp-codemirror {
+  .cm-panel.cm-search {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: v.$panel-padding;
+    padding-top: v.$panel-padding;
+
+    input:not([type]) {
+      background-color: var(--bg-off-2);
+    }
+    button {
+      background-color: var(--bg-off-3);
+      background-image: none;
+      @include m.transition(border-color);
+
+      @include m.hover {
+        border-color: var(--fg);
+      }
+    }
+    input:not([type]),
+    button {
+      border: 1px solid var(--bg-off-2);
+      margin-right: 12px;
+      outline: none;
+    }
+    button,
+    label {
+      font-family: 'Nunito Sans', sans;
+      text-transform: capitalize;
+    }
+
+    input:not([type]),
+    button,
+    label {
+      border: 1px solid var(--bg-off);
+      font-size: var(--fs-xs);
+      height: 34px;
+      line-height: 18px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      padding: 8px 12px;
+    }
+
+    label {
+      align-items: center;
+      cursor: pointer;
+      display: inline-flex;
+
+      > input[type='checkbox'] {
+        border-color: white;
+        height: 16px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 8px;
+        width: 16px;
+        @include m.transition(border-color);
+      }
+
+      @include m.hover {
+        > input[type='checkbox'] {
+          cursor: pointer;
+          border-color: var(--fg);
+        }
+      }
+    }
+
+    button[name='close'] {
+      align-items: center;
+      border: 1px solid var(--bg-off);
+      border-radius: var(--common-radius-sm);
+      display: inline-flex;
+      font-size: var(--fs-h4);
+      height: 34px;
+      justify-content: center;
+      right: 4px;
+      top: 4px;
+      width: 34px;
+      @include m.transition(border-color);
+
+      @include m.hover {
+        border-color: var(--fg);
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@common-fp/shared-internals-types",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "main": "",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "lint": "pnpm eslint 'scripts/**/*' 'src/**/*'"
+  },
+  "exports": {
+    ".": "./dist/index.d.ts",
+    "./*": "./dist/*.d.ts"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "change-case": "^5.4.4",
+    "cpy": "^11.1.0",
+    "del": "^7.1.0",
+    "eslint": "^9.32.0",
+    "globby": "^14.0.2",
+    "make-dir": "^5.0.0",
+    "prettier": "^3.3.3",
+    "tstyche": "^4.3.0",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@common-fp/shared-types": "workspace:^"
+  }
+}

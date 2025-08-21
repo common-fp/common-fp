@@ -1,0 +1,17 @@
+.editor-options {
+  align-items: center;
+  display: flex;
+  padding-bottom: 24px;
+  padding-top: 24px;
+
+  .space {
+    flex-grow: 1;
+  }
+
+  .beta {
+    font-style: italic;
+    justify-self: end;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

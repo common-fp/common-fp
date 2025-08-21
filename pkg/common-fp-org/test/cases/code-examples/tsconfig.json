@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2023", "dom"],
+    "target": "ES2023",
+    "paths": {
+      "common-fp": ["../../../../common-fp/dist/index.d.ts"]
+    }
+  },
+  "extends": "../../../node_modules/@common-fp/tsconfig/base.json",
+  "include": [
+    "../../../app/misc/editor-types.d.ts",
+    "../../../app/built/code-examples/**/*_tablet-and-larger_full.ts"
+  ],
+  // some files are intended to show ts errors.  Not sure how to address that
+  // cleanly so we'll exclude them for now
+  "exclude": [
+    "../../../app/built/code-examples/api/m-update/code/notes_tablet-and-larger_full.ts",
+    "../../../app/built/code-examples/api/round-to-nearest/code/errors_tablet-and-larger_full.ts",
+    "../../../app/built/code-examples/api/update/code/notes_tablet-and-larger_full.ts"
+  ]
+}

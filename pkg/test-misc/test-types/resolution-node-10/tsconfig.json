@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "module": "commonjs",
+    "moduleResolution": "node10",
+    "noEmit": true,
+    "strict": true
+  },
+  "include": ["**/*.ts"]
+}

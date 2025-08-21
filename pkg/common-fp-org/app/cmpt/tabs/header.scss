@@ -1,0 +1,45 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+.tab-header {
+  display: flex;
+  font-size: var(--fs-h3);
+  justify-content: space-between;
+  position: relative;
+
+  > .selection-overlay {
+    background-color: transparent;
+    border-bottom: 1px solid var(--primary);
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+
+    &:not(.visible) {
+      display: none;
+    }
+  }
+
+  .tab-buttons {
+    align-items: center;
+    display: flex;
+  }
+  .tab-links {
+    align-items: center;
+    display: flex;
+
+    .tab-link-icon {
+      padding-left: 8px;
+      padding-right: 8px;
+
+      svg {
+        @include vs.tablet-and-larger {
+          height: 32px;
+          width: 32px;
+        }
+        @include vs.mobile-and-smaller {
+          height: 26px;
+          width: 26px;
+        }
+      }
+    }
+  }
+}

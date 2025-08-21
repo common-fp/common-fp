@@ -1,0 +1,37 @@
+import fsp from 'node:fs/promises'
+import path from 'node:path'
+import deepEql from 'deep-eql'
+import { globby } from 'globby'
+import * as repoCfg from '@common-fp/root/config'
+
+const { dirname } = import.meta
+
+const fromRepoRoot = fpath => path.resolve(dirname, '../../..', fpath)
+
+suite('tstyche configs', () => {
+  test('configs have required props per /config.mjs -> tstyche', async () => {
+    const configFiles = await globby(fromRepoRoot('**/tstyche.config.json'), {
+      ignore: ['**/node_modules/**'],
+    })
+    const configInfo = await Promise.all(
+      configFiles.map(async fpath => {
+        const cfg = JSON.parse(await fsp.readFile(fpath, 'utf8'))
+        return { cfg, fpath }
+      })
+    )
+
+    const requiredProps = Array.from(Object.entries(repoCfg.tstyche))
+
+    const badConfigs = configInfo.filter(info => {
+      for (const [k, v] of requiredProps) {
+        if (!deepEql(info.cfg[k], v)) return true
+      }
+    })
+    if (badConfigs.length) {
+      const badCfgFpaths = badConfigs.map(({ fpath }) => `\n${fpath}`)
+      const errMsg =
+        'the following configs lack requried properties' + badCfgFpaths
+      throw new Error(errMsg)
+    }
+  })
+})

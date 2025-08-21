@@ -1,0 +1,17 @@
+@use '@/styles/mixins/index' as m;
+
+.loading-icon {
+  height: 40px;
+  opacity: 0;
+
+  @include m.spin;
+  @include m.transition(opacity);
+
+  &.active {
+    opacity: 1;
+  }
+
+  circle {
+    transform-origin: center;
+  }
+}

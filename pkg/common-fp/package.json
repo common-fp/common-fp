@@ -1,0 +1,87 @@
+{
+  "name": "@common-fp/common-fp",
+  "private": false,
+  "version": "0.1.0",
+  "description": "FP utilities for the commoner",
+  "sideEffects": false,
+  "scripts": {
+    "build": "node ./scripts/build/index.mjs",
+    "lint": "pnpm eslint",
+    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
+    "test-full": "nve --parallel 20,22,24 mocha --ui tdd -r test/init.mjs --recursive test/cases",
+    "test-one-file": "mocha --ui tdd -r test/init.mjs"
+  },
+  "files": [
+    "license.txt",
+    "readme.md",
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs",
+      "types": "./dist/*.d.ts"
+    },
+    "./internal/*": null,
+    "./package.json": "./package.json"
+  },
+  "imports": {
+    "#lib": "./src/lib/index.mjs",
+    "#lib/*": "./src/lib/*.mjs",
+    "#internal/*": "./src/internal/*.mjs",
+    "#test/spies": "./test/spies/index.mjs",
+    "#test/spies/*": "./test/spies/*.mjs"
+  },
+  "keywords": [
+    "fp",
+    "functional",
+    "functional programming",
+    "utilities",
+    "utils",
+    "functional utilities",
+    "@common-fp"
+  ],
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "devDependencies": {
+    "@common-fp/common-fp-types": "workspace:*",
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/test-utils": "workspace:*",
+    "@common-fp/tsconfig": "workspace:*",
+    "async": "^3.2.6",
+    "chai": "^5.1.2",
+    "change-case": "^5.4.4",
+    "cpy": "^11.1.0",
+    "dedent": "^1.5.3",
+    "del": "^7.1.0",
+    "eslint": "^9.32.0",
+    "fibble": "^1.2.3",
+    "globby": "^14.0.2",
+    "make-dir": "^5.0.0",
+    "mocha": "^10.6.0",
+    "nve": "^18.0.3",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.9.2"
+  },
+  "peerDependenciesMeta": {
+    "@common-fp/common-fp-types": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@common-fp/shared-internals": "workspace:^"
+  },
+  "peerDependencies": {
+    "@common-fp/common-fp-types": "workspace:*"
+  }
+}

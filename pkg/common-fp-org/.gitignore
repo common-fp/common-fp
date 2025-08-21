@@ -1,0 +1,20 @@
+# from next.js
+/.next/
+/out/
+.vercel
+/build
+/certificates/
+
+# for common-fp-org
+
+/analyze/
+/app/try-it/cmpt/editor/codemirror/tools/ts-editor-worker/cfp-types.json
+/app/try-it/cmpt/editor/codemirror/tools/ts-editor-worker/lib-files.json
+/app/try-it/cmpt/editor/codemirror/tools/trimmed-globals.json
+/public/bundles/
+/app/built/
+/common-fp-api-data/*/built-code-examples/
+/app/config.js
+/app/bundles/*
+!/app/bundles/readme.md
+/app/deps/vfs-slim.mjs

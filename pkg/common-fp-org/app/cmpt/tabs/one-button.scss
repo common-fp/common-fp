@@ -1,0 +1,22 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/styles/mixins/index' as m;
+
+.one-tab-button {
+  padding-top: 6px;
+  padding-bottom: 4px;
+
+  @include vs.mobile-and-larger {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include vs.mobile-small {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  @include m.transition('background-color');
+
+  @include m.hover {
+    background-color: var(--bg-off);
+  }
+}

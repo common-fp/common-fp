@@ -1,0 +1,45 @@
+{
+  "name": "@common-fp/common-fp-types",
+  "sideEffects": false,
+  "description": "types for common-fp",
+  "version": "0.1.0",
+  "type": "module",
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "main": "",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "lint": "eslint 'test-types/**/*' 'test/**/*' 'scripts/**/*' 'src/**/*'",
+    "validate-tests": "mocha --ui tdd --recursive test",
+    "test-lite": "pnpm validate-tests && tstyche --target 5.9",
+    "test-full": "pnpm validate-tests && tstyche"
+  },
+  "exports": {
+    ".": "./dist/index.d.ts",
+    "./*": "./dist/*.d.ts"
+  },
+  "imports": {
+    "#src/*": "./src/*.d.ts",
+    "#dist/*": "./dist/*.d.ts"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/shared-types": "workspace:*",
+    "@common-fp/test-utils": "workspace:*",
+    "@common-fp/tsconfig": "workspace:*",
+    "chai": "^5.1.2",
+    "change-case": "^5.4.4",
+    "cpy": "^11.1.0",
+    "del": "^7.1.0",
+    "eslint": "^9.32.0",
+    "globby": "^14.0.2",
+    "make-dir": "^5.0.0",
+    "mocha": "^11.7.1",
+    "prettier": "^3.3.3",
+    "tstyche": "^4.3.0",
+    "typescript-eslint": "^8.39.0"
+  }
+}

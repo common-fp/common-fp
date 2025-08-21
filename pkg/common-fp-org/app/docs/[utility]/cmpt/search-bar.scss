@@ -1,0 +1,49 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/styles/mixins/index' as m;
+
+.search-bar {
+  --search-bar-content-width: 350px;
+
+  .content {
+    width: var(--search-bar-content-width);
+  }
+  .content-wrapper {
+    width: var(--search-bar-content-width);
+    overflow: hidden;
+
+    @include m.transition-slow('width');
+  }
+
+  .icon-search {
+    cursor: pointer;
+  }
+
+  @include vs.mobile-and-smaller {
+    --search-bar-content-width: 100%;
+
+    .content {
+      max-width: 400px;
+    }
+    .content-wrapper {
+      max-width: 400px;
+    }
+  }
+  @include vs.tablet {
+    --search-bar-content-width: 300px;
+  }
+
+  @include vs.tablet-and-larger {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+
+    &:not(.expanded) .content-wrapper {
+      width: 0;
+    }
+
+    .state-toggle-wrapper {
+      padding-left: 12px;
+      padding-right: 24px;
+    }
+  }
+}

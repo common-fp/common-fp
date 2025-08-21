@@ -1,0 +1,28 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/../../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
+
+main.documentation {
+  display: flex;
+
+  @include vs.tablet-and-larger {
+    flex-direction: row;
+  }
+  @include vs.mobile-and-smaller {
+    flex-direction: column-reverse;
+    --main-padding-top: 0;
+
+    &.root-docs-page {
+      --main-padding-bottom: 0;
+    }
+  }
+}
+
+/* perfect scrollbar override */
+.ps__rail-y {
+  @include m.hover {
+    &.ps--clicking {
+      background-color: var(--bg) !important;
+    }
+  }
+}

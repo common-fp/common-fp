@@ -1,0 +1,5 @@
+{
+  "checkSuppressedErrors": true,
+  "target": [">=5.0"],
+  "testFileMatch": ["./test-types/**/*.ts"]
+}

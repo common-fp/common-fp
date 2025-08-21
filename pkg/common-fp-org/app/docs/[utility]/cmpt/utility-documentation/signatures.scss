@@ -1,0 +1,19 @@
+.signatures {
+  color: var(--fg-off);
+  font-size: var(--fs-sm);
+
+  code {
+    line-height: 36px;
+    white-space: normal;
+
+    // unsure why this is necessary as the nbsp should work ?
+    .either {
+      white-space: nowrap;
+    }
+  }
+
+  .or {
+    // for visual vertical alignment
+    margin-top: 2px;
+  }
+}

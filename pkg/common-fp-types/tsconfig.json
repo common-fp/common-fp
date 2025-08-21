@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/@common-fp/tsconfig/base.json",
+  "compilerOptions": {
+    "noErrorTruncation": true
+  },
+  "include": ["src/**/*.ts", "test-types/**/*.ts"]
+}

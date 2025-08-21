@@ -1,0 +1,15 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+.utility-documentation {
+  .tabs {
+    margin-top: 24px;
+  }
+
+  .code-block {
+    margin-top: 16px;
+  }
+
+  p + h4 {
+    margin-top: 32px;
+  }
+}

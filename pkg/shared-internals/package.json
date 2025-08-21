@@ -1,0 +1,73 @@
+{
+  "name": "@common-fp/shared-internals",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Shared internal code for devs to create their own common-fp flavored utilities",
+  "sideEffects": false,
+  "main": "dist/index.cjs",
+  "type": "module",
+  "types": "./dist/index.d.cts",
+  "scripts": {
+    "build": "node scripts/build/index.mjs",
+    "lint": "eslint",
+    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
+    "test-full": "nve --parallel 20,22,24 mocha --require ./test/init.mjs --ui tdd --recursive test/cases",
+    "testOne": "mocha --ui tdd -r test/init.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs",
+      "types": "./dist/*.d.ts"
+    },
+    "./deps/*": null,
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "license.txt",
+    "readme.md",
+    "dist"
+  ],
+  "imports": {
+    "#src/*": "./src/*.mjs",
+    "#test/*": "./test/*.mjs"
+  },
+  "keywords": [
+    "common-fp"
+  ],
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/shared-internals-types": "workspace:*",
+    "@common-fp/test-utils": "workspace:*",
+    "@common-fp/tsconfig": "workspace:*",
+    "async": "^3.2.6",
+    "chai": "^5.1.2",
+    "change-case": "^5.4.4",
+    "cpy": "^11.1.0",
+    "dedent": "^1.5.3",
+    "del": "^7.1.0",
+    "eslint": "^9.32.0",
+    "fibble": "^1.2.3",
+    "globby": "^14.0.2",
+    "make-dir": "^5.0.0",
+    "mocha": "^10.6.0",
+    "nve": "^18.0.3",
+    "prettier": "^3.3.3"
+  },
+  "peerDependenciesMeta": {
+    "@common-fp/shared-internals-types": {
+      "optional": true
+    }
+  },
+  "peerDependencies": {
+    "@common-fp/shared-internals-types": "workspace:*"
+  }
+}

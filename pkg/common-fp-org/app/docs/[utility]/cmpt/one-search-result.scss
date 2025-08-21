@@ -1,0 +1,34 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/styles/mixins/index' as m;
+
+.one-search-result {
+  &.active > a:not(:focus) {
+    border-left: 2px solid var(--primary);
+  }
+
+  > a {
+    background-color: var(--bg);
+    border-left: 2px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 16px 4px 10px;
+    text-decoration: none;
+    width: 100%;
+
+    &:focus {
+      background-color: var(--bg-off);
+      border-left: 2px solid var(--accent);
+      outline: none;
+    }
+
+    @include m.transition('background-color');
+
+    @include m.hover {
+      background-color: var(--bg-off);
+    }
+
+    @include vs.mobile-and-smaller {
+      font-size: var(--fs-lg);
+    }
+  }
+}

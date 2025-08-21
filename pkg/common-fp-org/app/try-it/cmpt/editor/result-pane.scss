@@ -1,0 +1,51 @@
+@use '@/styles/mixins/index' as m;
+
+.result-pane {
+  margin-top: 24px;
+
+  .controls {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .left,
+    .right {
+      align-items: center;
+      display: flex;
+    }
+
+    .loading-icon {
+      height: 40px;
+      margin-left: 24px;
+    }
+  }
+
+  .result-wrapper {
+    border-left: 2px solid var(--bg-off-3);
+    margin-top: 24px;
+    padding: 24px;
+
+    @include m.transition(border-left-color);
+
+    &:not(.success) {
+      border-left-color: var(--error);
+    }
+
+    .result {
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.save-to-url-tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hotkey {
+    margin-bottom: 4px;
+  }
+  .content {
+    text-align: center;
+  }
+}

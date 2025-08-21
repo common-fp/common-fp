@@ -1,0 +1,65 @@
+@use '@/styles/mixins/index' as m;
+
+/**
+ * Code for notifications is in app/utils/notify.js
+ */
+
+#notifier {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  overflow: visible;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-notification);
+
+  .notification {
+    background-color: var(--bg);
+    border: 1px solid var(--primary);
+    border-radius: var(--common-radius-sm);
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    position: relative;
+    top: -50px;
+    transition-duration: var(--transition-dur-slow);
+    transition-property: opacity, top;
+
+    &.appear {
+      opacity: 1;
+      top: 0;
+    }
+    &.dismiss {
+      opacity: 0;
+      top: 50px;
+    }
+
+    .content {
+      margin: 16px 32px;
+    }
+
+    button.close {
+      align-self: start;
+      background-color: var(--bg);
+      border-radius: var(--common-radius-sm);
+      margin-left: 48px;
+      margin-right: 16px;
+      margin-top: 4px;
+      padding: 16px;
+      transition: background-color var(--transition-dur);
+
+      svg {
+        height: 24px;
+      }
+      path {
+        fill: var(--fg);
+      }
+
+      @include m.hover {
+        background-color: var(--bg-off);
+      }
+    }
+  }
+}

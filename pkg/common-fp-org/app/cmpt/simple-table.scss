@@ -1,0 +1,15 @@
+table.simple-table {
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  margin-top: 12px;
+
+  th {
+    border-bottom: 1px solid var(--bg-off-3);
+    text-align: start;
+  }
+
+  td,
+  th {
+    padding: 2px 8px;
+  }
+}

@@ -1,0 +1,44 @@
+/**
+ * These colors should be the same as found in
+ * node_modules/highlight.js/styles/stackoverflow-(light|dark).css
+ */
+
+html[data-theme='light'] .cfp-codemirror {
+  --cm-comment: #656e77;
+  --cm-keyword: #015692;
+  --cm-literal: #b75501;
+  --cm-selection: #4dafff;
+  --cm-search-match: #bc20ff;
+  --cm-string: #54790d;
+}
+
+.cfp-codemirror {
+  --cm-comment: #999999;
+  --cm-keyword: #88aece;
+  --cm-literal: #f08d49;
+  --cm-selection: #8dccff;
+  --cm-search-match: #bc20ff;
+  --cm-string: #b5bd68;
+
+  .cm-keyword,
+  .cm-property-name,
+  .quick-info-propertyName,
+  .quick-info-keyword {
+    color: var(--cm-keyword);
+  }
+  .cm-comment {
+    color: var(--cm-comment);
+  }
+  .cm-literal,
+  .cm-function-name,
+  .cm-type-name,
+  .quick-info-aliasName,
+  .quick-info-interfaceName,
+  .quick-info-type {
+    color: var(--cm-literal);
+  }
+  .cm-string,
+  .quick-info-stringLiteral {
+    color: var(--cm-string);
+  }
+}

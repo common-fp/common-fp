@@ -1,0 +1,155 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/styles/mixins/index' as m;
+
+html[data-lang='js'] .code-block-jsts:not(.client-controlled) {
+  .tab.js {
+    background-color: var(--bg-off);
+  }
+  .tab.ts {
+    @include m.hover {
+      background-color: var(--bg-off);
+      border-left-color: var(--bg);
+    }
+  }
+
+  code.ts {
+    display: none;
+  }
+}
+html[data-lang='ts'] .code-block-jsts:not(.client-controlled) {
+  .tab.ts {
+    background-color: var(--bg-off);
+  }
+  .tab.js {
+    @include m.hover {
+      background-color: var(--bg-off);
+      border-right-color: var(--bg);
+    }
+  }
+
+  code.js {
+    display: none;
+  }
+}
+
+.code-block {
+  --code-block-margin: 8px 0 32px;
+  --code-block-padding: 16px 24px;
+
+  margin: var(--code-block-margin);
+
+  .top-panel {
+    display: flex;
+    justify-content: space-between;
+
+    .tab-list {
+      align-items: center;
+      display: flex;
+
+      .tab {
+        background-color: transparent;
+        border-bottom-color: var(--bg);
+        border-left-color: var(--bg);
+        border-right-color: var(--bg);
+        border-top-color: var(--tab-border-color);
+        border-style: solid;
+        border-width: 1px;
+        border-bottom-color: var(--bg);
+        padding-bottom: 4px;
+        padding-top: 4px;
+        text-align: center;
+
+        @include m.transition('background-color, border-color');
+
+        &.active {
+          background-color: var(--tab-border-color);
+        }
+        &:first-child {
+          border-left-color: var(--tab-border-color);
+          border-top-left-radius: var(--common-radius-sm);
+        }
+        &:last-child {
+          border-right-color: var(--tab-border-color);
+          border-top-right-radius: var(--common-radius-sm);
+        }
+      }
+
+      &.actions {
+        --tab-border-color: var(--accent);
+
+        a.tab {
+          cursor: pointer;
+          text-decoration: none;
+        }
+        .tab {
+          padding-bottom: 3px;
+          padding-left: 14px;
+          padding-right: 14px;
+          padding-top: 5px;
+
+          .text {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: var(--bg);
+            padding-left: 6px;
+            padding-right: 6px;
+
+            transition: border-bottom-color var(--transition-dur);
+          }
+
+          @include m.hover {
+            .text {
+              border-bottom-color: var(--fg);
+            }
+          }
+        }
+      }
+      &:not(.actions) {
+        --tab-border-color: var(--bg-off);
+
+        .tab {
+          width: 80px;
+
+          @include m.hover {
+            background-color: var(--bg-off);
+            &:not(:first-child) {
+              border-left-color: var(--bg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  pre {
+    background-color: var(--bg-off);
+    border-top-right-radius: var(--common-radius-sm);
+    border-bottom-left-radius: var(--common-radius-sm);
+    border-bottom-right-radius: var(--common-radius-sm);
+    font-size: var(--fs-xs);
+    padding: var(--code-block-padding);
+    white-space: pre-wrap;
+  }
+
+  &.code-block-sh,
+  &.client-controlled {
+    .tab.active {
+      background-color: var(--bg-off);
+    }
+  }
+
+  &.code-block-jsts code:not(.active) {
+    display: none;
+  }
+
+  @include vs.tablet {
+    --code-block-padding: 14px 18px;
+  }
+  @include vs.mobile {
+    --code-block-padding: 12px 12px;
+  }
+  @include vs.mobile-small {
+    --code-block-padding: 10px 12px;
+    --code-block-margin: 8px -10px 32px;
+  }
+}

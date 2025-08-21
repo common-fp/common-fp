@@ -1,0 +1,40 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+.more-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .main,
+  .details {
+    padding: 8px 16px;
+  }
+
+  .main {
+    align-items: center;
+    background-color: var(--bg);
+    border-left: 1px solid var(--primary);
+    display: flex;
+    width: 100%;
+
+    .content {
+      text-align: start;
+      flex-grow: 1;
+    }
+
+    .chevron {
+      margin-left: 20px;
+    }
+
+    @include m.transition(background-color);
+
+    @include m.hover {
+      background-color: var(--bg-off);
+    }
+  }
+
+  .details {
+    display: none;
+  }
+}

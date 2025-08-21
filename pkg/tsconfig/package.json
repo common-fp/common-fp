@@ -1,0 +1,11 @@
+{
+  "name": "@common-fp/tsconfig",
+  "private": true,
+  "version": "0.1.0",
+  "main": "base.json",
+  "author": "Phil Olson",
+  "exports": {
+    ".": "./base.json"
+  },
+  "license": "SEE LICENSE IN license.txt"
+}

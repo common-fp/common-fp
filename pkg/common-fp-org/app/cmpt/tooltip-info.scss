@@ -1,0 +1,21 @@
+@use '@/styles/mixins/index' as m;
+
+.tooltip-info {
+  align-items: center;
+  background-color: var(--bg);
+  border-radius: var(--common-radius-sm);
+  display: inline-flex;
+  padding: 0px 6px;
+
+  .icon-info {
+    cursor: pointer;
+    padding-bottom: 2px;
+    padding-left: 4px;
+  }
+
+  @include m.transition(background-color);
+
+  @include m.hover {
+    background-color: var(--bg-off);
+  }
+}

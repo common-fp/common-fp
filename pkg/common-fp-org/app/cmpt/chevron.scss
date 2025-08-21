@@ -1,0 +1,27 @@
+@use '@/styles/mixins/index' as m;
+
+.chevron {
+  &:not(.slow) {
+    @include m.transition(transform);
+  }
+  &.slow {
+    @include m.transition-slow(transform);
+  }
+
+  &.vertical {
+    transform: rotate(90deg);
+  }
+  &.vertical.expanded {
+    transform: rotate(270deg);
+  }
+  &.horizontal {
+    transform: rotate(0deg);
+  }
+  &.horizontal.expanded {
+    transform: rotate(180deg);
+  }
+
+  > path {
+    fill: var(--primary);
+  }
+}

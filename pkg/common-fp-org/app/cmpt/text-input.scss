@@ -1,0 +1,20 @@
+.text-input {
+  align-items: center;
+  border: 1px solid var(--fg);
+  border-radius: var(--common-radius);
+  cursor: text;
+  display: flex;
+  justify-content: center;
+  padding: 8px 12px;
+
+  input {
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+    outline: none;
+    width: 100%;
+  }
+  .icon {
+    flex-shrink: 0;
+  }
+}

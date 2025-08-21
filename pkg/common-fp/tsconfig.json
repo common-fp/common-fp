@@ -1,0 +1,4 @@
+{
+  "extends": "./node_modules/@common-fp/tsconfig/base.json",
+  "include": ["**/*.ts"]
+}

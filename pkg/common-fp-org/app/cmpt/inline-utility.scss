@@ -1,0 +1,23 @@
+@use '@/styles/mixins/index' as m;
+
+a.inline-utility {
+  border-bottom: 1px solid var(--bg);
+  display: inline-block;
+  font-family: 'Noto Sans Mono', monospace;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: none;
+
+  @include m.transition(border-bottom-color);
+
+  &:not(.is-mutable) {
+    color: var(--inline-utility);
+  }
+  &.is-mutable {
+    color: var(--mutable);
+  }
+
+  @include m.hover {
+    border-bottom-color: var(--fg);
+  }
+}

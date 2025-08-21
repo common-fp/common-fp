@@ -1,0 +1,23 @@
+{
+  "name": "@common-fp/eslint-plugin-cfp-org",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "main": "src/index.mjs",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "lint": "pnpm eslint 'scripts/**/*' 'src/**/*'"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "dedent": "^1.5.3",
+    "del": "^7.1.0",
+    "eslint": "^9.32.0",
+    "parse-imports-exports": "^0.2.4",
+    "prettier": "^3.3.3"
+  }
+}

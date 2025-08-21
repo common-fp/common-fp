@@ -1,0 +1,36 @@
+@use '@/styles/mixins/index' as m;
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+.logo {
+  --logo-width: 80px;
+
+  flex-shrink: 0;
+  height: var(--logo-width);
+  width: var(--logo-width);
+
+  .logo-c {
+    fill: var(--primary);
+    transform: rotate(0deg);
+    transform-origin: center;
+    transition: transform var(--transition-dur-slow);
+  }
+  .logo-fp {
+    fill: var(--accent);
+  }
+
+  @include m.hover {
+    .logo-c {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include vs.tablet {
+    --logo-width: 70px;
+  }
+  @include vs.mobile {
+    --logo-width: 60px;
+  }
+  @include vs.mobile-small {
+    --logo-width: 50px;
+  }
+}

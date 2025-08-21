@@ -1,0 +1,48 @@
+{
+  "name": "@common-fp/shared-types",
+  "private": false,
+  "version": "0.1.0",
+  "sideEffects": false,
+  "description": "Shared types for @common-fp libraries",
+  "type": "module",
+  "types": "dist/index.d.cts",
+  "main": "dist/index.d.cts",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test-lite": "tstyche --target 5.9",
+    "test-full": "tstyche",
+    "lint": "pnpm eslint 'src/**/*' 'scripts/**/*' 'test/**/*'"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.d.ts",
+      "require": "./dist/index.d.cts"
+    },
+    "./*": {
+      "import": "./dist/*.d.ts",
+      "require": "./dist/*.d.cts"
+    },
+    "./package.json": "./package.json"
+  },
+  "imports": {
+    "#src/*": "./src/*.d.ts"
+  },
+  "keywords": [
+    "types"
+  ],
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/tsconfig": "workspace:*",
+    "cpy": "^11.1.0",
+    "del": "^7.1.0",
+    "eslint": "^9.32.0",
+    "globby": "^14.0.2",
+    "make-dir": "^5.0.0",
+    "prettier": "^3.3.3",
+    "tstyche": "^4.3.0",
+    "typescript": "^5.6.3"
+  }
+}

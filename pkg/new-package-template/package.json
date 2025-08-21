@@ -1,0 +1,19 @@
+{
+  "name": "@common-fp/new-package-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "eslint": "^9.32.0",
+    "prettier": "^3.3.3"
+  }
+}

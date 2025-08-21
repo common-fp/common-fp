@@ -1,0 +1,30 @@
+html[data-theme='light'] .inline-type {
+  --custom-type: #8c008f;
+  --type: #b75501;
+}
+
+.inline-type {
+  --custom-type: #fd96ff;
+  --type: #f08d49;
+
+  font-family: 'Noto Sans Mono', monospace;
+
+  &.custom {
+    color: var(--custom-type);
+  }
+  &:not(.custom) {
+    color: var(--type);
+  }
+}
+
+.entry-key {
+  margin-left: 16px;
+  margin-top: 6px;
+
+  dt {
+    justify-self: end;
+  }
+  dd {
+    max-width: 280px;
+  }
+}

@@ -1,0 +1,19 @@
+html:not([data-theme='light']) {
+  .labels {
+    --aka: #b1b1b1;
+    --async: #6fadff;
+    --data: #00ab66;
+  }
+}
+html[data-theme='light'] {
+  .labels {
+    --aka: #595959;
+    --async: #0772ff;
+    --data: #008952;
+  }
+}
+
+.labels {
+  display: inline-flex;
+  margin-left: 8px;
+}

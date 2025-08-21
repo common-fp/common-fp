@@ -1,0 +1,34 @@
+@use '@/styles/mixins/index' as m;
+
+$sub-nav-width: 250px;
+
+.sub-nav {
+  flex-shrink: 0;
+  padding-top: 5px;
+  position: relative;
+  overflow: hidden;
+
+  @include m.transition-slow('width');
+
+  &.show {
+    width: $sub-nav-width;
+  }
+  &:not(.show) {
+    width: 0;
+  }
+
+  > .sub-nav-content {
+    width: $sub-nav-width;
+
+    a {
+      font-size: var(--fs-sm);
+      text-decoration: none;
+
+      @include m.trans-underline;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+  }
+}

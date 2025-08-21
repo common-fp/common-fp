@@ -1,0 +1,53 @@
+@use '@/styles/vars.module' as v;
+
+.cfp-codemirror {
+  .cm-diagnostic-error {
+    border-left-color: var(--error);
+  }
+  .cm-diagnostic-warning {
+    border-left-color: var(--warning);
+  }
+}
+
+/**
+ * when building data-uris, I don't think we can use css variables which is why
+ * I'm using sass variables here.
+ */
+
+html:not([data-theme='light']) {
+  .cfp-codemirror {
+    .cm-lintRange-error {
+      background-image: url(lintUnderline(v.$error-dark, false));
+    }
+    .cm-lintRange-warning {
+      background-image: url(lintUnderline(v.$warning-dark, false));
+    }
+    .cm-lint-marker-error {
+      content: url(lintMarkerError(v.$error-dark));
+    }
+    .cm-lint-marker-warning {
+      content: url(lintMarkerWarning(v.$warning-dark));
+    }
+  }
+}
+html[data-theme='light'] {
+  .cfp-codemirror {
+    .cm-lintRange-error,
+    .cm-lintRange-warning {
+      // the light-theme underlines are thicker and need more space
+      padding-bottom: 3px;
+    }
+    .cm-lintRange-error {
+      background-image: url(lintUnderline(v.$error-light, true));
+    }
+    .cm-lintRange-warning {
+      background-image: url(lintUnderline(v.$warning-light, true));
+    }
+    .cm-lint-marker-error {
+      content: url(lintMarkerError(v.$error-light));
+    }
+    .cm-lint-marker-warning {
+      content: url(lintMarkerWarning(v.$warning-light));
+    }
+  }
+}

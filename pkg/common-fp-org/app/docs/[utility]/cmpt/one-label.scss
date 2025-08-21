@@ -1,0 +1,34 @@
+.one-label {
+  .actual-label {
+    border-radius: var(--common-radius-sm);
+    font-family: 'Noto Sans Mono', mono;
+    padding: 0px 3px;
+    color: var(--bg);
+
+    &.aka {
+      background-color: var(--aka);
+    }
+    &.async {
+      background-color: var(--async);
+    }
+    &.data {
+      background-color: var(--data);
+    }
+    &.mutable {
+      background-color: var(--mutable);
+    }
+    &.match {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  .tooltip-label {
+    font-family: 'Noto Sans Mono', monospace;
+    margin-left: 4px;
+  }
+
+  + .one-label {
+    margin-left: 4px;
+  }
+}

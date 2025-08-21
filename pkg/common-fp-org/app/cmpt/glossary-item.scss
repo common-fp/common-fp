@@ -1,0 +1,15 @@
+@use '@/styles/mixins/index' as m;
+
+.glossary-item {
+  border-bottom: 1px solid var(--bg);
+  display: inline-block;
+  text-decoration: none;
+
+  &:not(.always-underlined) {
+    @include m.transition(border-bottom-color);
+
+    @include m.hover {
+      border-bottom-color: var(--fg);
+    }
+  }
+}

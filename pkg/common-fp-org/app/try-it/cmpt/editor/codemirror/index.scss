@@ -1,0 +1,65 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+@use '@/styles/mixins/index' as m;
+@use './vars.module' as v;
+@use './ts-hover' as *;
+@use './syntax-highlighting';
+@use './linting';
+@use './search-panel';
+@use './status-panel';
+
+.loading-container {
+  background-color: var(--bg-off);
+  border: 1px solid var(--bg-off);
+  border-radius: var(--common-radius-sm);
+  height: v.$loading-container-height;
+  position: relative;
+
+  .loading-icon {
+    height: 70px;
+    left: calc(50% - 40px);
+    position: absolute;
+    top: calc(50% - 40px);
+    transform: translate(-50%, -50%);
+  }
+
+  @include vs.mobile-small {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+
+.cfp-codemirror-wrapper {
+  overflow: hidden;
+  height: 1px;
+  opacity: 0;
+  cursor: text;
+}
+
+.cfp-codemirror {
+  position: relative;
+
+  @include ts-hover;
+  --cm-font-size: var(--fs-sm);
+
+  .cm-editor {
+    outline: none;
+  }
+
+  .cm-panels {
+    position: relative;
+  }
+
+  .cm-panel {
+    border-top: 1px solid var(--bg-off-3);
+    padding-bottom: v.$panel-padding;
+    padding-top: v.$panel-padding;
+  }
+
+  @include vs.mobile-small {
+    --cm-font-size: var(--fs-xs);
+
+    .cm-gutters {
+      display: none;
+    }
+  }
+}

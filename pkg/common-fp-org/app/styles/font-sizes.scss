@@ -1,0 +1,61 @@
+@use './mixins/viewport-sizes' as vs;
+
+html {
+  --fs-h1: 50px;
+  --fs-h2: 40px;
+  --fs-h3: 30px;
+  --fs-h4: 26px;
+
+  --fs-lg: 24px;
+  --fs: 22px;
+  --fs-sm: 20px;
+  --fs-xs: 18px;
+  font-size: var(--fs);
+
+  @include vs.tablet {
+    --fs-h1: 44px;
+    --fs-h2: 36px;
+    --fs-h3: 27px;
+    --fs-h4: 24px;
+
+    --fs-lg: 23px;
+    --fs: 21px;
+    --fs-sm: 19px;
+    --fs-xs: 17px;
+  }
+  @include vs.mobile {
+    --fs-h1: 38px;
+    --fs-h2: 32px;
+    --fs-h3: 24px;
+    --fs-h4: 22px;
+
+    --fs-lg: 22px;
+    --fs: 20px;
+    --fs-sm: 18px;
+    --fs-xs: 16px;
+  }
+  @include vs.mobile-small {
+    --fs-h1: 32px;
+    --fs-h2: 28px;
+    --fs-h3: 21px;
+    --fs-h4: 20px;
+
+    --fs-lg: 21px;
+    --fs: 19px;
+    --fs-sm: 17px;
+    --fs-xs: 15px;
+  }
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+h4 {
+  font-size: var(--fs-h4);
+}

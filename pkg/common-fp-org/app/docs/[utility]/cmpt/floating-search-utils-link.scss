@@ -1,0 +1,22 @@
+@use '@/styles/mixins/viewport-sizes' as vs;
+
+#floating-search-utils {
+  background-color: var(--bg);
+  border-radius: 50%;
+  bottom: 20px;
+  box-shadow: -2px 5px 10px var(--bg-off-4);
+  padding: 14px;
+  position: fixed;
+  right: 20px;
+
+  .icon-search {
+    @include vs.mobile {
+      height: 36px;
+      width: 36px;
+    }
+    @include vs.mobile-small {
+      height: 32px;
+      width: 32px;
+    }
+  }
+}

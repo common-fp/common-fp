@@ -1,0 +1,47 @@
+@mixin transition($props) {
+  transition-property: #{$props};
+  transition-duration: var(--transition-dur);
+}
+
+@mixin transition-slow($props) {
+  transition-property: #{$props};
+  transition-duration: var(--transition-dur-slow);
+}
+
+@mixin trans-border {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--bg);
+  transition: border-color var(--transition-dur);
+
+  @include hover {
+    border-color: var(--fg);
+  }
+}
+
+@mixin trans-underline {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--bg);
+  transition: border-bottom-color var(--transition-dur);
+
+  @include hover {
+    border-bottom-color: var(--fg);
+  }
+}
+
+@mixin spin {
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: center;
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
