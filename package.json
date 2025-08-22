@@ -10,6 +10,7 @@
     "@changesets/cli": "^2.27.9",
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
+    "depcheck": "^1.4.7",
     "eslint": "^9.32.0",
     "prettier": "^3.3.3",
     "syncpack": "^13.0.0"
@@ -20,10 +21,12 @@
   },
   "scripts": {
     "build": "sh ./scripts/build.sh",
+    "check-deps": "sh ./scripts/check-deps.sh",
     "lint": "pnpm run --recursive lint",
     "test": "echo 'use either test-full or test-lite' && exit 1",
     "test-full": "sh ./scripts/test.sh",
-    "test-lite": "sh ./scripts/test.sh --lite"
+    "test-lite": "sh ./scripts/test.sh --lite",
+    "validate": "pnpm build && pnpm check-deps && pnpm lint && pnpm test-full"
   },
   "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
   "engines": {
