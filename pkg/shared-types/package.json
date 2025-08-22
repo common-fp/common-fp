@@ -9,9 +9,9 @@
   "main": "dist/index.d.cts",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test-lite": "tstyche --target 5.9",
+    "lint": "pnpm eslint 'src/**/*' 'scripts/**/*' 'test/**/*'",
     "test-full": "tstyche",
-    "lint": "pnpm eslint 'src/**/*' 'scripts/**/*' 'test/**/*'"
+    "test-lite": "tstyche --target 5.9"
   },
   "exports": {
     ".": {
@@ -28,6 +28,9 @@
     "#src/*": "./src/*.d.ts"
   },
   "keywords": [
+    "common-fp",
+    "common-fp-types",
+    "shared-types",
     "types"
   ],
   "author": "Phil Olson",
