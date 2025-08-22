@@ -1,4 +1,4 @@
 {
-  "extends": "./node_modules/@common-fp/tsconfig/base.json",
+  "extends": "@common-fp/tsconfig",
   "include": ["**/*.d.mts"]
 }

@@ -6,7 +6,7 @@
       "common-fp": ["../../../../common-fp/dist/index.d.ts"]
     }
   },
-  "extends": "../../../node_modules/@common-fp/tsconfig/base.json",
+  "extends": "@common-fp/tsconfig",
   "include": [
     "../../../app/misc/editor-types.d.ts",
     "../../../app/built/code-examples/**/*_tablet-and-larger_full.ts"
