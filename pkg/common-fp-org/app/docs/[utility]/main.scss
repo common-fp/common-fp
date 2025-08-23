@@ -1,6 +1,6 @@
 @use '@/styles/mixins/index' as m;
 @use '@/styles/mixins/viewport-sizes' as vs;
-@use '@/../../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
+@use '@/../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
 
 main.documentation {
   display: flex;

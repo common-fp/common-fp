@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'tstyche'
-import _ = require('@common-fp/common-fp')
-import add = require('@common-fp/common-fp/add')
+import _ = require('common-fp')
+import add = require('common-fp/add')
 import ST = require('@common-fp/shared-types')
 import type * as U from '@common-fp/shared-types/utils'
 import si = require('@common-fp/shared-internals')

@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    branches: main
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        pkg:
+          - { dir: common-fp, name: common-fp }
+          - { dir: common-fp-types, name: common-fp-types }
+          - { dir: shared-internals, name: '@common-fp/shared-internals' }
+          - {
+              dir: shared-internals-types,
+              name: '@common-fp/shared-internals-types',
+            }
+          - { dir: shared-types, name: '@common-fp/shared-types' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - id: vcheck
+        uses: EndBug/version-check@v2
+        with:
+          file-name: './pkg/${{ matrix.pkg.dir }}/package.json'
+          file-url: 'https://unpkg.com/${{ matrix.pkg.name }}/package.json'
+          static-checking: localIsNew
+      - if: steps.vcheck.outputs.changed == 'true'
+        uses: ./.github/actions/release
+        with:
+          packed: '${{ matrix.pkg.dir }}-${{ steps.vcheck.outputs.version }}.tgz'
+          pkgDir: ${{ matrix.pkg.dir }}
+          pkgName: ${{ matrix.pkg.name }}
+          tag: '${{ matrix.pkg.dir }}/v${{ steps.vcheck.outputs.version }}'
+          npmToken: ${{ secrets.NPM_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}

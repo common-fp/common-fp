@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'tstyche'
-import * as _ from '@common-fp/common-fp'
-import add from '@common-fp/common-fp/add'
+import * as _ from 'common-fp'
+import add from 'common-fp/add'
 import type * as ST from '@common-fp/shared-types'
 import type * as U from '@common-fp/shared-types/utils'
 import * as si from '@common-fp/shared-internals'

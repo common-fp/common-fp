@@ -64,7 +64,6 @@ export default [
         createNodeResolver({
           alias: {
             '@/*': [`${pathToApp}/*`],
-            'common-fp': ['@common-fp/common-fp'],
           },
         }),
       ],

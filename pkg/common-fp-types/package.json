@@ -1,7 +1,7 @@
 {
-  "name": "@common-fp/common-fp-types",
+  "name": "common-fp-types",
   "sideEffects": false,
-  "description": "types for common-fp",
+  "description": "Types for common-fp",
   "version": "0.1.0",
   "type": "module",
   "author": "Phil Olson",
@@ -11,9 +11,11 @@
   "scripts": {
     "build": "node ./scripts/build.mjs",
     "lint": "eslint 'test-types/**/*' 'test/**/*' 'scripts/**/*' 'src/**/*'",
-    "validate-tests": "mocha --ui tdd --recursive test",
+    "postpack": "sh '../../scripts/postpack.sh' common-fp-types",
+    "prepack": "sh '../../scripts/prepack.sh' common-fp-types",
+    "test-full": "pnpm validate-tests && tstyche",
     "test-lite": "pnpm validate-tests && tstyche --target 5.9",
-    "test-full": "pnpm validate-tests && tstyche"
+    "validate-tests": "mocha --ui tdd --recursive test"
   },
   "exports": {
     ".": "./dist/index.d.ts",
@@ -23,11 +25,9 @@
     "#src/*": "./src/*.d.ts",
     "#dist/*": "./dist/*.d.ts"
   },
-  "keywords": [],
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
-    "@common-fp/shared-types": "workspace:*",
     "@common-fp/test-utils": "workspace:*",
     "@common-fp/tsconfig": "workspace:*",
     "chai": "^5.1.2",
@@ -41,5 +41,28 @@
     "prettier": "^3.3.3",
     "tstyche": "^4.3.0",
     "typescript-eslint": "^8.39.0"
+  },
+  "bugs": {
+    "url": "https://github.com/common-fp/common-fp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/common-fp/common-fp.git",
+    "directory": "pkg/common-fp-types"
+  },
+  "homepage": "https://github.com/common-fp/common-fp/tree/dev/pkg/common-fp-types",
+  "keywords": [
+    "common",
+    "fp",
+    "types"
+  ],
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@common-fp/shared-types": "workspace:^"
+  },
+  "peerDependencies": {
+    "typescript": "5.x"
   }
 }

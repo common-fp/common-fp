@@ -1,8 +1,8 @@
 {
   "name": "@common-fp/shared-internals",
+  "description": "Code used to build common-fp utilities",
   "private": false,
   "version": "0.1.0",
-  "description": "Shared internal code for devs to create their own common-fp flavored utilities",
   "sideEffects": false,
   "main": "dist/index.cjs",
   "type": "module",
@@ -10,8 +10,10 @@
   "scripts": {
     "build": "node scripts/build/index.mjs",
     "lint": "eslint",
-    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
+    "prepack": "sh '../../scripts/prepack.sh' shared-internals",
+    "postpack": "sh '../../scripts/postpack.sh' shared-internals",
     "test-full": "nve --parallel 20,22,24 mocha --require ./test/init.mjs --ui tdd --recursive test/cases",
+    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
     "testOne": "mocha --ui tdd -r test/init.mjs"
   },
   "exports": {
@@ -62,12 +64,24 @@
     "nve": "^18.0.3",
     "prettier": "^3.3.3"
   },
+  "bugs": {
+    "url": "https://github.com/common-fp/common-fp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/common-fp/common-fp.git",
+    "directory": "pkg/shared-internals"
+  },
+  "homepage": "https://github.com/common-fp/common-fp/tree/dev/pkg/shared-internals",
   "peerDependenciesMeta": {
     "@common-fp/shared-internals-types": {
       "optional": true
     }
   },
   "peerDependencies": {
-    "@common-fp/shared-internals-types": "workspace:*"
+    "@common-fp/shared-internals-types": "workspace:^"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

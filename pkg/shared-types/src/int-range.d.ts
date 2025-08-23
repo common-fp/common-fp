@@ -1,6 +1,6 @@
 /**
  * intended for small'ish non-negative ranges
- * used in @common-fp/common-fp-types/flatten* utils
+ * used in common-fp-types/flatten* utils
  *
  * code from here:
  * https://stackoverflow.com/a/39495173/984407

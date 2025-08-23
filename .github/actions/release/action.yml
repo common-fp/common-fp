@@ -1,0 +1,46 @@
+name: Release
+description: Release the input package
+inputs:
+  packed:
+    description: Filename of packed npm package
+    required: true
+  pkgDir:
+    description: Directory name of package
+    required: true
+  pkgName:
+    description: Name of package (per package.json)
+    required: true
+  tag:
+    description: The tag name to be associated with the release
+    required: true
+  npmToken:
+    description: Pass secrets.NPM_TOKEN
+    required: true
+  githubToken:
+    description: Pass secrets.GITHUB_TOKEN
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - shell: sh
+      run: pnpm pack --filter "${{ inputs.pkgDir }}" --out "${{ inputs.packed }}"
+    - shell: sh
+      run: |
+        pnpm publish --no-git-checks \
+        --filter "${{ inputs.pkgDir }}" \
+        --access public \
+        "${{ inputs.packed }}"
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.npmToken }}
+    - uses: joutvhu/create-tag@v1
+      with:
+        tag_name: ${{ inputs.tag }}
+        on_tag_exists: error
+      env:
+        GITHUB_TOKEN: ${{ inputs.githubToken }}
+    - uses: softprops/action-gh-release@v2
+      with:
+        files: ${{ inputs.packed }}
+        tag_name: ${{ inputs.tag }}
+        fail_on_unmatched_files: true
+        body: 'Release ${{ inputs.pkgName }}'

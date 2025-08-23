@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import * as _ from '@common-fp/common-fp'
-import add from '@common-fp/common-fp/add'
+import * as _ from 'common-fp'
+import add from 'common-fp/add'
 import * as si from '@common-fp/shared-internals'
 import aOrAn from '@common-fp/shared-internals/a-or-an'
 

@@ -1,15 +1,17 @@
 {
   "name": "@common-fp/shared-types",
+  "description": "Shared types for Common FP libraries",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "sideEffects": false,
-  "description": "Shared types for @common-fp libraries",
   "type": "module",
   "types": "dist/index.d.cts",
   "main": "dist/index.d.cts",
   "scripts": {
     "build": "node scripts/build.mjs",
     "lint": "pnpm eslint 'src/**/*' 'scripts/**/*' 'test/**/*'",
+    "prepack": "sh '../../scripts/prepack.sh' shared-types",
+    "postpack": "sh '../../scripts/postpack.sh' shared-types",
     "test-full": "tstyche",
     "test-lite": "tstyche --target 5.9"
   },
@@ -28,9 +30,9 @@
     "#src/*": "./src/*.d.ts"
   },
   "keywords": [
-    "common-fp",
-    "common-fp-types",
-    "shared-types",
+    "common",
+    "fp",
+    "shared",
     "types"
   ],
   "author": "Phil Olson",
@@ -47,5 +49,20 @@
     "prettier": "^3.3.3",
     "tstyche": "^4.3.0",
     "typescript": "^5.6.3"
+  },
+  "bugs": {
+    "url": "https://github.com/common-fp/common-fp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/common-fp/common-fp.git",
+    "directory": "pkg/shared-types"
+  },
+  "homepage": "https://github.com/common-fp/common-fp/tree/dev/pkg/shared-types",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "typescript": "5.x"
   }
 }

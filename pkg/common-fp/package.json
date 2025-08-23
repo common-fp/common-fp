@@ -1,19 +1,19 @@
 {
-  "name": "@common-fp/common-fp",
+  "name": "common-fp",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "FP utilities for the commoner",
   "sideEffects": false,
   "scripts": {
     "build": "node ./scripts/build/index.mjs",
     "lint": "pnpm eslint",
-    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
+    "prepack": "sh '../../scripts/prepack.sh' common-fp",
+    "postpack": "sh '../../scripts/postpack.sh' common-fp",
     "test-full": "nve --parallel 20,22,24 mocha --ui tdd -r test/init.mjs --recursive test/cases",
+    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
     "test-one-file": "mocha --ui tdd -r test/init.mjs"
   },
   "files": [
-    "license.txt",
-    "readme.md",
     "dist"
   ],
   "main": "./dist/index.cjs",
@@ -41,18 +41,18 @@
     "#test/spies/*": "./test/spies/*.mjs"
   },
   "keywords": [
+    "common",
     "fp",
     "functional",
     "functional programming",
     "utilities",
     "utils",
-    "functional utilities",
     "@common-fp"
   ],
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
   "devDependencies": {
-    "@common-fp/common-fp-types": "workspace:*",
+    "common-fp-types": "workspace:*",
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
     "@common-fp/test-utils": "workspace:*",
@@ -73,8 +73,17 @@
     "tsx": "^4.19.3",
     "typescript": "^5.9.2"
   },
+  "bugs": {
+    "url": "https://github.com/common-fp/common-fp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/common-fp/common-fp.git",
+    "directory": "pkg/common-fp"
+  },
+  "homepage": "https://common-fp.org",
   "peerDependenciesMeta": {
-    "@common-fp/common-fp-types": {
+    "common-fp-types": {
       "optional": true
     }
   },
@@ -82,6 +91,9 @@
     "@common-fp/shared-internals": "workspace:^"
   },
   "peerDependencies": {
-    "@common-fp/common-fp-types": "workspace:*"
+    "common-fp-types": "workspace:^"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

@@ -1,7 +1,9 @@
 {
   "name": "@common-fp/shared-internals-types",
+  "description": "Types for @common-fp/shared-internals",
   "version": "0.1.0",
   "private": false,
+  "sideEffects": false,
   "type": "module",
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
@@ -9,13 +11,14 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "lint": "pnpm eslint 'scripts/**/*' 'src/**/*'"
+    "lint": "pnpm eslint 'scripts/**/*' 'src/**/*'",
+    "prepack": "sh '../../scripts/prepack.sh' shared-internals-types",
+    "postpack": "sh '../../scripts/postpack.sh' shared-internals-types"
   },
   "exports": {
     ".": "./dist/index.d.ts",
     "./*": "./dist/*.d.ts"
   },
-  "keywords": [],
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
@@ -29,9 +32,28 @@
     "tstyche": "^4.3.0",
     "typescript": "^5.9.2"
   },
-  "peerDependencies": {
-    "typescript": "^5.9.2"
+  "keywords": [
+    "common",
+    "fp",
+    "shared",
+    "internals",
+    "types"
+  ],
+  "bugs": {
+    "url": "https://github.com/common-fp/common-fp/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/common-fp/common-fp.git",
+    "directory": "pkg/shared-internals-types"
+  },
+  "homepage": "https://github.com/common-fp/common-fp/tree/dev/pkg/shared-internals-types",
+  "peerDependencies": {
+    "typescript": "5.x"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@common-fp/shared-types": "workspace:^"
   }

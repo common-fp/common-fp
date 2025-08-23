@@ -17,15 +17,15 @@ async function buildTypeDef(fpath) {
   const varName = camelCase(name)
   const content = {}
   if (isIndex) {
-    content.ts = `export * from '@common-fp/common-fp-types'`
+    content.ts = `export * from 'common-fp-types'`
     content.cts = dedent(`
-      import * as commonFp from '@common-fp/common-fp-types'
+      import * as commonFp from 'common-fp-types'
       export = commonFp
     `)
   } else {
-    content.ts = `export { default } from '@common-fp/common-fp-types/${name}'`
+    content.ts = `export { default } from 'common-fp-types/${name}'`
     content.cts = dedent(`
-      import { default as ${varName} } from '@common-fp/common-fp-types/${name}'
+      import { default as ${varName} } from 'common-fp-types/${name}'
       export = ${varName}
     `)
   }

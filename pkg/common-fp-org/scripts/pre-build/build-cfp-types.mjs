@@ -39,12 +39,7 @@ async function getCfpPathToContent() {
     fpath => `/node_modules/common-fp/dist/${path.basename(fpath)}`
   )
   const fcontents = await Promise.all(
-    fullPaths.map(async fpath => {
-      const contents = await fsp.readFile(fpath, 'utf8')
-      return fpath.endsWith('.ts') ?
-          contents.replace("'@common-fp/common-fp-types", "'common-fp-types")
-        : contents
-    })
+    fullPaths.map(fpath => fsp.readFile(fpath, 'utf8'))
   )
 
   const pjsonPath = path.resolve(pathToCommonFp, 'package.json')

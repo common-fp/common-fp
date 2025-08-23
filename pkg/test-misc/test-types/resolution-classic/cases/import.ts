@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'tstyche'
-import * as _ from '@common-fp/common-fp'
+import * as _ from 'common-fp'
 import * as ST from '@common-fp/shared-types'
 import si = require('@common-fp/shared-internals')
 

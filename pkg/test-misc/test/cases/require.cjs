@@ -1,5 +1,5 @@
-const _ = require('@common-fp/common-fp')
-const add = require('@common-fp/common-fp/add')
+const _ = require('common-fp')
+const add = require('common-fp/add')
 const si = require('@common-fp/shared-internals')
 const aOrAn = require('@common-fp/shared-internals/a-or-an')
 

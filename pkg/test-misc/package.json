@@ -16,8 +16,8 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@common-fp/common-fp": "workspace:*",
-    "@common-fp/common-fp-types": "workspace:*",
+    "common-fp": "workspace:*",
+    "common-fp-types": "workspace:*",
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
     "@common-fp/root": "workspace:*",

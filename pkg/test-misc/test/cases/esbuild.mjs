@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { deleteAsync } from 'del'
 import * as esbuild from 'esbuild'
-import * as _ from '@common-fp/common-fp'
+import * as _ from 'common-fp'
 import { fromTestDir, getBundleDirName } from '../utils.mjs'
 
 const bundleDirName = getBundleDirName('esbuild')
