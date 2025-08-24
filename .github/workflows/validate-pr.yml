@@ -4,7 +4,7 @@ on:
   pull_request:
     types:
       - opened
-    branches: [dev, main]
+    branches: [dev, main, dev-wip]
 
 jobs:
   validate-pr:
