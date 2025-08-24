@@ -9,11 +9,16 @@ common-fp
 eslint-plugin-cfp-org
 common-fp-org'
 
+isLocalDev=false
+if [ "${1}" == '--local-dev' ]; then
+  isLocalDev=true
+fi
+
 for p in ${pkgs}; do
-  if [ "${p}" = "common-fp-org" ]; then
-    pnpm --filter "@common-fp/${p}" pre-build
+  if [ "${isLocalDev}" = 'true' -a "${p}" = "common-fp-org" ]; then
+    pnpm --filter "${p}" pre-build
   else
-    pnpm --filter "@common-fp/${p}" build
+    pnpm --filter "${p}" build
   fi
 
 
