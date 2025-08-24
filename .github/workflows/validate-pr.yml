@@ -16,4 +16,17 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
-      - run: pnpm install && pnpm validate
+      - id: checkValid
+        run: |
+          pnpm install && pnpm validate;
+          if [ "$?" = '0' ]; then
+            echo 'state=success' >> "$GITHUB_OUTPUT"
+          else
+            echo 'success=failure' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: billyjbryant/create-status-check@v2
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'PR Is Valid'
+          state: ${{ steps.checkValid.outputs.state }}
+          sha: ${{ github.event.pull_request.head.sha }}
