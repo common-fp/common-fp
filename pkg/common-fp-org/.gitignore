@@ -14,7 +14,6 @@
 /public/bundles/
 /app/built/
 /common-fp-api-data/*/built-code-examples/
-/app/config.js
 /app/bundles/*
 !/app/bundles/readme.md
 /app/deps/vfs-slim.mjs

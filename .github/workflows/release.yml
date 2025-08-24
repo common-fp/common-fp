@@ -5,7 +5,7 @@ on:
     branches: main
 
 jobs:
-  check-version:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write

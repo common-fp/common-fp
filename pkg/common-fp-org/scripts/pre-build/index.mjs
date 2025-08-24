@@ -1,4 +1,3 @@
-import validateLocalFiles from './validate-local-files.mjs'
 import buildBundles from './build-bundles.mjs'
 import buildCfpTypes from './build-cfp-types.mjs'
 import buildCodeExamples from './build-code-examples/index.mjs'
@@ -14,10 +13,6 @@ run()
 
 async function run() {
   try {
-    if (!(await validateLocalFiles())) {
-      process.exitCode = 1
-      return
-    }
     await cleanDir(fromRoot('app/built'))
     await Promise.all([
       buildBundles(),
