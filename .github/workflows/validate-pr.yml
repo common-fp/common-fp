@@ -2,8 +2,6 @@ name: Validate PR
 
 on:
   pull_request:
-    types:
-      - opened
     branches: [dev, main, dev-wip]
 
 jobs:
