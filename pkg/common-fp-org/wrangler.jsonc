@@ -1,0 +1,15 @@
+{
+  "name": "common-fp-org",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "common-fp.org",
+      "custom_domain": true
+    }
+  ]
+}
