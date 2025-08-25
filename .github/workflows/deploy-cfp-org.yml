@@ -28,5 +28,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4
