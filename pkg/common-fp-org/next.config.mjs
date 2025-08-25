@@ -1,6 +1,5 @@
 import path from 'node:path'
 import makeWithBundleAnalyzer from '@next/bundle-analyzer'
-import RewriteSourcePlugin from './misc/rewrite-source-webpack-plugin/index.mjs'
 import { SassString } from 'sass'
 
 const { dirname } = import.meta
@@ -19,30 +18,19 @@ const config = {
     config.resolve.alias['@'] = path.resolve(dirname, 'app')
     config.resolve.symlinks = true
 
-    config.module.rules.push({
-      test: [
-        /\/editor-types.d.ts$/,
-        /\/initial-code\.(j|t)s$/,
-        /\/code\/[^/]+_(tablet-and-larger|mobile-and-smaller)_/,
-      ],
-      use: [{ loader: fromRoot('misc/source-loader.mjs') }],
-    })
-
-    // this gets around an issue where a typescript require expression causes
-    // the warning:
-    // "Critical dependency: the request of a dependency is an expression"
-    // the code we're affecting is from microsoft/TypeScript#56a0825
-    // src/compiler/sys.ts:1619, and exposes a node interface which we don't use
-    // since we're in the browser
-    config.plugins.push(
-      new RewriteSourcePlugin([
-        {
-          test: /node_modules\/typescript\/lib\/typescript.js$/,
-          rewrite: src => {
-            return src.replace('require(modulePath)', '{}')
-          },
-        },
-      ])
+    config.module.rules.push(
+      {
+        test: [
+          /\/editor-types.d.ts$/,
+          /\/initial-code\.(j|t)s$/,
+          /\/code\/[^/]+_(tablet-and-larger|mobile-and-smaller)_/,
+        ],
+        use: [{ loader: fromRoot('misc/source-loader.mjs') }],
+      },
+      {
+        test: /node_modules\/typescript\/lib\/typescript.js$/,
+        use: [{ loader: fromRoot('misc/modify-ts-loader.mjs') }],
+      }
     )
 
     return config
@@ -87,14 +75,6 @@ const config = {
         const svgPath = circle + `stroke="${colorStr}" fill="${colorStr}" />`
         const resultStr = prefix + encodeURIComponent(svgPath) + '</svg>'
         return new SassString(resultStr)
-      },
-    },
-    logger: {
-      warn: message => {
-        console.warn(message)
-      },
-      debug: message => {
-        console.log(message)
       },
     },
   },

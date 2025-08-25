@@ -36,10 +36,10 @@
 }
 
 .cfp-codemirror {
+  --cm-font-size: var(--fs-sm);
   position: relative;
 
   @include ts-hover;
-  --cm-font-size: var(--fs-sm);
 
   .cm-editor {
     outline: none;
