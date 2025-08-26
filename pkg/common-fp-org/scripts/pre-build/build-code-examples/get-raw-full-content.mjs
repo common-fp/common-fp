@@ -5,8 +5,8 @@ import {
   myCamelCase,
   passThrough,
   readUtf8IfExists,
-  removeExt,
 } from '../utils.mjs'
+import { removeExt } from '../../utils/index.mjs'
 
 const getRawFullContent = async ({ fpath, fname, content }) => {
   const pathToFullContent = removeExt(fpath) + '_full.' + getExt(fpath)

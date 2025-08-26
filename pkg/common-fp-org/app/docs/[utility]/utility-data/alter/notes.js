@@ -24,7 +24,7 @@ const Notes = () => {
       <p>
         {`
         With that out of the way, reduce is still a helpful tool.  This is why
-        I'm including alter in Common-FP.
+        I'm including alter in Common FP.
         `}
       </p>
     </>

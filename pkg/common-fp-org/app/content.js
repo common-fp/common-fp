@@ -59,7 +59,7 @@ const Content = () => {
           </div>
           <CodeBlock debugId="with-map" jsTs={code.withMap} />
           <div id={anchor.withArraysAndSets} className="code-description">
-            mapValues works with arrays and Sets as well
+            {inlineMapValues} works with arrays and Sets as well
           </div>
           <CodeBlock debugId="arrays-and-sets" jsTs={code.arraysAndSets} />
         </li>

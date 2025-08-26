@@ -5,7 +5,8 @@ import { globby } from 'globby'
 import { format } from 'prettier'
 import prettierConfig from '@common-fp/prettier-config'
 import { parserByLang } from './utils.mjs'
-import { myCamelCase, removeExt } from '../utils.mjs'
+import { myCamelCase } from '../utils.mjs'
+import { removeExt } from '../../utils/index.mjs'
 
 const buildIndexJs = async ({ destDir, srcDir }) => {
   const allExamples = srcDir + '/*.js'

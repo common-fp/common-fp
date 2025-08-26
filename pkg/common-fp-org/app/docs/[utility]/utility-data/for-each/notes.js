@@ -1,5 +1,6 @@
 import GlossaryItem from '@/cmpt/glossary-item'
 import InlineCode from '@/cmpt/inline-code'
+import RaiseAnIssue from '@/cmpt/raise-an-issue'
 
 const Why = () => (
   <>
@@ -13,9 +14,9 @@ const Why = () => (
       .
       {`
       If you're using this to modify the collection then you're likely
-      misunderstanding Common-FP.  Please raise a question on github so we can
-      figure out a better approach for ya.
+      misunderstanding Common FP.  Please
       `}
+      <RaiseAnIssue /> so we can figure out a better approach for ya.
     </p>
   </>
 )

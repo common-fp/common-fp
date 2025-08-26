@@ -12,6 +12,7 @@
 /app/try-it/cmpt/editor/codemirror/tools/ts-editor-worker/lib-files.json
 /app/try-it/cmpt/editor/codemirror/tools/trimmed-globals.json
 /public/bundles/
+/public/sitemap*
 /app/built/
 /common-fp-api-data/*/built-code-examples/
 /app/bundles/*

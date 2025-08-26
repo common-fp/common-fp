@@ -57,7 +57,7 @@ const MutatingDataSection = () => {
 
       <h4>What is data?</h4>
       <p>
-        In Common-FP, <em>data</em> refers to the last argument a utility takes.
+        In Common FP, <em>data</em> refers to the last argument a utility takes.
         For example, with <InlineUtility name="mAppendAll" />,{` it's `}
         <InlineCode>base</InlineCode>
       </p>
@@ -77,7 +77,7 @@ const MutatingDataSection = () => {
         that section for why we avoid side effects.
       </p>
       <p>
-        By default, Common-FP returns shallow copies of its data rather than
+        By default, Common FP returns shallow copies of its data rather than
         mutating it, with the goal of simplifying code.
       </p>
 
@@ -88,7 +88,7 @@ const MutatingDataSection = () => {
         properties, or performance concerns may prevent us from making shallow
         copies.
         `}
-        There are many use cases for mutating data, and Common-FP helps you do
+        There are many use cases for mutating data, and Common FP helps you do
         so in a functional way.
       </p>
     </section>

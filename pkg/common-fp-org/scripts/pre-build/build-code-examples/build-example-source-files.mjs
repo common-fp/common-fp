@@ -3,9 +3,10 @@ import path from 'node:path'
 import { globby } from 'globby'
 import { format } from 'prettier'
 import prettierConfig from '@common-fp/prettier-config'
-import { getExt, readUtf8, removeExt } from '../utils.mjs'
 import getRawFullContent from './get-raw-full-content.mjs'
 import { parserByLang } from './utils.mjs'
+import { getExt, readUtf8 } from '../utils.mjs'
+import { removeExt } from '../../utils/index.mjs'
 
 const buildExampleSourceFiles = async ({ codeExamplesGlob, getBuiltFpath }) => {
   const allExamples = path.resolve(codeExamplesGlob, 'code/*')

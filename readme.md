@@ -13,6 +13,6 @@ This monorepo holds all the non-forked packages that get Common FP workin'.
 
 ## Want to run a package locally ?
 
-I'm holding off on making this friendly for devs til there's demand. It's
-nothing too complicated, but I'd prefer a friendly DX and can't guarantee it at
-the moment.
+I'm holding off on making this friendly for devs til someone requests it.
+There's nothing too complicated, but I'd prefer a friendly DX and can't
+guarantee it at the moment.

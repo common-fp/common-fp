@@ -11,4 +11,6 @@ const cleanDir = async fpath => {
 
 const fromRoot = fpath => path.resolve(dirname, '../..', fpath)
 
-export { cleanDir, fromRoot }
+const removeExt = fpath => fpath.slice(0, fpath.lastIndexOf('.'))
+
+export { cleanDir, fromRoot, removeExt }

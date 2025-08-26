@@ -45,8 +45,6 @@ const readUtf8IfExists = async fpath => {
   }
 }
 
-const removeExt = fname => fname.slice(0, fname.lastIndexOf('.'))
-
 export {
   fileExists,
   getExt,
@@ -56,5 +54,4 @@ export {
   passThrough,
   readUtf8,
   readUtf8IfExists,
-  removeExt,
 }

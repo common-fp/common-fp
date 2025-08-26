@@ -1,4 +1,5 @@
 import Tooltip, { TooltipActivator, TooltipContent } from '@/cmpt/tooltip'
+import RaiseAnIssue from '@/cmpt/raise-an-issue'
 import Language from './language'
 
 import './index.scss'
@@ -15,7 +16,7 @@ const Options = props => {
           <span className="beta">Beta</span>
         </TooltipActivator>
         <TooltipContent>
-          {`Please raise a github issue if something doesn't work like you expect`}
+          Please <RaiseAnIssue /> {`if something doesn't work like you expect`}
         </TooltipContent>
       </Tooltip>
     </div>
