@@ -2,16 +2,23 @@
 
 .alias,
 .one-alias {
-  a > .inline-code {
+  .inline-code {
     @include m.transition(background-color);
   }
   @include m.hover {
-    > .inline-code {
+    .inline-code {
       background-color: var(--bg-off-2);
     }
   }
 }
 
 .data-content {
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  > .type {
+    align-items: center;
+    display: inline-flex;
+  }
 }

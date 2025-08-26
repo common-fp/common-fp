@@ -1,8 +1,9 @@
 @use '@/styles/mixins/index' as m;
 
 .glossary-item {
+  align-items: center;
   border-bottom: 1px solid var(--bg);
-  display: inline-block;
+  display: inline-flex;
   text-decoration: none;
 
   &:not(.always-underlined) {

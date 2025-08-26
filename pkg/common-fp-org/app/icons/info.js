@@ -1,13 +1,14 @@
+import cn from 'classnames'
 import './info.scss'
 
-const Info = props => (
+const Info = ({ className, ...restProps }) => (
   <svg
-    className="icon icon-info"
+    className={cn('icon icon-info', className)}
     width={24}
     height={24}
     fill="none"
     viewBox="0 0 24 24"
-    {...props}
+    {...restProps}
   >
     <circle cx={12} cy={12} r={10} stroke="var(--fg)" strokeWidth={1.5} />
     <path

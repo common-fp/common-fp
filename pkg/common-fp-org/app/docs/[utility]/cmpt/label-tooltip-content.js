@@ -1,3 +1,4 @@
+import ClickableHint from '@/cmpt/clickable-hint'
 import GlossaryItem from '@/cmpt/glossary-item'
 import InlineCode from '@/cmpt/inline-code'
 
@@ -41,7 +42,9 @@ const DataContent = ({ tooltip }) => {
   return (
     <div className="data-content">
       <div className="type">
-        <GlossaryItem id="data-type" text="Data type" />
+        <GlossaryItem id="data-type">
+          <ClickableHint text="Data type" iconPosition="before" />
+        </GlossaryItem>
         {': '}
         {type}
       </div>
@@ -51,11 +54,15 @@ const DataContent = ({ tooltip }) => {
 }
 
 const MutableContent = () => (
-  <GlossaryItem id="mutating-data" text="This utility mutates its data" />
+  <GlossaryItem id="mutating-data">
+    <ClickableHint text="This utility mutates its data" />
+  </GlossaryItem>
 )
 
 const AsyncContent = () => (
-  <GlossaryItem id="async-utilities" text="This utility is asynchronous" />
+  <GlossaryItem id="async-utilities">
+    <ClickableHint text="This utility is asynchronous" />
+  </GlossaryItem>
 )
 
 const ContentCmptByType = {

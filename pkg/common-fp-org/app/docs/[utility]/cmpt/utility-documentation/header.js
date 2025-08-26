@@ -9,7 +9,7 @@ const Header = () => {
   if (!utility) {
     return (
       <header className="docs-header">
-        <h2 className="select-a-utility">Select a utility</h2>
+        <h2 className="no-utility">Select a utility</h2>
       </header>
     )
   }

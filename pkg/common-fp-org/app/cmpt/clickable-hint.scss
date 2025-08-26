@@ -1,0 +1,18 @@
+@use '@/styles/mixins/index' as m;
+
+.clickable-hint {
+  align-items: center;
+  display: inline-flex;
+
+  > .icon-info {
+    position: relative;
+    top: -1px;
+
+    &.pos-after {
+      margin-left: 8px;
+    }
+    &.pos-before {
+      margin-right: 5px;
+    }
+  }
+}

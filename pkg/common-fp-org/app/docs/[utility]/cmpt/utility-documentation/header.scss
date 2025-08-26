@@ -24,7 +24,7 @@
     }
 
     @include vs.tablet-and-larger {
-      &.select-a-utility {
+      &.no-utility {
         margin-left: 32px;
       }
     }
