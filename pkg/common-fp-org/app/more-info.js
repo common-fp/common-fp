@@ -45,8 +45,10 @@ const MoreInfoMain = ({ children }) => {
     }
   }
 
+  const ariaLabel = expanded ? 'Collapse' : 'Expand to see more info'
+
   return (
-    <button className="main" onClick={toggleExpanded}>
+    <button className="main" onClick={toggleExpanded} aria-label={ariaLabel}>
       <span className="content">{children}</span>{' '}
       <Chevron expanded={expanded} />
     </button>

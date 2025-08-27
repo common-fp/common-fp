@@ -11,23 +11,38 @@ const SiteHeader = ({ customDocsLinks }) => (
   <header className="site-header">
     <ContentFrame>
       <nav>
-        <Link className="nav-logo" href="/" prefetch={false}>
+        <Link className="nav-logo" href="/" aria-label="Home" prefetch={false}>
           <Logo />
         </Link>
-        <Link className="tablet-and-larger" href="/" prefetch={false}>
+        <Link
+          className="tablet-and-larger"
+          href="/"
+          aria-label="Home"
+          prefetch={false}
+        >
           Home
         </Link>
         {customDocsLinks || (
           <>
-            <Link className="desktop" href="/docs" prefetch={false}>
+            <Link
+              className="desktop"
+              href="/docs"
+              aria-label="Documentation"
+              prefetch={false}
+            >
               Documentation
             </Link>
-            <Link className="tablet-and-smaller" href="/docs" prefetch={false}>
+            <Link
+              className="tablet-and-smaller"
+              href="/docs"
+              aria-label="Documentation"
+              prefetch={false}
+            >
               Docs
             </Link>
           </>
         )}
-        <Link href="/try-it" prefetch={false}>
+        <Link href="/try-it" aria-label="Try it out" prefetch={false}>
           Try It
         </Link>
       </nav>
@@ -35,6 +50,7 @@ const SiteHeader = ({ customDocsLinks }) => (
         target="_blank"
         href="https://github.com/common-fp/common-fp"
         className="icon-link"
+        aria-label="View the source on GitHub"
         prefetch={false}
       >
         <GithubIcon />
@@ -43,6 +59,7 @@ const SiteHeader = ({ customDocsLinks }) => (
         target="_blank"
         href="https://discord.gg/N8e7mtfwNM"
         className="icon-link mobile-and-larger"
+        aria-label="Join our Discord server"
         prefetch={false}
       >
         <DiscordIcon />

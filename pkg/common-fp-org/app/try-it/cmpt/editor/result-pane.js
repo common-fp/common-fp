@@ -46,6 +46,7 @@ const ResultPaneContent = () => {
                 primary
                 disabled={editorCtx.isRunning}
                 onClick={editorCtx.performRun}
+                aria-label="Run the code"
               >
                 Run
               </Button>
@@ -57,7 +58,11 @@ const ResultPaneContent = () => {
         <div className="right">
           <Tooltip openDelay mouseOnly placement="top">
             <TooltipActivator>
-              <Button className="copy-to-url" onClick={editorCtx.copyToUrl}>
+              <Button
+                className="copy-to-url"
+                onClick={editorCtx.copyToUrl}
+                aria-label="Save editor state to URL and copy URL to clipboard"
+              >
                 Copy To Url
               </Button>
             </TooltipActivator>

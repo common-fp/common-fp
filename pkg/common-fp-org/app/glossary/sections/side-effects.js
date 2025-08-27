@@ -49,7 +49,7 @@ const SideEffectsSection = () => {
   return (
     <section>
       <AnchoredHeading level={2} id={anchor.sideEffects} text="Side Effects" />
-      <h4>What is a side effect?</h4>
+      <h3>What is a side effect?</h3>
       <p>
         A side effect is code that modifies state outside the current function.
         For example, {sort} and {reverse} cause side effects since they {mutate}{' '}
@@ -57,7 +57,7 @@ const SideEffectsSection = () => {
         return new arrays and are thus free from side effects.
       </p>
 
-      <h4>Why are they important?</h4>
+      <h3>Why are they important?</h3>
       <p>
         {`
         From a functional programming (FP) perspective, side effects complicate
@@ -71,7 +71,7 @@ const SideEffectsSection = () => {
         simplifying code.
       </p>
 
-      <h4>When are side effects fine?</h4>
+      <h3>When are side effects fine?</h3>
       <p>
         {`
         I don't mean to portray side effects as bad.  Often they're necessary.

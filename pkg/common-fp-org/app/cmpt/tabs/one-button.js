@@ -47,7 +47,11 @@ const OneTabButton = props => {
   const selected = selectedTab === id
 
   return (
-    <button className={cn('one-tab-button', { selected })} onClick={onClick}>
+    <button
+      className={cn('one-tab-button', { selected })}
+      onClick={onClick}
+      aria-label={`Switch to tab '${text}'`}
+    >
       {text}
     </button>
   )

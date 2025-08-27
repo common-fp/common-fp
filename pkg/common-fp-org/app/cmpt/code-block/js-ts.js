@@ -99,6 +99,7 @@ const JsTsCodeBlock = ({ className, code, debugId, showTopPanel = true }) => {
             <>
               <button
                 ref={elTabJs}
+                aria-label="View code in JavaScript"
                 className={cn('tab js', { active: isActive.js })}
                 onClick={onTabJsClicked}
               >
@@ -106,6 +107,7 @@ const JsTsCodeBlock = ({ className, code, debugId, showTopPanel = true }) => {
               </button>
               <button
                 ref={elTabTs}
+                aria-label="View code in TypeScript"
                 className={cn('tab ts', { active: isActive.ts })}
                 onClick={onTabTsClicked}
               >

@@ -47,7 +47,7 @@ const Why = () => {
         assign the alias 'byKey,' as seen below.
         `}
       </p>
-      <h4>Onto the example</h4>
+      <h3>Onto the example</h3>
       <p>
         {`
         Below, we are writing library software that tracks checked-out books.

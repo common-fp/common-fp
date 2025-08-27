@@ -15,6 +15,7 @@ const useTabLinksForMobileSmall = () => {
         className="tablet-and-mobile-small tab-link-icon"
         href={linkHrefs.src}
         target="_blank"
+        aria-label="View utility source in GitHub"
       >
         <GithubIcon />
       </a>,
@@ -23,6 +24,7 @@ const useTabLinksForMobileSmall = () => {
         className="tablet-and-mobile-small tab-link-icon"
         href={linkHrefs.types}
         target="_blank"
+        aria-label="View utility types source in GitHub"
       >
         <TypescriptIcon />
       </a>,

@@ -17,8 +17,18 @@ const Language = () => {
   const langOpts = useMemoOne(() => {
     const lang = isClientControlled ? language : 'js'
     return [
-      { id: 'js', label: '.js', checked: lang === 'js' },
-      { id: 'ts', label: '.ts', checked: lang === 'ts' },
+      {
+        id: 'js',
+        label: '.js',
+        checked: lang === 'js',
+        ariaLabel: 'View code in JavaScript',
+      },
+      {
+        id: 'ts',
+        label: '.ts',
+        checked: lang === 'ts',
+        ariaLabel: 'View code in TypeScript',
+      },
     ]
   }, [language, isClientControlled])
 

@@ -32,18 +32,30 @@ const ThemeSelector = props => {
 
   return (
     <div className={cn('cfp-theme-selector', classNameProp)} {...restProps}>
-      <button onClick={click}>
+      <button onClick={click} aria-label="Select site theme">
         <Moon className="theme-icon theme-dark" />
         <Sun className="theme-icon theme-light" />
       </button>
       <Appear from="left" when={showMenu} className="menu" ref={ref}>
-        <button className={cn({ active: isDark })} onClick={selectDark}>
+        <button
+          className={cn({ active: isDark })}
+          onClick={selectDark}
+          aria-label="Dark"
+        >
           Dark
         </button>
-        <button className={cn({ active: isLight })} onClick={selectLight}>
+        <button
+          className={cn({ active: isLight })}
+          onClick={selectLight}
+          aria-label="Light"
+        >
           Light
         </button>
-        <button className={cn({ active: isSystem })} onClick={selectSystem}>
+        <button
+          className={cn({ active: isSystem })}
+          onClick={selectSystem}
+          aria-label="System"
+        >
           System
         </button>
       </Appear>

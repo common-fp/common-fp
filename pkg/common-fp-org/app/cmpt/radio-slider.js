@@ -69,12 +69,17 @@ const RadioSlider = props => {
             const optionSelected = () => {
               onChange(value)
             }
+            const conditionalProps = {}
+            if (opt.ariaLabel) {
+              conditionalProps['aria-label'] = opt.ariaLabel
+            }
 
             return (
               <button
                 key={opt.id}
                 onClick={optionSelected}
                 className={cn({ selected: opt.checked })}
+                {...conditionalProps}
               >
                 {label}
               </button>

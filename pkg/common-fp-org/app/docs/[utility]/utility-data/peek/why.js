@@ -28,7 +28,7 @@ const Why = () => {
         else you find helpful.
         `}
       </p>
-      <h4>Onto the example</h4>
+      <h3>Onto the example</h3>
       <p>
         Below, we composed a function to calculate the bill.
         {`

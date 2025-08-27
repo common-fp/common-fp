@@ -15,7 +15,11 @@ const Links = ({ className }) => {
     <div className={cn('links', className)}>
       <Tooltip closeDelay={false} openDelay mouseOnly>
         <TooltipActivator className="link-wrapper">
-          <a href={linkHrefs.src} target="_blank">
+          <a
+            href={linkHrefs.src}
+            target="_blank"
+            aria-label="View utility source in GitHub"
+          >
             <GithubIcon />
           </a>
         </TooltipActivator>
@@ -24,7 +28,11 @@ const Links = ({ className }) => {
 
       <Tooltip closeDelay={false} openDelay mouseOnly>
         <TooltipActivator className="link-wrapper">
-          <a href={linkHrefs.types} target="_blank">
+          <a
+            href={linkHrefs.types}
+            target="_blank"
+            aria-label="View utility types source in GitHub"
+          >
             <TypescriptIcon />
           </a>
         </TooltipActivator>

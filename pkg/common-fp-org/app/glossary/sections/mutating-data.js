@@ -43,7 +43,7 @@ const MutatingDataSection = () => {
       />
       <p className="note">{`All utilities that mutate data are prefixed "m".`}</p>
 
-      <h4>What does mutate mean?</h4>
+      <h3>What does mutate mean?</h3>
       <p>
         {`It just means change. For instance, we can mutate an array using `}
         {push} or an object using {assign}.
@@ -55,20 +55,20 @@ const MutatingDataSection = () => {
         `}
       </p>
 
-      <h4>What is data?</h4>
+      <h3>What is data?</h3>
       <p>
         In Common FP, <em>data</em> refers to the last argument a utility takes.
         For example, with <InlineUtility name="mAppendAll" />,{` it's `}
         <InlineCode>base</InlineCode>
       </p>
 
-      <h4>Can everything be mutated?</h4>
+      <h3>Can everything be mutated?</h3>
       <p>
         {`No, in JavaScript we can't mutate `}
         {primitives}, e.g., strings and numbers.
       </p>
 
-      <h4>Why is mutating important?</h4>
+      <h3>Why is mutating important?</h3>
       <p>
         {`
         In functional programming, we avoid mutating since it's a
@@ -81,7 +81,7 @@ const MutatingDataSection = () => {
         mutating it, with the goal of simplifying code.
       </p>
 
-      <h4>Then why add utilities that mutate data?</h4>
+      <h3>Then why add utilities that mutate data?</h3>
       <p>
         {`
         Sometimes we don't have a choice.  Libraries may require us to mutate

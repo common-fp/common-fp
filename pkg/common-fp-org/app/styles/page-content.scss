@@ -2,7 +2,7 @@
 
 .page-content {
   --content-h2-margin: 60px;
-  --content-h4-margin: 40px;
+  --content-h3-margin: 40px;
   --content-list-style-pos: outside;
   --content-list-padding: 24px;
   --content-more-info-margin: 16px 0 0;
@@ -14,8 +14,8 @@
   h2 {
     margin-top: var(--content-h2-margin);
   }
-  h4 {
-    margin-top: var(--content-h4-margin);
+  h3 {
+    margin-top: var(--content-h3-margin);
 
     + p {
       margin-top: 12px;
@@ -28,7 +28,7 @@
 
   @include vs.tablet {
     --content-h2-margin: 50px;
-    --content-h4-margin: 32px;
+    --content-h3-margin: 32px;
     --content-more-info-width: 580px;
   }
   @include vs.mobile {
@@ -40,7 +40,7 @@
   }
   @include vs.mobile-and-smaller {
     --content-h2-margin: 40px;
-    --content-h4-margin: 24px;
+    --content-h3-margin: 24px;
     --content-list-style-pos: inside;
     --content-list-padding: 0;
     --content-margin: 0;

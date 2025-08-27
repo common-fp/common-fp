@@ -14,7 +14,7 @@ const SearchBarStateToggle = props => {
     <div className="search-bar-state-toggle">
       <Tooltip closeDelay={false} openDelay mouseOnly>
         <TooltipActivator>
-          <button type="button" onClick={toggle}>
+          <button type="button" onClick={toggle} aria-label={tooltipContent}>
             <Chevron height="40px" horizontal expanded={expanded} slow />
           </button>
         </TooltipActivator>

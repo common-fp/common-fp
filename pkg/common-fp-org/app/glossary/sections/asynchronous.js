@@ -14,7 +14,7 @@ const AsynchronousSection = () => {
       <AnchoredHeading level={2} id={anchor.async} text="Async Utilities" />
       <p className="note">{`All async utilities are prefixed "p" as in "promise".`}</p>
 
-      <h4>What is an async utility?</h4>
+      <h3>What is an async utility?</h3>
       <p>
         {`
         It's a utility that takes an async function.  For example,
@@ -27,7 +27,7 @@ const AsynchronousSection = () => {
         `}
       </p>
 
-      <h4>{`Why aren't concurrency limits supported?`}</h4>
+      <h3>{`Why aren't concurrency limits supported?`}</h3>
       <p>
         {`
         I want to keep Common FP simple, and variable concurrency complicates

@@ -54,7 +54,7 @@ const DataTypeSection = () => {
         `}
       </p>
 
-      <h4>Why is the Data Type Important?</h4>
+      <h3>Why is the Data Type Important?</h3>
 
       <p>
         {`

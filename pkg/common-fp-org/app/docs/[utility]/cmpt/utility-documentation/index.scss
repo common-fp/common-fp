@@ -9,7 +9,11 @@
     margin-top: 16px;
   }
 
-  p + h4 {
+  p + h3 {
     margin-top: 32px;
+  }
+
+  h3 {
+    font-size: var(--fs-h4);
   }
 }
