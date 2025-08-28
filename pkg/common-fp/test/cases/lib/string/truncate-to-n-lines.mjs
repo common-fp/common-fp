@@ -4,8 +4,10 @@ import truncateToNLines from '#lib/string/truncate-to-n-lines'
 
 suite('string/truncate-to-n-lines', () => {
   test('returns the expected result', () => {
+    expect(truncateToNLines(0)('abc')).to.equal('')
     expect(truncateToNLines(1)('abc')).to.equal('abc')
     expect(truncateToNLines(1)('abc\ndef')).to.equal('abc...')
+    expect(truncateToNLines(1)('abc\r\ndef')).to.equal('abc...')
     expect(truncateToNLines(2)('abc\ndef')).to.equal('abc\ndef')
     expect(truncateToNLines(2)('abc\ndef\nghi')).to.equal('abc\ndef\n...')
   })

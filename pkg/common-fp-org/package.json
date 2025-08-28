@@ -16,8 +16,8 @@
     "preview": "serve out",
     "build-vfs-slim": "node --disable-warning=ExperimentalWarning scripts/build-vfs-slim/index.mjs",
     "build-ts-editor-worker-libs": "node scripts/build-ts-editor-worker-libs/index.mjs",
-    "test": "mocha --timeout 5000 --ui tdd -r test/init.mjs --recursive test/cases",
-    "test-one": "mocha --timeout 5000 --ui tdd -r test/init.mjs"
+    "test": "mocha --recursive test/cases",
+    "test-one": "mocha"
   },
   "imports": {
     "#code-example-transforms": "./misc/code-example-transforms.mjs",
@@ -130,5 +130,14 @@
   },
   "optionalDependencies": {
     "@next/swc-linux-x64-gnu": "15.3.0"
+  },
+  "mocha": {
+    "node-option": [
+      "experimental-import-meta-resolve",
+      "loader=esm-module-alias/loader"
+    ],
+    "timeout": 60000,
+    "ui": "tdd",
+    "require": "test/init.mjs"
   }
 }

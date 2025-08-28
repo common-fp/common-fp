@@ -5,9 +5,9 @@ import mShuffle from '#lib/mutable/array/m-shuffle'
 suite('mutable/array/m-shuffle', () => {
   test('returns the expected result', () => {
     const arr = [1, 2, 3]
-    si.getRandomInt.resultPerCall = [1, 2]
+    si.getRandomInt.resultPerCall = [0, 2]
     const result = mShuffle(arr)
-    expect(result).to.deep.equal([2, 3, 1])
+    expect(result).to.deep.equal([1, 3, 2])
     expect(arr).to.equal(result)
   })
 

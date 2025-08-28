@@ -11,7 +11,7 @@ suite('assert-arg-has-values-of-type', () => {
     test('all values are the expected type', () => {
       expect(() =>
         assertArgHasValuesOfType(['a', 'b'], 'argName', 'string', 'utilName')
-      )
+      ).to.not.throw()
     })
   })
 

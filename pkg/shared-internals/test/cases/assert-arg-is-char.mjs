@@ -3,7 +3,7 @@ import assertArgIsChar from '#src/assert-arg-is-char'
 
 suite('assert-arg-is-char', () => {
   test('success', () => {
-    expect(() => assertArgIsChar('a', 'argName', 'utilName'))
+    expect(() => assertArgIsChar('a', 'argName', 'utilName')).not.to.throw()
   })
 
   suite('error', () => {

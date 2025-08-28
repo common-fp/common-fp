@@ -2,6 +2,7 @@ import { expect } from 'chai'
 import toEnglishList from '#src/to-english-list'
 
 test('to-english-list', () => {
+  expect(toEnglishList('and', [])).to.equal('')
   expect(toEnglishList('and', ['string'])).to.equal('string')
   expect(toEnglishList('and', ['string', 'number'])).to.equal(
     'string and number'
@@ -9,4 +10,7 @@ test('to-english-list', () => {
   expect(toEnglishList('or', ['string', 'number', 'boolean'])).to.equal(
     'string, number or boolean'
   )
+  expect(
+    toEnglishList('or', new Set(['string', 'number', 'boolean']))
+  ).to.equal('string, number or boolean')
 })

@@ -6,15 +6,22 @@
   "sideEffects": false,
   "scripts": {
     "build": "node ./scripts/build/index.mjs",
+    "coverage": "c8 pnpm test-lite",
+    "coverage-incomplete": "c8 --skip-full pnpm test-lite",
+    "coverage-check": "c8 --check-coverage --100 pnpm test-lite",
+    "coverage-one": "sh scripts/coverage-one.sh",
     "lint": "pnpm eslint",
     "prepack": "sh '../../scripts/prepack.sh' common-fp",
     "postpack": "sh '../../scripts/postpack.sh' common-fp",
-    "test-full": "nve --parallel 20,22,24 mocha --ui tdd -r test/init.mjs --recursive test/cases",
-    "test-lite": "mocha --ui tdd -r test/init.mjs --recursive test/cases",
-    "test-one-file": "mocha --ui tdd -r test/init.mjs"
+    "test-full": "testSupportedNodeVersions mocha --ui tdd --require test/init.mjs --recursive test/cases",
+    "test-lite": "mocha --recursive test/cases",
+    "test-one": "mocha"
   },
   "files": [
-    "dist"
+    "dist",
+    "misc/header_dark.svg",
+    "misc/header_light.svg",
+    "misc/coverage-badge.svg"
   ],
   "main": "./dist/index.cjs",
   "type": "module",
@@ -52,14 +59,16 @@
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
   "devDependencies": {
-    "common-fp-types": "workspace:*",
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/root": "workspace:*",
     "@common-fp/test-utils": "workspace:*",
     "@common-fp/tsconfig": "workspace:*",
     "async": "^3.2.6",
+    "c8": "^10.1.3",
     "chai": "^5.1.2",
     "change-case": "^5.4.4",
+    "common-fp-types": "workspace:*",
     "cpy": "^11.1.0",
     "dedent": "^1.5.3",
     "del": "^7.1.0",
@@ -68,7 +77,8 @@
     "globby": "^14.0.2",
     "make-dir": "^5.0.0",
     "mocha": "^10.6.0",
-    "nve": "^18.0.3",
+    "monocart-coverage-reports": "^2.12.6",
+    "nvexeca": "^11.0.4",
     "prettier": "^3.3.3",
     "tsx": "^4.19.3",
     "typescript": "^5.9.2"
@@ -95,5 +105,19 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "mocha": {
+    "node-option": [
+      "experimental-import-meta-resolve",
+      "import=fibble/register"
+    ],
+    "ui": "tdd",
+    "require": "test/init.mjs"
+  },
+  "c8": {
+    "include": [
+      "src/**/*.mjs"
+    ],
+    "experimental-monocart": true
   }
 }

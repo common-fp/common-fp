@@ -38,6 +38,12 @@ export default {
     ],
     // import-x plugin rules
     'import-x/group-exports': 'error',
+    'import-x/namespace': [
+      'error',
+      {
+        allowComputed: true,
+      },
+    ],
     'import-x/newline-after-import': 'error',
     'import-x/no-cycle': 'error',
     'import-x/no-deprecated': 'error',
@@ -47,13 +53,7 @@ export default {
     'import-x/no-named-as-default': 'off',
     'import-x/no-relative-packages': 'error',
     'import-x/no-unresolved': ['error', { commonjs: true }],
-    'import-x/no-unused-modules': ['error'],
+    'import-x/no-unused-modules': 'error',
     'import-x/no-useless-path-segments': 'error',
-    'import-x/namespace': [
-      'error',
-      {
-        allowComputed: true,
-      },
-    ],
   },
 }

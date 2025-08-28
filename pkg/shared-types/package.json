@@ -12,7 +12,7 @@
     "lint": "pnpm eslint 'src/**/*' 'scripts/**/*' 'test/**/*'",
     "prepack": "sh '../../scripts/prepack.sh' shared-types",
     "postpack": "sh '../../scripts/postpack.sh' shared-types",
-    "test-full": "tstyche",
+    "test-full": "testSupportedTSVersions",
     "test-lite": "tstyche --target 5.9"
   },
   "exports": {
@@ -40,6 +40,7 @@
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/test-utils": "workspace:*",
     "@common-fp/tsconfig": "workspace:*",
     "cpy": "^11.1.0",
     "del": "^7.1.0",

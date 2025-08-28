@@ -7,3 +7,5 @@ dist/
 /pkg/*/todo.*
 .DS_Store
 *.pem
+/pkg/*/coverage/
+/test-results/

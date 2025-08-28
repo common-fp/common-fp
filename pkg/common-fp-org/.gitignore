@@ -18,3 +18,4 @@
 /app/bundles/*
 !/app/bundles/readme.md
 /app/deps/vfs-slim.mjs
+/.wrangler/

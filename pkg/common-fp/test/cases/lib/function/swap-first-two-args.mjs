@@ -5,17 +5,24 @@ import swapFirstTwoArgs from '#lib/function/swap-first-two-args'
 
 suite('function/swap-first-two-args', () => {
   test('no args - fn is called without any arguments', () => {
-    const returnFirstArg = spy(idx => idx)
+    const returnFirstArg = spy(str => str)
     const fn = swapFirstTwoArgs(returnFirstArg)
     fn()
     expect(returnFirstArg.argsPerCall).to.deep.equal([[]])
   })
 
   test('one arg - fn is called with undefined', () => {
-    const returnFirstArg = spy(idx => idx)
+    const returnFirstArg = spy(str => str)
     const fn = swapFirstTwoArgs(returnFirstArg)
     fn('one arg')
     expect(returnFirstArg.argsPerCall).to.deep.equal([[undefined]])
+  })
+
+  test('two args', () => {
+    const returnFirstArg = spy(str => str)
+    const fn = swapFirstTwoArgs(returnFirstArg)
+    fn('first', 'second')
+    expect(returnFirstArg.argsPerCall).to.deep.equal([['second', 'first']])
   })
 
   test('many args, typical usage', () => {

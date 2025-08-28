@@ -21,6 +21,17 @@ suite('date/date-is-between', () => {
       expect(dateIsBetween(now, aYearFromNow)(aYearAgo)).to.be.false
     })
 
+    // the first two arguments are reversed from the 'default behavior' test
+    // this just shows dateIsBetween can be called with the earlier date first
+    // or second, it doesn't matter
+    test('handles reversed order', () => {
+      expect(dateIsBetween(aYearFromNow, aYearAgo)(now)).to.be.true
+      expect(dateIsBetween(aYearFromNow, aYearAgo)(aYearFromNow)).to.be.true
+      expect(dateIsBetween(aYearFromNow, aYearAgo)(aYearAgo)).to.be.true
+      expect(dateIsBetween(now, aYearAgo)(aYearFromNow)).to.be.false
+      expect(dateIsBetween(aYearFromNow, now)(aYearAgo)).to.be.false
+    })
+
     test('exclusive min', () => {
       const exclusiveMin = true
       const exclusive = { exclusiveMin }

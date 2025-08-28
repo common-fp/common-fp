@@ -6,9 +6,7 @@
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
   "main": "index.mjs",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",

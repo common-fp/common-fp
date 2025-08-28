@@ -8,26 +8,26 @@
   "license": "SEE LICENSE IN license.txt",
   "main": "",
   "scripts": {
-    "test": "pnpm test-types && mocha --ui tdd --recursive test/cases",
-    "test-one": "mocha --ui tdd",
+    "test": "pnpm test-types && mocha --recursive test/cases",
+    "test-one": "mocha",
     "test-types-one-target": "sh scripts/test-types.sh --one-target",
     "test-types": "sh scripts/test-types.sh",
     "lint": "pnpm eslint 'test/**/*' 'test-types/**/*'"
   },
   "keywords": [],
   "devDependencies": {
-    "common-fp": "workspace:*",
-    "common-fp-types": "workspace:*",
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
-    "@common-fp/root": "workspace:*",
     "@common-fp/shared-internals": "workspace:*",
     "@common-fp/shared-internals-types": "workspace:*",
     "@common-fp/shared-types": "workspace:*",
+    "@common-fp/test-utils": "workspace:*",
     "@common-fp/tsconfig": "workspace:*",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "chai": "^5.1.2",
     "change-case": "^5.4.4",
+    "common-fp": "workspace:*",
+    "common-fp-types": "workspace:*",
     "deep-eql": "^5.0.2",
     "del": "^7.1.0",
     "esbuild": "^0.24.2",
@@ -40,5 +40,9 @@
     "tstyche": "^4.3.0",
     "typescript": "^5.9.2",
     "webpack": "^5.101.0"
+  },
+  "mocha": {
+    "ui": "tdd",
+    "timeout": 20000
   }
 }

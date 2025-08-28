@@ -1,32 +1,36 @@
 import { expect } from 'chai'
-import { objToMap, spy } from '@common-fp/test-utils'
+import { objToMap, spy, suiteWithResources } from '@common-fp/test-utils'
 import { sharedInternals as si } from '#test/spies'
 import update from '#lib/update'
 
 suite('update', () => {
   const inc = n => n + 1
   const dec = n => n - 1
+  const noMatch = spy(() => {})
 
-  suite('returns the expected result', () => {
+  suiteWithResources('returns the expected result', [noMatch], () => {
     test('array mappers', () => {
-      const tick = update([inc, dec])
+      const tick = update([inc, dec, noMatch])
       expect(tick([1, 5])).to.deep.equal([2, 4])
+      expect(noMatch.calls.length).to.equal(0)
     })
 
     test('map mappers', () => {
-      const tick = update(objToMap({ a: inc, b: dec }))
+      const tick = update(objToMap({ a: inc, b: dec, c: noMatch }))
       expect(tick(objToMap({ a: 1, b: 5 }))).to.deep.equal(
         objToMap({ a: 2, b: 4 })
       )
+      expect(noMatch.calls.length).to.equal(0)
     })
 
     test('object mappers', () => {
-      const tick = update({ 0: inc, 1: dec })
+      const tick = update({ 0: inc, 1: dec, 2: noMatch })
       expect(tick([1, 5])).to.deep.equal([2, 4])
       expect(tick({ 0: 1, 1: 5 })).to.deep.equal({ 0: 2, 1: 4 })
       expect(tick(objToMap({ 0: 1, 1: 5 }))).to.deep.equal(
         objToMap({ 0: 2, 1: 4 })
       )
+      expect(noMatch.calls.length).to.equal(0)
     })
   })
 

@@ -13,6 +13,16 @@ suite('number/number-is-between', () => {
       expect(numberIsBetween(min, max)(3)).to.be.true
       expect(numberIsBetween(min, max)(4)).to.be.false
     })
+
+    // the first two arguments are reversed from the 'default behavior' test
+    // this just shows numberIsBetween can be called with the lower number first
+    // or second, it doesn't matter
+    test('default behavior', () => {
+      expect(numberIsBetween(max, min)(0)).to.be.false
+      expect(numberIsBetween(max, min)(1)).to.be.true
+      expect(numberIsBetween(max, min)(3)).to.be.true
+      expect(numberIsBetween(max, min)(4)).to.be.false
+    })
     test('exclusive min', () => {
       const exclusiveMin = true
       expect(numberIsBetween(min, max, { exclusiveMin })(1)).to.be.false

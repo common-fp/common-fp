@@ -7,6 +7,11 @@ suite('transpose', () => {
     ['a', 'b', 'c'],
     [1, 2, 3],
   ]
+
+  test('handles an empty array', () => {
+    expect(transpose([])).to.deep.equal([])
+  })
+
   test('returns the expected result', () => {
     expect(transpose(arr)).to.deep.equal([
       ['a', 1],

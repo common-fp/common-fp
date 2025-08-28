@@ -26,7 +26,7 @@ function createLabels() {
   }, {})
 
   const async = {
-    icon: '⥣',
+    icon: 'ǁ',
     type: 'async',
   }
 

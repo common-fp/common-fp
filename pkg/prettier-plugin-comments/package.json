@@ -8,7 +8,7 @@
   "main": "src/index.mjs",
   "scripts": {
     "lint": "eslint 'src/**/*' 'test/*'",
-    "test": "mocha --ui tdd test"
+    "test": "mocha test"
   },
   "keywords": [],
   "devDependencies": {
@@ -22,5 +22,8 @@
   },
   "peerDependencies": {
     "prettier": "^3.3.3"
+  },
+  "mocha": {
+    "ui": "tdd"
   }
 }

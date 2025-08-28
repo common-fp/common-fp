@@ -15,20 +15,26 @@
     "check-deps": "sh ./scripts/check-deps.sh",
     "lint": "pnpm run --recursive lint",
     "test": "echo 'use either test-full or test-lite' && exit 1",
-    "test-full": "sh ./scripts/test.sh",
-    "test-lite": "sh ./scripts/test.sh --lite",
-    "validate": "pnpm build && pnpm check-deps && pnpm lint && pnpm test-full"
+    "test-full": "node ./scripts/test/index.mjs --full",
+    "test-lite": "node ./scripts/test/index.mjs --lite",
+    "validate": "sh ./scripts/validate.sh"
   },
   "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
+    "dedent": "^1.6.0",
+    "del": "^7.1.0",
     "depcheck": "^1.4.7",
     "eslint": "^9.32.0",
+    "execa": "^9.6.0",
+    "globby": "^14.0.2",
     "lean-package": "^1.4.0",
+    "listr2": "^9.0.2",
+    "make-dir": "^5.0.0",
     "prettier": "^3.3.3"
   }
 }

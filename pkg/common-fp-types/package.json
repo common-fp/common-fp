@@ -13,9 +13,9 @@
     "lint": "eslint 'test-types/**/*' 'test/**/*' 'scripts/**/*' 'src/**/*'",
     "postpack": "sh '../../scripts/postpack.sh' common-fp-types",
     "prepack": "sh '../../scripts/prepack.sh' common-fp-types",
-    "test-full": "pnpm validate-tests && tstyche",
+    "test-full": "pnpm validate-tests && testSupportedTSVersions",
     "test-lite": "pnpm validate-tests && tstyche --target 5.9",
-    "validate-tests": "mocha --ui tdd --recursive test"
+    "validate-tests": "mocha --recursive test"
   },
   "exports": {
     ".": "./dist/index.d.ts",
@@ -64,5 +64,8 @@
   },
   "peerDependencies": {
     "typescript": "5.x"
+  },
+  "mocha": {
+    "ui": "tdd"
   }
 }

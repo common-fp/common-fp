@@ -2,9 +2,11 @@
 
 On npm: `@common-fp/shared-internals`
 
-This holds functions used to build the `common-fp` utilities - things like
+![Full code coverage](./misc/coverage-badge.svg)
+
+These are the functions used to build the `common-fp` utilities - things like
 input assertions and determining the input type.
 
-This package exists because originally I imagined sharing the internals for
+This package exists because I originally imagined sharing the internals for
 other devs to build their own FP utilities. But I've decided to wait on that
 because it would take time to refine the API and write documentation.

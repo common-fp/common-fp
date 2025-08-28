@@ -31,4 +31,11 @@ suite('internal/contains-type-to-fn', () => {
     val = 4
     expect(containsTypeToFn.set(coll, val)).to.be.false
   })
+  test('string', () => {
+    const coll = 'abc'
+    let val = 'ab'
+    expect(containsTypeToFn.string(coll, val)).to.be.true
+    val = 'cd'
+    expect(containsTypeToFn.string(coll, val)).to.be.false
+  })
 })

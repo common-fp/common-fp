@@ -4,15 +4,17 @@ import assertArgIsInt from '#src/assert-arg-is-int'
 suite('assert-arg-is-int', () => {
   suite('success', () => {
     test('default case', () => {
-      expect(() => assertArgIsInt(-1, 'argName', 'utilName'))
+      expect(() => assertArgIsInt(-1, 'argName', 'utilName')).not.to.throw()
     })
     test('non-negative', () => {
       expect(() =>
         assertArgIsInt(0, 'argName', 'utilName', { nonNegative: true })
-      )
+      ).not.to.throw()
     })
     test('positive', () => {
-      expect(() => assertArgIsInt(1, 'argName', 'utilName', { positive: true }))
+      expect(() =>
+        assertArgIsInt(1, 'argName', 'utilName', { positive: true })
+      ).not.to.throw()
     })
   })
 

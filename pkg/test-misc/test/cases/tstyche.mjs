@@ -2,11 +2,14 @@ import fsp from 'node:fs/promises'
 import path from 'node:path'
 import deepEql from 'deep-eql'
 import { globby } from 'globby'
-import * as repoCfg from '@common-fp/root/config'
 
 const { dirname } = import.meta
 
 const fromRepoRoot = fpath => path.resolve(dirname, '../../..', fpath)
+const requiredTstycheProps = Object.entries({
+  target: ['>=5.0'],
+  checkSuppressedErrors: true,
+})
 
 suite('tstyche configs', () => {
   test('configs have required props per /config.mjs -> tstyche', async () => {
@@ -20,10 +23,8 @@ suite('tstyche configs', () => {
       })
     )
 
-    const requiredProps = Array.from(Object.entries(repoCfg.tstyche))
-
     const badConfigs = configInfo.filter(info => {
-      for (const [k, v] of requiredProps) {
+      for (const [k, v] of requiredTstycheProps) {
         if (!deepEql(info.cfg[k], v)) return true
       }
     })

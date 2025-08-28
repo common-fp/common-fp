@@ -1,7 +1,15 @@
-# Welcome to Common FP
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./misc/header_dark.svg">
+  <img height="66" alt="Welcome To Common FP" src="./misc/header_light.svg">
+</picture>
+
+<br>
+<br>
 
 Before you start, I suggest visiting [common-fp.org](https://common-fp.org)
 instead. It has all the below information and looks better :)
+
+![Full code coverage](./misc/coverage-badge.svg)
 
 ## Contents
 
