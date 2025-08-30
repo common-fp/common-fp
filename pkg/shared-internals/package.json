@@ -2,7 +2,7 @@
   "name": "@common-fp/shared-internals",
   "description": "Code used to build common-fp utilities",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "sideEffects": false,
   "main": "dist/index.cjs",
   "type": "module",
