@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./misc/header_dark.svg">
-  <img height="66" alt="Welcome To Common FP" src="./misc/header_light.svg">
+  <img alt="Welcome To Common FP" src="./misc/header_light.svg">
 </picture>
 
 <br>
