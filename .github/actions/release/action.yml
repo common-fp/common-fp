@@ -29,7 +29,7 @@ runs:
         pnpm publish --no-git-checks \
         --filter "${{ inputs.pkgDir }}" \
         --access public \
-        --tag "${{ contains(inputs.tag, '-beta.') && 'beta' || 'latest' }}"
+        --tag "${{ contains(inputs.tag, '-beta.') && 'beta' || 'latest' }}" \
         "${{ inputs.packed }}"
       env:
         NODE_AUTH_TOKEN: ${{ inputs.npmToken }}
@@ -45,3 +45,4 @@ runs:
         tag_name: ${{ inputs.tag }}
         fail_on_unmatched_files: true
         body: 'Release ${{ inputs.pkgName }}'
+        prerelease: ${{ contains(inputs.tag, '-beta.') }}

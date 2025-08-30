@@ -1,9 +1,7 @@
-<a href="https://common-fp.org" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./misc/header_dark.svg">
-    <img alt="Welcome To Common FP" src="./misc/header_light.svg">
-  </picture>
-</a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./misc/header_dark.svg">
+  <img alt="Welcome To Common FP" src="./misc/header_light.svg">
+</picture>
 
 <br>
 <br>
