@@ -29,6 +29,7 @@ runs:
         pnpm publish --no-git-checks \
         --filter "${{ inputs.pkgDir }}" \
         --access public \
+        --tag "${{ contains(inputs.tag, '-beta.') && 'beta' || 'latest' }}"
         "${{ inputs.packed }}"
       env:
         NODE_AUTH_TOKEN: ${{ inputs.npmToken }}
