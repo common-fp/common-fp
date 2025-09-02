@@ -16,7 +16,7 @@ fi
 
 for p in ${pkgs}; do
   if [ "${isLocalDev}" = 'true' -a "${p}" = "common-fp-org" ]; then
-    pnpm --filter "${p}" pre-build
+    pnpm --filter "${p}" prebuild
   else
     pnpm --filter "${p}" build
   fi

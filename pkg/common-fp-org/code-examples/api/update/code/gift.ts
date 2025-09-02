@@ -14,5 +14,5 @@ const updatedFriend = giftCatsCradleTo(friend)
 console.log(updatedFriend)
 /// is {
 ///   name: luke
-///   cart: [cozy gloves, alligator socks
+///   cart: [Player Piano, Cat's Cradle]
 /// }

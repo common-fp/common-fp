@@ -72,8 +72,9 @@ console.log(resultMap)
 You may find Common FP helpful if you...
 
 - are looking for a utility library that works on data types generically.
-  - For example, `mapValues` can map over the values of an array, object, Map or
-    Set, returning you a new instance of the type you passed in.
+  - For example, [mapValues](https://common-fp.org/docs/mapValues) can map over
+    the values of an array, object, Map or Set, returning a new instance of the
+    type you passed in.
 - have run into limitations with chaining.
   - Chaining feels natural until you want to call a function outside the
     prototype. Then you either need to modify the prototype and account for

@@ -1,7 +1,6 @@
 ## Common FP Types
 
-This hosts the source for `common-fp-types`, which is an optional peer
-dependency to common-fp.
+This holds the types for `common-fp`.
 
 I want to keep the types in a separate package for versioning purposes, as I
 don't use typescript regularly and haven't ironed out how I want to manage it.

@@ -7,14 +7,20 @@ import type {
 
 declare function update<F extends UnknownFunction, K>(
   mapperFns: ReadonlyMap<K, F>
-): <C extends UnknownMap>(collection: C) => C
+): <CIn extends UnknownMap, COut extends UnknownMap = CIn>(
+  collection: CIn
+) => COut
 
 declare function update<F extends UnknownFunction>(
   mapperFns: ReadonlyArray<F>
-): <C extends UnknownArray>(collection: C) => C
+): <CIn extends UnknownArray, COut extends UnknownArray = CIn>(
+  collection: CIn
+) => COut
 
 declare function update<F extends UnknownFunction, K extends PropertyKey>(
   mapperFns: Record<K, F>
-): <C extends EntryCollection>(collection: C) => C
+): <CIn extends EntryCollection, COut extends EntryCollection = CIn>(
+  collection: CIn
+) => COut
 
 export default update
