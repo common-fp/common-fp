@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useContext, useRef, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import cn from 'classnames'
 import { useDebouncedEffect } from 'use-debounced-effect'
 import { useCallbackOne } from 'use-memo-one'
@@ -43,6 +43,10 @@ const SearchBar = ({ className }) => {
       setIsToggling(false)
     }
   }, [expanded, isToggling])
+
+  useEffect(() => {
+    if (!utility && !expanded) toggleExpanded()
+  }, [expanded, utility, toggleExpanded])
 
   const stateToggleProps = {
     expanded,
