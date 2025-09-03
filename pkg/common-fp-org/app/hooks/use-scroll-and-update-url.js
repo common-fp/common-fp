@@ -16,7 +16,7 @@ const useScrollAndUpdateUrl = id => {
           const el = document.getElementById(id)
           const elStyle = window.getComputedStyle(el)
           const offset = -pxToNum(elStyle.scrollPaddingTop, 0)
-          const scrollSucceeded = await smoothScrollTo(el, offset)
+          const scrollSucceeded = await smoothScrollTo(el, { offset })
 
           if (!scrollSucceeded) return
 

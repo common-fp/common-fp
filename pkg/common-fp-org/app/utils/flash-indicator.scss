@@ -1,0 +1,25 @@
+@use '@/styles/mixins/index' as m;
+
+.flash-indicator {
+  animation: flash 1.6s ease 200ms 1 alternate forwards;
+  background-color: var(--primary);
+  left: -32px;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

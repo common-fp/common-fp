@@ -2,10 +2,13 @@ import { getMaxScrollY } from './index'
 import { commonScrollPaddingTopPx } from './style-variables'
 import log from './log'
 
-const smoothScrollTo = (elem, offset = -commonScrollPaddingTopPx) => {
+import './flash-indicator.scss'
+
+const smoothScrollTo = (elem, opts) => {
+  const { offset = -commonScrollPaddingTopPx, showIndicator } = opts
   const rect = elem.getBoundingClientRect()
   const targetPosition = Math.min(
-    Math.floor(rect.top + self.scrollY + offset),
+    Math.floor(rect.top + window.scrollY + offset),
     getMaxScrollY()
   )
 
@@ -14,27 +17,43 @@ const smoothScrollTo = (elem, offset = -commonScrollPaddingTopPx) => {
     behavior: 'smooth',
   })
 
+  const flashIndicator = () => {
+    const additionalHeightOneSide = 12
+    const indicator = document.createElement('div')
+    indicator.className = 'flash-indicator'
+    Object.assign(indicator.style, {
+      height: `${elem.offsetHeight + additionalHeightOneSide * 2}px`,
+      marginTop: `-${additionalHeightOneSide}px`,
+    })
+    elem.appendChild(indicator)
+  }
+
   return new Promise((resolve, reject) => {
     try {
-      // after a second just resolve
+      const finish = successful => {
+        if (successful && showIndicator) flashIndicator()
+        resolve(successful)
+      }
+
+      // after a second just finish
       const timeoutId = setTimeout(() => {
-        resolve(false)
+        finish(false)
       }, 1000)
 
       const scrollHandler = () => {
         try {
-          if (self.scrollY === targetPosition) {
+          if (window.scrollY === targetPosition) {
             window.removeEventListener('scroll', scrollHandler)
             clearTimeout(timeoutId)
-            resolve(true)
+            finish(true)
           }
         } catch (err) {
           reject(err)
         }
       }
-      if (self.scrollY === targetPosition) {
+      if (window.scrollY === targetPosition) {
         clearTimeout(timeoutId)
-        resolve(true)
+        finish(true)
       } else {
         window.addEventListener('scroll', scrollHandler)
         elem.getBoundingClientRect()
