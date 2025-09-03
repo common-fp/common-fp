@@ -16,7 +16,7 @@ const SubNav = ({ className, anchors, ...restProps }) => {
       const anchor = queryString.parse(evt.target.getAttribute('href'))[
         'scroll-to'
       ]
-      smoothScrollTo(document.getElementById(anchor))
+      smoothScrollTo(document.getElementById(anchor), { showIndicator: true })
     },
     [smoothScrollTo]
   )

@@ -1,25 +1,33 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import debounce from 'debounce'
 import queryString from 'query-string'
-import { getMaxScrollY } from '../utils/index'
-import { commonScrollPaddingTopPx } from '../utils/style-variables'
-import { mapKeys, passThrough, sortBy } from '../fp-utils'
+import { SiteCtx } from '@/site-context'
+import { getMaxScrollY } from '@/utils/index'
+import { commonScrollPaddingTopPx } from '@/utils/style-variables'
+import { mapKeys, passThrough, sortBy } from '@/fp-utils'
 
 let listener
 let cleanup
 
 const useTrackAnchorsOnScroll = anchors => {
+  const { pageState } = useContext(SiteCtx)
+  const { anchorRecentlyScrolledTo } = pageState
   useEffect(() => {
-    const cleanup = trackAnchorsOnScroll(Object.values(anchors))
+    const cleanup = trackAnchorsOnScroll(
+      Object.values(anchors),
+      anchorRecentlyScrolledTo
+    )
     return cleanup
-  }, [anchors])
+  }, [anchorRecentlyScrolledTo, anchors])
 }
 
-function trackAnchorsOnScroll(anchorsToTrack) {
+function trackAnchorsOnScroll(anchorsToTrack, anchorRecentlyScrolledTo) {
   if (typeof window === 'undefined') return
   if (listener) return cleanup
 
   listener = debounce(() => {
+    if (anchorRecentlyScrolledTo) return
+
     const { scrollY } = window
     const posToAnchorEntries = buildSortedPositionToAnchor(anchorsToTrack)
     const maxPos = getMaxScrollY()

@@ -1,10 +1,12 @@
-import { getMaxScrollY } from './index'
+import { animate } from 'motion'
+import debounce from 'debounce'
+import { getMaxScrollY, scrollYToHideSubNav } from './index'
 import { commonScrollPaddingTopPx } from './style-variables'
 import log from './log'
 
 import './flash-indicator.scss'
 
-const smoothScrollTo = (elem, opts) => {
+const smoothScrollTo = (elem, opts = {}) => {
   const { offset = -commonScrollPaddingTopPx, showIndicator } = opts
   const rect = elem.getBoundingClientRect()
   const targetPosition = Math.min(
@@ -26,6 +28,8 @@ const smoothScrollTo = (elem, opts) => {
       marginTop: `-${additionalHeightOneSide}px`,
     })
     elem.appendChild(indicator)
+
+    initClearIndicator()
   }
 
   return new Promise((resolve, reject) => {
@@ -65,6 +69,29 @@ const smoothScrollTo = (elem, opts) => {
     log.error('error during smoothScrollTo\n', err)
     return false
   })
+}
+
+function initClearIndicator() {
+  const initialScrollY = window.scrollY
+  let isClearing = false
+  const clearFlashIndicator = debounce(async () => {
+    try {
+      if (isClearing) return
+
+      const distance = Math.abs(window.scrollY - initialScrollY)
+      if (window.scrollY < scrollYToHideSubNav || distance >= 400) {
+        isClearing = true
+        const indicator = document.querySelector('.flash-indicator')
+        await animate(indicator, { opacity: [1, 0] }, { duration: 0.4 })
+        window.removeEventListener('scroll', clearFlashIndicator)
+        indicator.remove()
+      }
+    } catch (err) {
+      console.error('error during clearFlashIndicator\n', err)
+    }
+  }, 50)
+
+  window.addEventListener('scroll', clearFlashIndicator)
 }
 
 export default smoothScrollTo

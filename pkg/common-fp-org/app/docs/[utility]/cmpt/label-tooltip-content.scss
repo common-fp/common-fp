@@ -20,5 +20,11 @@
   > .type {
     align-items: center;
     display: inline-flex;
+
+    > .type-content {
+      align-items: center;
+      border-bottom: 1px solid var(--bg);
+      display: inline-flex;
+    }
   }
 }

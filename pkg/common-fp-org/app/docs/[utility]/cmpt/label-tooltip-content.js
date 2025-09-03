@@ -4,6 +4,7 @@ import InlineCode from '@/cmpt/inline-code'
 
 import './label-tooltip-content.scss'
 
+const iconProps = { height: 20, width: 20 }
 const mdnBaseUrl =
   'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects'
 
@@ -43,10 +44,16 @@ const DataContent = ({ tooltip }) => {
     <div className="data-content">
       <div className="type">
         <GlossaryItem id="data-type">
-          <ClickableHint text="Data type" iconPosition="before" />
+          <ClickableHint
+            text="Data type"
+            iconPosition="before"
+            iconProps={iconProps}
+          />
         </GlossaryItem>
-        {': '}
-        {type}
+        <span className="type-content">
+          {': '}
+          {type}
+        </span>
       </div>
       {ie && <div className="ie">i.e. {ie}</div>}
     </div>
@@ -55,13 +62,13 @@ const DataContent = ({ tooltip }) => {
 
 const MutableContent = () => (
   <GlossaryItem id="mutating-data">
-    <ClickableHint text="This utility mutates its data" />
+    <ClickableHint text="This utility mutates its data" iconProps={iconProps} />
   </GlossaryItem>
 )
 
 const AsyncContent = () => (
   <GlossaryItem id="async-utilities">
-    <ClickableHint text="This utility is asynchronous" />
+    <ClickableHint text="This utility is asynchronous" iconProps={iconProps} />
   </GlossaryItem>
 )
 

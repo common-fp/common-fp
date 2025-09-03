@@ -15,6 +15,7 @@ const useSmoothScrollTo = () => {
           await waitSlowAnimationDur()
         }
 
+        updatePageState({ anchorRecentlyScrolledTo: true })
         const result = await smoothScrollTo(...smoothScrollToArgs)
 
         if (isSubNavShown) {

@@ -7,13 +7,13 @@ import InfoIcon from '@/icons/info'
 
 import './clickable-hint.scss'
 
-const ClickableHint = ({ children, text, iconPosition }) => {
+const ClickableHint = ({ children, text, iconPosition, iconProps = {} }) => {
   const pos = iconPosition || 'after'
   return (
     <span className="clickable-hint">
-      {pos === 'before' && <InfoIcon className="pos-before" />}
+      {pos === 'before' && <InfoIcon className="pos-before" {...iconProps} />}
       {text || children}
-      {pos !== 'before' && <InfoIcon className="pos-after" />}
+      {pos !== 'before' && <InfoIcon className="pos-after" {...iconProps} />}
     </span>
   )
 }

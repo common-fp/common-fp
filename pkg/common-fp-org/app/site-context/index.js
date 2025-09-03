@@ -11,6 +11,7 @@ const initialPageState = {
   hideSubNav: false,
   isSubNavShown: false,
   willScroll: false,
+  anchorRecentlyScrolledTo: false,
 }
 
 const Context = props => {
@@ -56,6 +57,18 @@ const Context = props => {
       ...prevState,
       ...updatedState,
     }))
+
+    // when we scroll to an anchor, this state should last for 1s before
+    // resetting.  This allows us to override the scroll listener which
+    // typically syncs the url with the currently scrolled-to anchor.
+    if (updatedState.anchorRecentlyScrolledTo) {
+      setTimeout(() => {
+        setPageState(prevState => ({
+          ...prevState,
+          anchorRecentlyScrolledTo: false,
+        }))
+      }, 1000)
+    }
   }, [])
 
   const value = useMemoOne(
