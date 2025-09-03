@@ -10,18 +10,20 @@ else
 fi
 
 for d in ./test-types/*; do
-  echo -e "Testing ${d}\n"
-  pnpm exec ${testTypesCmd} --config "${d}/tstyche.config.json"
-  lastExitCode=$?
-  if [ ${lastExitCode} -ne 0 ]; then
-    exitCode=${lastExitCode}
+  printf 'Testing %s\n' "${d}\n"
+
+  # shellcheck disable=SC2086
+  # sc recommends us using a function instead of building the command, but I
+  # find that to be less readable, so disabling it here
+  if ! pnpm exec ${testTypesCmd} --config "${d}/tstyche.config.json"; then
+    exitCode=1
   fi
-  echo -e "\n"
+  printf "\n\n"
 done
 
 if [ ${exitCode} -ne 0 ]; then
-  echo -e '\ntype tests failed\n' >&2
+  printf '\ntype tests failed\n\n' >&2
   exit ${exitCode}
 else
-  echo -e '\ntype tests succeeded!'
+  printf '\ntype tests succeeded!\n'
 fi

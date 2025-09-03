@@ -14,6 +14,7 @@
     "build": "sh ./scripts/build.sh",
     "check-deps": "sh ./scripts/check-deps.sh",
     "lint": "pnpm run --recursive lint",
+    "shellcheck": "sh ./scripts/run-shellcheck.sh",
     "test": "echo 'use either test-full or test-lite' && exit 1",
     "test-full": "node ./scripts/test/index.mjs --full",
     "test-lite": "node ./scripts/test/index.mjs --lite",

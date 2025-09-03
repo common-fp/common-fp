@@ -9,3 +9,4 @@ dist/
 *.pem
 /pkg/*/coverage/
 /test-results/
+/deps/

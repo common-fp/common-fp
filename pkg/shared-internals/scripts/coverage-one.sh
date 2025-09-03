@@ -1,3 +1,5 @@
+#! /usr/bin/env sh
+
 # example call:
 # pnpm coverage-one to-english-list.mjs
 

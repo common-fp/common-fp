@@ -1,3 +1,5 @@
+#! /usr/bin/env sh
+
 # example call:
 # pnpm coverage-one lib/map-values.mjs
 

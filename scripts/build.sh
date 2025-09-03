@@ -10,22 +10,24 @@ eslint-plugin-cfp-org
 common-fp-org'
 
 isLocalDev=false
-if [ "${1}" == '--local-dev' ]; then
+if [ "${1}" = '--local-dev' ]; then
   isLocalDev=true
 fi
 
 for p in ${pkgs}; do
-  if [ "${isLocalDev}" = 'true' -a "${p}" = "common-fp-org" ]; then
+  if [ "${isLocalDev}" = 'true' ] && [ "${p}" = "common-fp-org" ]; then
     pnpm --filter "${p}" prebuild
+    exitCode=$?
   else
     pnpm --filter "${p}" build
+    exitCode=$?
   fi
 
 
-  if [ $? -ne 0 ]; then
-    echo -e "\nerror when building package ${p}.  Rest of packages skipped\n" >&2
+  if [ $exitCode -ne 0 ]; then
+    printf "\nerror when building package %s.  Rest of packages skipped\n" "${p}" >&2
     exit 1
   fi
 done
 
-echo -e '\ndone building all packages !'
+printf '\ndone building all packages !'
