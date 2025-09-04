@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/turbo/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist"]
+    },
+    "coverage-check": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "lint-built": {
+      "dependsOn": ["build"]
+    },
+    "test": {
+      "dependsOn": ["^build", "//#ensure-test-results"]
+    },
+    "test-lite": {
+      "dependsOn": ["^build"]
+    },
+    "test-full": {
+      "dependsOn": ["^build", "//#ensure-test-results"]
+    },
+    // root tasks
+    "//#ensure-test-results": {
+      "cache": false,
+      "inputs": ["turbo.jsonc"]
+    },
+    "//#install-shellcheck": {
+      "inputs": ["./scripts/install-shellcheck.sh"],
+      "outputs": ["./deps/shellcheck-v0.11.0"]
+    },
+    "//#shellcheck": {
+      "dependsOn": ["//#install-shellcheck"],
+      "inputs": ["./scripts/*.sh", "./pkg/*/scripts/*.sh"]
+    }
+  }
+}

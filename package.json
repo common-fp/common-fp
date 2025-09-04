@@ -11,13 +11,10 @@
     "./config": "./config.mjs"
   },
   "scripts": {
-    "build": "sh ./scripts/build.sh",
-    "check-deps": "sh ./scripts/check-deps.sh",
-    "lint": "pnpm run --recursive lint",
+    "ensure-test-results": "mkdir -p test-results",
+    "install-shellcheck": "sh ./scripts/install-shellcheck.sh",
+    "lint": "eslint './scripts/**/*.mjs'",
     "shellcheck": "sh ./scripts/run-shellcheck.sh",
-    "test": "echo 'use either test-full or test-lite' && exit 1",
-    "test-full": "node ./scripts/test/index.mjs --full",
-    "test-lite": "node ./scripts/test/index.mjs --lite",
     "validate": "sh ./scripts/validate.sh"
   },
   "prettier": "@common-fp/prettier-config",
@@ -30,13 +27,13 @@
     "@common-fp/prettier-config": "workspace:*",
     "dedent": "^1.6.0",
     "del": "^7.1.0",
-    "depcheck": "^1.4.7",
     "eslint": "^9.32.0",
     "execa": "^9.6.0",
     "globby": "^14.0.2",
     "lean-package": "^1.4.0",
     "listr2": "^9.0.2",
     "make-dir": "^5.0.0",
-    "prettier": "catalog:"
+    "prettier": "catalog:",
+    "turbo": "^2.5.6"
   }
 }

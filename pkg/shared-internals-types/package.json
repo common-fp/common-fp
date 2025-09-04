@@ -11,9 +11,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "lint": "pnpm eslint 'scripts/**/*' 'src/**/*'",
+    "lint": "eslint scripts src",
     "prepack": "sh '../../scripts/prepack.sh' shared-internals-types",
-    "postpack": "sh '../../scripts/postpack.sh' shared-internals-types"
+    "postpack": "sh '../../scripts/postpack.sh'"
   },
   "exports": {
     ".": "./dist/index.d.ts",

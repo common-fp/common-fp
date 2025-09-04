@@ -8,15 +8,13 @@
   "license": "SEE LICENSE IN license.txt",
   "scripts": {
     "dev": "./scripts/dev-watch.sh && IS_DEVELOPING=true next dev --experimental-https",
-    "build": "next build",
-    "prebuild": "node --no-warnings=ExperimentalWarning scripts/pre-build/index.mjs",
-    "postbuild": "node scripts/post-build/index.mjs",
+    "build": "next build && node scripts/create-sitemap.mjs",
+    "build-resources": "node --no-warnings=ExperimentalWarning scripts/build-resources/index.mjs",
     "start": "next start",
-    "lint": "pnpm eslint 'misc/**/*' 'scripts/**/*' 'code-examples/**/*' 'app/**/*'",
+    "lint": "eslint 'misc/**/*.mjs' 'scripts/**/*.mjs' code-examples app next.config.mjs",
     "preview": "serve out",
-    "build-vfs-slim": "node --disable-warning=ExperimentalWarning scripts/build-vfs-slim/index.mjs",
-    "build-ts-editor-worker-libs": "node scripts/build-ts-editor-worker-libs/index.mjs",
-    "test": "mocha --recursive test/cases",
+    "test-cli": "mocha --recursive test/cases",
+    "test": "pnpm test-cli > ../../test-results/common-fp-org.txt",
     "test-one": "mocha"
   },
   "imports": {
@@ -41,6 +39,7 @@
     "@common-fp/eslint-plugin-cfp-org": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
     "@common-fp/prettier-plugin-comments": "workspace:*",
+    "@common-fp/shared-types": "workspace:*",
     "@common-fp/test-utils": "workspace:*",
     "@common-fp/tsconfig": "workspace:*",
     "@eslint/js": "^9.16.0",
@@ -63,6 +62,7 @@
     "classnames": "^2.5.1",
     "comlink": "^4.4.2",
     "common-fp": "workspace:*",
+    "common-fp-types": "workspace:*",
     "convert-source-map": "^2.0.0",
     "copy-to-clipboard": "^3.3.3",
     "cpy": "^11.0.1",
@@ -135,7 +135,8 @@
   "mocha": {
     "node-option": [
       "experimental-import-meta-resolve",
-      "loader=esm-module-alias/loader"
+      "loader=esm-module-alias/loader",
+      "no-warnings"
     ],
     "timeout": 60000,
     "ui": "tdd",

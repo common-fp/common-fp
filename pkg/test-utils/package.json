@@ -8,7 +8,7 @@
   "type": "module",
   "exports": "./src/index.mjs",
   "scripts": {
-    "lint": "eslint 'src/**/*'"
+    "lint": "eslint bin src"
   },
   "bin": {
     "testSupportedNodeVersions": "bin/test-supported-node-versions.mjs",

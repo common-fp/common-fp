@@ -19,10 +19,12 @@ async function buildTsLibFiles() {
   if (await fileExists(libFilesFpath)) return
 
   let filesMap = await createFilesMap()
-  if (isEmpty(filesMap)) {
+  let retries = 0
+  while (isEmpty(filesMap)) {
     await waitMs(2000)
     filesMap = await createFilesMap()
-    if (isEmpty(filesMap)) {
+    retries += 1
+    if (retries === 3) {
       throw new Error('Error fetching typescript lib files')
     }
   }

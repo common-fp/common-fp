@@ -32,8 +32,7 @@ function fromRoot(fpath) {
 
 async function copyUtilsToDist() {
   const allSrcFiles = fromRoot('src/**/*.d.ts')
-  const allSrcIndexFiles = fromRoot('src/**/index.d.ts')
-  return cpy([allSrcFiles, `!${allSrcIndexFiles}`], distDir, {
+  return cpy(allSrcFiles, distDir, {
     flat: true,
   })
 }

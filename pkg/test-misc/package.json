@@ -8,11 +8,12 @@
   "license": "SEE LICENSE IN license.txt",
   "main": "",
   "scripts": {
-    "test": "pnpm test-types && mocha --recursive test/cases",
+    "test-cli": "pnpm test-types && mocha --recursive test/cases",
+    "test": "pnpm test-cli > ../../test-results/test-misc.txt 2>&1",
     "test-one": "mocha",
     "test-types-one-target": "sh scripts/test-types.sh --one-target",
     "test-types": "sh scripts/test-types.sh",
-    "lint": "pnpm eslint 'test/**/*' 'test-types/**/*'"
+    "lint": "eslint test test-types"
   },
   "keywords": [],
   "devDependencies": {
@@ -21,9 +22,9 @@
     "@common-fp/shared-internals": "workspace:*",
     "@common-fp/shared-internals-types": "workspace:*",
     "@common-fp/shared-types": "workspace:*",
-    "@common-fp/test-utils": "workspace:*",
-    "@common-fp/tsconfig": "workspace:*",
+    "@common-fp/test-utils": "workspace:^",
     "@rollup/plugin-node-resolve": "^16.0.0",
+    "@types/node": "^24.3.1",
     "chai": "^5.1.2",
     "change-case": "^5.4.4",
     "common-fp": "workspace:*",
@@ -34,7 +35,6 @@
     "eslint": "^9.32.0",
     "globby": "^14.0.2",
     "mocha": "^11.7.1",
-    "nve": "^18.0.3",
     "prettier": "catalog:",
     "rollup": "^4.29.1",
     "tstyche": "^4.3.0",

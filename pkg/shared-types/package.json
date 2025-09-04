@@ -9,10 +9,11 @@
   "main": "dist/index.d.cts",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "lint": "pnpm eslint 'src/**/*' 'scripts/**/*' 'test/**/*'",
+    "lint": "eslint src scripts test",
     "prepack": "sh '../../scripts/prepack.sh' shared-types",
-    "postpack": "sh '../../scripts/postpack.sh' shared-types",
-    "test-full": "testSupportedTSVersions",
+    "postpack": "sh '../../scripts/postpack.sh'",
+    "test-full-cli": "testSupportedTSVersions",
+    "test-full": "pnpm test-full-cli > ../../test-results/shared-types.txt 2>&1",
     "test-lite": "tstyche --target 5.9"
   },
   "exports": {

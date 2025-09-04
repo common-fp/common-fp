@@ -1,8 +1,14 @@
 #! /usr/bin/env sh
 
-pnpm shellcheck \
-  && pnpm build \
-  && pnpm check-deps \
-  && pnpm lint \
-  && pnpm test-full \
-  && pnpm -r coverage-check
+rm -rf test-results
+
+pnpm turbo run \
+  --log-order grouped \
+  --concurrency 100% \
+  '//#shellcheck' \
+  lint \
+  build \
+  lint-built \
+  test \
+  test-full \
+  coverage-check

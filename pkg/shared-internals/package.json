@@ -12,10 +12,12 @@
     "coverage": "c8 pnpm test-lite",
     "coverage-check": "c8 --check-coverage --100 pnpm test-lite",
     "coverage-one": "sh scripts/coverage-one.sh",
-    "lint": "eslint",
+    "lint": "eslint 'scripts/**/*.mjs' src test",
+    "lint-built": "eslint 'dist/**/*.cjs'",
     "prepack": "sh '../../scripts/prepack.sh' shared-internals",
-    "postpack": "sh '../../scripts/postpack.sh' shared-internals",
-    "test-full": "testSupportedNodeVersions mocha --ui tdd --require ./test/init.mjs --recursive test/cases",
+    "postpack": "sh '../../scripts/postpack.sh'",
+    "test-full-cli": "testSupportedNodeVersions mocha --ui tdd --require ./test/init.mjs --recursive test/cases",
+    "test-full": "pnpm test-full-cli > ../../test-results/shared-internals.txt 2>&1",
     "test-lite": "mocha --recursive test/cases",
     "test-one": "mocha"
   },
@@ -50,7 +52,6 @@
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
-    "@common-fp/root": "workspace:*",
     "@common-fp/shared-internals-types": "workspace:*",
     "@common-fp/test-utils": "workspace:*",
     "@common-fp/tsconfig": "workspace:*",

@@ -7,8 +7,9 @@
   "license": "SEE LICENSE IN license.txt",
   "main": "src/index.mjs",
   "scripts": {
-    "lint": "eslint 'src/**/*' 'test/*'",
-    "test": "mocha test"
+    "lint": "eslint src 'test/*'",
+    "test-cli": "mocha test",
+    "test": "pnpm test-cli > ../../test-results/prettier-plugin-comments.txt 2>&1"
   },
   "keywords": [],
   "devDependencies": {

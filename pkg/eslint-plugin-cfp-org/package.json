@@ -8,12 +8,14 @@
   "main": "src/index.mjs",
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "lint": "pnpm eslint 'scripts/**/*' 'src/**/*'"
+    "lint": "eslint scripts src"
   },
   "keywords": [],
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
+    "@common-fp/shared-types": "workspace:*",
+    "common-fp": "workspace:*",
     "dedent": "^1.5.3",
     "del": "^7.1.0",
     "eslint": "^9.32.0",

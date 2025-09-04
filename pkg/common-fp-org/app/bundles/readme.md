@@ -6,8 +6,8 @@ See their build scripts for more info
 
 1. codemirror-ts.js
 
-   scripts/pre-build/build-codemirror-ts-bundle/index.mjs
+   scripts/build-resources/build-codemirror-ts-bundle/index.mjs
 
 2. typescript-eslint-web-utils\_\*
 
-   scripts/pre-build/build-compatible-ts-eslint-bundle.mjs
+   scripts/build-resources/build-compatible-ts-eslint-bundle.mjs

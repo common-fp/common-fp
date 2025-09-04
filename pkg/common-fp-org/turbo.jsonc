@@ -1,0 +1,22 @@
+{
+  "$schema": "../../node_modules/turbo/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    // todo - move app/{built/*,deps,bundles} into built/{*,deps,bundles}
+    "build-resources": {
+      "dependsOn": ["^build"],
+      "outputs": ["app/built", "app/deps", "app/bundles", "public/bundles"]
+    },
+    "lint": {
+      "dependsOn": ["^build", "build-resources"]
+    },
+    "build": {
+      "dependsOn": ["build-resources"],
+      "outputs": ["out", "public/sitemap.xml"]
+    },
+    "test": {
+      "dependsOn": ["build-resources", "//#ensure-test-results"],
+      "outputs": ["$TURBO_ROOT$/test-results/common-fp-org.txt"]
+    }
+  }
+}

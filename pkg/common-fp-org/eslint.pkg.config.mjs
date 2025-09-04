@@ -18,7 +18,11 @@ const reactHooksCompatCfg = {
 
 const nextCompatCfg = {
   plugins: { '@next/next': next },
-  rules: next.configs.recommended.rules,
+  rules: {
+    ...next.configs.recommended.rules,
+    // removing this rule reduces lint time by a lot
+    '@next/next/no-html-link-for-pages': 'off',
+  },
 }
 
 const codeExampleOverrides = {

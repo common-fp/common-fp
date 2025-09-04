@@ -1,0 +1,11 @@
+name: TSTyche Cache
+description: Cache for the tstyche store
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/cache@v4
+      with:
+        path: /home/runner/.local/share/TSTyche
+        key: ${{ runner.os }}-tstyche-${{ hashFiles('./pkg/test-utils/src/supported-ts-versions.mjs') }}
+        restore-keys: |
+          ${{ runner.os }}-tstyche-

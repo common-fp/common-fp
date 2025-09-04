@@ -17,7 +17,8 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - uses: ./.github/actions/next-cache
-      - run: pnpm install && pnpm build
+      - uses: ./.github/actions/turbo-cache
+      - run: pnpm install && pnpm turbo run '@common-fp/common-fp-org#build'
       - run: cd pkg/common-fp-org && pnpx wrangler@4 deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

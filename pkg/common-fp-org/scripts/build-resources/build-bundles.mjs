@@ -28,7 +28,7 @@ const buildBundles = async () => {
 async function buildExampleSetup() {
   const opts = {
     ...commonEsbuildOpts,
-    entryPoints: [fromRoot('scripts/pre-build/run-example/index.mjs')],
+    entryPoints: [fromRoot('scripts/build-resources/run-example/index.mjs')],
     outfile: fromRoot('public/bundles/run-example.js'),
     external: ['/wrapped-example.mjs'],
   }
@@ -45,7 +45,9 @@ async function buildClientScriptDeps() {
     bundle: true,
     format: 'iife',
     // minify: true,
-    entryPoints: [fromRoot('./scripts/pre-build/client-scripts-entry.mjs')],
+    entryPoints: [
+      fromRoot('./scripts/build-resources/client-scripts-entry.mjs'),
+    ],
     outfile: fromRoot('public/bundles/initial-client-scripts.js'),
   }
   await esbuild.build(opts)

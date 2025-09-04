@@ -10,10 +10,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "lint": "eslint 'test-types/**/*' 'test/**/*' 'scripts/**/*' 'src/**/*'",
-    "postpack": "sh '../../scripts/postpack.sh' common-fp-types",
+    "lint": "eslint test-types test scripts src",
+    "postpack": "sh '../../scripts/postpack.sh'",
     "prepack": "sh '../../scripts/prepack.sh' common-fp-types",
-    "test-full": "pnpm validate-tests && testSupportedTSVersions",
+    "test-full-cli": "pnpm validate-tests && testSupportedTSVersions",
+    "test-full": "pnpm test-full-cli > ../../test-results/common-fp-types.txt 2>&1",
     "test-lite": "pnpm validate-tests && tstyche --target 5.9",
     "validate-tests": "mocha --recursive test"
   },

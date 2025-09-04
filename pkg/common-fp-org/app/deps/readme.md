@@ -5,7 +5,7 @@ Modifications to their source code are listed here
 
 1. vfs-slim.mjs
 
-- this file is the output of scripts/pre-build/build-vfs-slim/index.mjs
+- this file is the output of scripts/build-resources/build-vfs-slim/index.mjs
 
   This was necessary to get around an issue next.js was having while processing
   the dependency. See this issue for more info

@@ -45,7 +45,7 @@ export default {
       },
     ],
     'import-x/newline-after-import': 'error',
-    'import-x/no-cycle': 'error',
+    'import-x/no-cycle': ['error', { ignoreExternal: true }],
     'import-x/no-deprecated': 'error',
     'import-x/no-duplicates': 'error',
     'import-x/no-extraneous-dependencies': 'error',

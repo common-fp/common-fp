@@ -2,7 +2,7 @@ import path from 'node:path'
 import { format } from 'prettier'
 import { expect } from 'chai'
 import { caseNames, myCamelCase, readCases } from './utils.mjs'
-import defaultPrettierCfg from '../prettier.config.mjs'
+import defaultPrettierCfg from '@common-fp/prettier-config'
 
 const { dirname } = import.meta
 

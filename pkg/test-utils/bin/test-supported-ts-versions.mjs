@@ -7,11 +7,7 @@
 
 import { execa } from 'execa'
 import { Listr } from 'listr2'
-
-const supportedTsVersions = []
-for (let i = 0; i < 10; i += 1) {
-  supportedTsVersions.push(`5.${i}`)
-}
+import supportedTsVersions from '../src/supported-ts-versions.mjs'
 
 run()
 

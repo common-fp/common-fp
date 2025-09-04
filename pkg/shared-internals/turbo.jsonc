@@ -1,0 +1,9 @@
+{
+  "$schema": "../../node_modules/turbo/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "test-full": {
+      "outputs": ["$TURBO_ROOT$/test-results/shared-internals.txt"]
+    }
+  }
+}

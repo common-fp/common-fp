@@ -1,0 +1,11 @@
+name: Turborepo Cache
+description: Cache for Turborepo tasks
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/cache@v4
+      with:
+        path: ${{ github.workspace }}/.turbo
+        key: ${{ runner.os }}-turbo-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-

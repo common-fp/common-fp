@@ -20,7 +20,9 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - uses: ./.github/actions/next-cache
-      - run: pnpm install && pnpm validate;
+      - uses: ./.github/actions/turbo-cache
+      - uses: ./.github/actions/tstyche-cache
+      - run: pnpm install && pnpm validate
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
