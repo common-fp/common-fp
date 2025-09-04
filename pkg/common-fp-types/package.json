@@ -38,7 +38,7 @@
     "globby": "^14.0.2",
     "make-dir": "^5.0.0",
     "mocha": "^11.7.1",
-    "prettier": "^3.3.3",
+    "prettier": "catalog:",
     "tstyche": "^4.3.0",
     "typescript-eslint": "^8.39.0"
   },
@@ -65,6 +65,7 @@
   "peerDependencies": {
     "typescript": "5.x"
   },
+  "prettier": "@common-fp/prettier-config",
   "mocha": {
     "ui": "tdd"
   }

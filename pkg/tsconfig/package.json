@@ -7,5 +7,10 @@
   "exports": {
     ".": "./base.json"
   },
-  "license": "SEE LICENSE IN license.txt"
+  "license": "SEE LICENSE IN license.txt",
+  "devDependencies": {
+    "@common-fp/prettier-config": "workspace:*",
+    "prettier": "catalog:"
+  },
+  "prettier": "@common-fp/prettier-config"
 }

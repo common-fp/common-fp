@@ -18,12 +18,13 @@
     "change-case": "^5.4.4",
     "eslint": "^9.32.0",
     "mocha": "^10.6.0",
-    "prettier": "^3.3.3"
+    "prettier": "catalog:"
   },
-  "peerDependencies": {
-    "prettier": "^3.3.3"
-  },
+  "prettier": "@common-fp/prettier-config",
   "mocha": {
     "ui": "tdd"
+  },
+  "peerDependencies": {
+    "prettier": "catalog:"
   }
 }

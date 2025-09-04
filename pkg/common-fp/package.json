@@ -79,7 +79,7 @@
     "mocha": "^10.6.0",
     "monocart-coverage-reports": "^2.12.6",
     "nvexeca": "^11.0.4",
-    "prettier": "^3.3.3",
+    "prettier": "catalog:",
     "tsx": "^4.19.3",
     "typescript": "^5.9.2"
   },
@@ -106,6 +106,7 @@
   "engines": {
     "node": ">=20"
   },
+  "prettier": "@common-fp/prettier-config",
   "mocha": {
     "node-option": [
       "experimental-import-meta-resolve",

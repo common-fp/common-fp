@@ -1,6 +1,9 @@
 packages:
   - pkg/*
 
+catalog:
+  prettier: ^3.6.2
+
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild

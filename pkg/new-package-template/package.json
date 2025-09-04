@@ -12,6 +12,7 @@
     "@common-fp/eslint-config": "workspace:*",
     "@common-fp/prettier-config": "workspace:*",
     "eslint": "^9.32.0",
-    "prettier": "^3.3.3"
-  }
+    "prettier": "catalog:"
+  },
+  "prettier": "@common-fp/prettier-config"
 }

@@ -68,7 +68,7 @@
     "mocha": "^10.6.0",
     "monocart-coverage-reports": "^2.12.6",
     "nvexeca": "^11.0.4",
-    "prettier": "^3.3.3"
+    "prettier": "catalog:"
   },
   "bugs": {
     "url": "https://github.com/common-fp/common-fp/issues"
@@ -90,6 +90,7 @@
   "engines": {
     "node": ">=20"
   },
+  "prettier": "@common-fp/prettier-config",
   "mocha": {
     "node-option": [
       "experimental-import-meta-resolve",

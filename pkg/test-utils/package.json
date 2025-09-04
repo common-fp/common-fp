@@ -30,6 +30,7 @@
     "execa": "^9.6.0",
     "listr2": "^9.0.2",
     "nvexeca": "^11.0.4",
-    "prettier": "^3.3.3"
-  }
+    "prettier": "catalog:"
+  },
+  "prettier": "@common-fp/prettier-config"
 }

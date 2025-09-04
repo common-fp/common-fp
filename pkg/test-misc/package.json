@@ -35,12 +35,13 @@
     "globby": "^14.0.2",
     "mocha": "^11.7.1",
     "nve": "^18.0.3",
-    "prettier": "^3.3.3",
+    "prettier": "catalog:",
     "rollup": "^4.29.1",
     "tstyche": "^4.3.0",
     "typescript": "^5.9.2",
     "webpack": "^5.101.0"
   },
+  "prettier": "@common-fp/prettier-config",
   "mocha": {
     "ui": "tdd",
     "timeout": 20000
