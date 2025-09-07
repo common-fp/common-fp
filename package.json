@@ -18,7 +18,7 @@
     "validate": "sh ./scripts/validate.sh",
     "call-prettier": "prettier --ignore-path .gitignore --ignore-unknown *.*",
     "prettier-check": "pnpm call-prettier --check",
-    "prettier-write": "pnpm call-prettier --write"
+    "prettier-write": "pnpm call-prettier --write --list-different"
   },
   "prettier": "@common-fp/prettier-config",
   "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
@@ -40,6 +40,6 @@
     "turbo": "^2.5.6"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm turbo run prettier-write"
+    "pre-commit": "printf 'enforcing prettier...\\n\\n' && pnpm turbo run --concurrency '100%' --output-logs errors-only prettier-write"
   }
 }

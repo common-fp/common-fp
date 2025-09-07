@@ -7,7 +7,7 @@
   "scripts": {
     "call-prettier": "prettier --ignore-unknown .",
     "prettier-check": "pnpm call-prettier --check",
-    "prettier-write": "pnpm call-prettier --write"
+    "prettier-write": "pnpm call-prettier --write --list-different"
   },
   "exports": {
     ".": "./base.json"

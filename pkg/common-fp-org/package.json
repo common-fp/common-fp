@@ -18,7 +18,7 @@
     "test-one": "mocha",
     "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-path .gitignore --ignore-path .prettierignore --ignore-unknown .",
     "prettier-check": "pnpm call-prettier --check",
-    "prettier-write": "pnpm call-prettier --write"
+    "prettier-write": "pnpm call-prettier --write --list-different"
   },
   "imports": {
     "#code-example-transforms": "./misc/code-example-transforms.mjs",

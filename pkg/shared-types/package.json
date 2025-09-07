@@ -17,7 +17,7 @@
     "test-lite": "tstyche --target 5.9",
     "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
     "prettier-check": "pnpm call-prettier --check",
-    "prettier-write": "pnpm call-prettier --write"
+    "prettier-write": "pnpm call-prettier --write --list-different"
   },
   "exports": {
     ".": {

@@ -4,7 +4,7 @@ rm -rf test-results
 
 pnpm turbo run \
   --log-order grouped \
-  --concurrency 100% \
+  --concurrency '100%' \
   '//#shellcheck' \
   lint \
   build \
