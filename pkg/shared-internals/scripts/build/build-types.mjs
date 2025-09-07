@@ -22,7 +22,8 @@ async function buildTypeDef(fpath) {
       export = sharedInternals
     `)
   } else if (name === 'common-types') {
-    content.ts = "export * from '@common-fp/shared-internals-types/common-types'"
+    content.ts =
+      "export * from '@common-fp/shared-internals-types/common-types'"
     content.cts = dedent(`
       import * as commonTypes from '@common-fp/shared-internals-types/common-types'
       export = commonTypes

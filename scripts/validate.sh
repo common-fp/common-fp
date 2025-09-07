@@ -9,6 +9,7 @@ pnpm turbo run \
   lint \
   build \
   lint-built \
+  prettier-check \
   test \
   test-full \
   coverage-check

@@ -1,6 +1,6 @@
 ## List of common extension docs
 
-*taken from here*<br/>
+_taken from here_<br/>
 https://github.com/codemirror/basic-setup/blob/49e390909ff0e4ac7ce31713e1d35432a08707d3/src/codemirror.ts
 
 - [the default command bindings](https://codemirror.net/6/docs/ref/#commands.defaultKeymap)

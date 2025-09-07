@@ -6,7 +6,11 @@
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
   "main": "index.mjs",
-  "scripts": {},
+  "scripts": {
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
+  },
   "keywords": [],
   "devDependencies": {
     "@common-fp/eslint-config": "workspace:*",

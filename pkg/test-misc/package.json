@@ -13,7 +13,10 @@
     "test-one": "mocha",
     "test-types-one-target": "sh scripts/test-types.sh --one-target",
     "test-types": "sh scripts/test-types.sh",
-    "lint": "eslint test test-types"
+    "lint": "eslint test test-types",
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-path .gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "keywords": [],
   "devDependencies": {

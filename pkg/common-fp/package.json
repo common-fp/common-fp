@@ -17,7 +17,10 @@
     "test-full-cli": "testSupportedNodeVersions mocha --ui tdd --require test/init.mjs --recursive test/cases",
     "test-full": "pnpm test-full-cli > ../../test-results/common-fp.txt 2>&1",
     "test-lite": "mocha --recursive test/cases",
-    "test-one": "mocha"
+    "test-one": "mocha",
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "files": [
     "dist",

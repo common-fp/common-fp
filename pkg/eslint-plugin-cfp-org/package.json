@@ -8,7 +8,10 @@
   "main": "src/index.mjs",
   "scripts": {
     "build": "node ./scripts/build.mjs",
-    "lint": "eslint scripts src"
+    "lint": "eslint scripts src",
+    "call-prettier": "prettier --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "keywords": [],
   "devDependencies": {

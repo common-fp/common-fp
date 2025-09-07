@@ -13,7 +13,10 @@
     "build": "node ./scripts/build.mjs",
     "lint": "eslint scripts src",
     "prepack": "sh '../../scripts/prepack.sh' shared-internals-types",
-    "postpack": "sh '../../scripts/postpack.sh'"
+    "postpack": "sh '../../scripts/postpack.sh'",
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "exports": {
     ".": "./dist/index.d.ts",

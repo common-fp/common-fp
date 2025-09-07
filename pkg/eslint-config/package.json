@@ -5,6 +5,11 @@
   "description": "The eslint config used in common-fp libraries",
   "main": "base.mjs",
   "type": "module",
+  "scripts": {
+    "call-prettier": "prettier --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
+  },
   "exports": {
     ".": "./base.mjs",
     "./base": "./base.mjs",

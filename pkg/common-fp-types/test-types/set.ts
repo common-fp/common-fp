@@ -1,5 +1,9 @@
 import { describe, expect, test } from 'tstyche'
-import type { EntryCollection, KeyedCollection, UnknownMap } from '@common-fp/shared-types'
+import type {
+  EntryCollection,
+  KeyedCollection,
+  UnknownMap,
+} from '@common-fp/shared-types'
 import set, { WithAddedKeyVal } from '#src/set'
 
 describe('set', () => {

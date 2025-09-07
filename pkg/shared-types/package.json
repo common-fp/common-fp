@@ -14,7 +14,10 @@
     "postpack": "sh '../../scripts/postpack.sh'",
     "test-full-cli": "testSupportedTSVersions",
     "test-full": "pnpm test-full-cli > ../../test-results/shared-types.txt 2>&1",
-    "test-lite": "tstyche --target 5.9"
+    "test-lite": "tstyche --target 5.9",
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "exports": {
     ".": {

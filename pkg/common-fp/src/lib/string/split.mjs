@@ -1,4 +1,7 @@
-import { assertArgIsOneOfType, assertArgIsType } from '@common-fp/shared-internals'
+import {
+  assertArgIsOneOfType,
+  assertArgIsType,
+} from '@common-fp/shared-internals'
 
 const split = separator => {
   assertArgIsOneOfType(separator, 'separator', ['regexp', 'string'], 'split')

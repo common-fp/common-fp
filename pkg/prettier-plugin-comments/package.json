@@ -9,7 +9,10 @@
   "scripts": {
     "lint": "eslint src 'test/*'",
     "test-cli": "mocha test",
-    "test": "pnpm test-cli > ../../test-results/prettier-plugin-comments.txt 2>&1"
+    "test": "pnpm test-cli > ../../test-results/prettier-plugin-comments.txt 2>&1",
+    "call-prettier": "prettier --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "keywords": [],
   "devDependencies": {

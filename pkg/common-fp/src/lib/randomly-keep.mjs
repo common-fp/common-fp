@@ -1,4 +1,8 @@
-import { assertArgIsInt, getFn, getRandomInt } from '@common-fp/shared-internals'
+import {
+  assertArgIsInt,
+  getFn,
+  getRandomInt,
+} from '@common-fp/shared-internals'
 
 const randomlyKeep = num => {
   assertArgIsInt(num, 'num', 'randomlyKeep', {

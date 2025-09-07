@@ -1,4 +1,8 @@
-import { assertArgIsType, assertArgIsInt, eol } from '@common-fp/shared-internals'
+import {
+  assertArgIsType,
+  assertArgIsInt,
+  eol,
+} from '@common-fp/shared-internals'
 
 const truncateToNLines = numLines => {
   assertArgIsInt(numLines, 'numLines', 'truncateToNLines', {

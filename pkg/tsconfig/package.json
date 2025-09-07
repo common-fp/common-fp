@@ -4,6 +4,11 @@
   "version": "0.1.0",
   "main": "base.json",
   "author": "Phil Olson",
+  "scripts": {
+    "call-prettier": "prettier --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
+  },
   "exports": {
     ".": "./base.json"
   },

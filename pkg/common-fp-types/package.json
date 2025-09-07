@@ -16,7 +16,10 @@
     "test-full-cli": "pnpm validate-tests && testSupportedTSVersions",
     "test-full": "pnpm test-full-cli > ../../test-results/common-fp-types.txt 2>&1",
     "test-lite": "pnpm validate-tests && tstyche --target 5.9",
-    "validate-tests": "mocha --recursive test"
+    "validate-tests": "mocha --recursive test",
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "exports": {
     ".": "./dist/index.d.ts",

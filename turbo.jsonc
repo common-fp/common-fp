@@ -14,6 +14,8 @@
     "lint-built": {
       "dependsOn": ["build"]
     },
+    "prettier-check": {},
+    "prettier-write": {},
     "test": {
       "dependsOn": ["^build", "//#ensure-test-results"]
     },

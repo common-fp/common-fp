@@ -13,7 +13,11 @@ const fullTransforms = {
     both: [prependImport('pKeepWhen'), changeLogToShow, removeComments],
   },
   concurrent: {
-    both: [prependImport('pKeepWhen, pWaitMs'), changeLogToShow, removeComments],
+    both: [
+      prependImport('pKeepWhen, pWaitMs'),
+      changeLogToShow,
+      removeComments,
+    ],
   },
 }
 

@@ -8,7 +8,10 @@
   "type": "module",
   "exports": "./src/index.mjs",
   "scripts": {
-    "lint": "eslint bin src"
+    "lint": "eslint bin src",
+    "call-prettier": "prettier --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "bin": {
     "testSupportedNodeVersions": "bin/test-supported-node-versions.mjs",

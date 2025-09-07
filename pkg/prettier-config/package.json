@@ -6,13 +6,17 @@
   "main": "./prettier.config.mjs",
   "type": "module",
   "exports": "./prettier.config.mjs",
-  "scripts": {},
+  "scripts": {
+    "call-prettier": "prettier --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
+  },
   "keywords": [
     "common-fp"
   ],
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
   "peerDependencies": {
-    "prettier": "^3.3.3"
+    "prettier": "catalog:"
   }
 }

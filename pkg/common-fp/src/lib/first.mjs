@@ -1,4 +1,7 @@
-import { assertArgIsOneOfType, commonTypes as ct } from '@common-fp/shared-internals'
+import {
+  assertArgIsOneOfType,
+  commonTypes as ct,
+} from '@common-fp/shared-internals'
 
 // also known as 'head'
 const first = sequence => {

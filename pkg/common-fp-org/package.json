@@ -15,7 +15,10 @@
     "preview": "serve out",
     "test-cli": "mocha --recursive test/cases",
     "test": "pnpm test-cli > ../../test-results/common-fp-org.txt",
-    "test-one": "mocha"
+    "test-one": "mocha",
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-path .gitignore --ignore-path .prettierignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write"
   },
   "imports": {
     "#code-example-transforms": "./misc/code-example-transforms.mjs",

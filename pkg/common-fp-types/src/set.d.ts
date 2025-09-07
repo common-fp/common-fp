@@ -1,4 +1,8 @@
-import type { EntryCollection, KeyedCollection, UnknownMap } from '@common-fp/shared-types'
+import type {
+  EntryCollection,
+  KeyedCollection,
+  UnknownMap,
+} from '@common-fp/shared-types'
 
 type WithAddedKeyVal<K1, V1, C extends EntryCollection> =
   C extends ReadonlyArray<infer V2> ? Array<V1 | V2>

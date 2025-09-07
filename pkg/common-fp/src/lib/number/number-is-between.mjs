@@ -1,4 +1,7 @@
-import { assertArgIsType, validateIsBetweenInput } from '@common-fp/shared-internals'
+import {
+  assertArgIsType,
+  validateIsBetweenInput,
+} from '@common-fp/shared-internals'
 
 const numberIsBetween = (num1, num2, opts = {}) => {
   let { exclusiveMin, exclusiveMax } = opts
