@@ -12,6 +12,7 @@
   },
   "scripts": {
     "ensure-test-results": "mkdir -p test-results",
+    "init-repo": "sh ./scripts/init.sh",
     "install-shellcheck": "sh ./scripts/install-shellcheck.sh",
     "lint": "eslint './scripts/**/*.mjs'",
     "shellcheck": "sh ./scripts/run-shellcheck.sh",
@@ -41,6 +42,6 @@
     "turbo": "^2.5.6"
   },
   "simple-git-hooks": {
-    "pre-commit": "printf 'enforcing prettier...\\n\\n' && pnpm turbo run --concurrency '100%' --output-logs errors-only prettier-write"
+    "pre-commit": "printf 'running prettier...\\n\\n' && pnpm turbo run --concurrency '100%' --output-logs errors-only prettier-write"
   }
 }
