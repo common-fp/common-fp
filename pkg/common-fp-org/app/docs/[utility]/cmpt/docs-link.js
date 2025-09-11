@@ -10,11 +10,10 @@ const DocsLink = ({ children, utilityName, ...rest }) => {
   const href = utilityName ? `/docs/${utilityName}` : '/docs'
   const navigateViaPushState = useCallback(
     e => {
-      history.pushState(history.state, '', href)
-      setUtility(utilityName)
       e.preventDefault()
+      setUtility(utilityName)
     },
-    [setUtility, href, utilityName]
+    [setUtility, utilityName]
   )
 
   return (

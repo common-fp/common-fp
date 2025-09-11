@@ -1,5 +1,5 @@
 import { useCallbackOne, useMemoOne } from 'use-memo-one'
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import * as utilityData from './utility-data'
 
 const PageCtx = createContext()
@@ -7,9 +7,23 @@ const PageCtx = createContext()
 const PageContext = props => {
   const [utility, _setUtility] = useState(utilityData[props.utilityName])
 
+  useEffect(() => {
+    const onPopstate = () => {
+      const utilityName =
+        location.pathname === '/docs' ?
+          ''
+        : location.pathname.slice('/docs/'.length)
+      _setUtility(utilityData[utilityName])
+    }
+    window.addEventListener('popstate', onPopstate)
+
+    return () => window.removeEventListener('popstate', onPopstate)
+  }, [])
+
   const setUtility = useCallbackOne(utilityName => {
     _setUtility(utilityData[utilityName])
-    history.pushState(history.state, '', `/docs/${utilityName}`)
+    const href = utilityName ? `/docs/${utilityName}` : '/docs'
+    history.pushState(history.state, '', href)
   }, [])
 
   const value = useMemoOne(
