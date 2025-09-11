@@ -2,6 +2,7 @@ import { deleteAsync } from 'del'
 import { expect } from 'chai'
 import { rollup } from 'rollup'
 import nodeResolve from '@rollup/plugin-node-resolve'
+import transformImportPlugin from '@common-fp/unplugin-transform-import/rollup'
 import { fromTestDir, getBundleDirName } from '../utils.mjs'
 
 const bundleDirName = getBundleDirName('rollup')
@@ -29,6 +30,26 @@ suite('tree shaking works in rollup', () => {
     await bundle.close()
   })
 
+  test('root module with plugin', async () => {
+    const { bundle, writeResult } = await build('root', [
+      transformImportPlugin(),
+    ])
+    expect(writeResult.output).to.have.lengthOf(1)
+    expect(getShallowModuleIds(writeResult)).to.deep.equal([
+      'shared-internals/dist/deps/type-detect.mjs',
+      'shared-internals/dist/get-type.mjs',
+      'shared-internals/dist/assert-arg-is-type.mjs',
+      'common-fp/dist/add.mjs',
+      'test-misc/test/entry-root.mjs',
+    ])
+
+    // this assertion shows that by using the plugin, rollup has reduced the
+    // number of modules processed to be greatly reduced, and equal to 'subpath'
+    expect(bundle.cache.modules.length).to.equal(5)
+
+    await bundle.close()
+  })
+
   test('subpath', async () => {
     const { bundle, writeResult } = await build('subpath')
 
@@ -47,10 +68,10 @@ suite('tree shaking works in rollup', () => {
   })
 })
 
-async function build(name) {
+async function build(name, plugins = []) {
   const inputOpts = {
     input: fromTestDir(`entry-${name}.mjs`),
-    plugins: [nodeResolve()],
+    plugins: [nodeResolve(), ...plugins],
   }
 
   const bundle = await rollup(inputOpts)

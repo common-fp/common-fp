@@ -1,4 +1,4 @@
-import * as c from 'common-fp'
+import { add } from 'common-fp'
 
-const add5 = c.add(5)
+const add5 = add(5)
 console.log('2 + 5 = ' + add5(2))

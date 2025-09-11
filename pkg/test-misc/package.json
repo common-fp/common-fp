@@ -26,6 +26,7 @@
     "@common-fp/shared-internals-types": "workspace:*",
     "@common-fp/shared-types": "workspace:*",
     "@common-fp/test-utils": "workspace:^",
+    "@common-fp/unplugin-transform-import": "workspace:*",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@types/node": "^24.3.1",
     "chai": "^5.1.2",

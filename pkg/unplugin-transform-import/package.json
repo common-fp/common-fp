@@ -1,0 +1,49 @@
+{
+  "name": "@common-fp/unplugin-transform-import",
+  "version": "0.1.0",
+  "sideEffects": false,
+  "private": true,
+  "type": "module",
+  "author": "Phil Olson",
+  "license": "SEE LICENSE IN license.txt",
+  "main": "src/index.mjs",
+  "scripts": {
+    "call-prettier": "prettier --ignore-path ../../.gitignore --ignore-unknown .",
+    "prettier-check": "pnpm call-prettier --check",
+    "prettier-write": "pnpm call-prettier --write --list-different"
+  },
+  "keywords": [
+    "rollup-plugin"
+  ],
+  "exports": {
+    ".": "./src/index.mjs",
+    "./esbuild": "./src/bundlers/esbuild.mjs",
+    "./rollup": "./src/bundlers/rollup.mjs",
+    "./rollup-browser": "./src/bundlers/rollup-browser.mjs",
+    "./webpack": "./src/bundlers/webpack.mjs"
+  },
+  "imports": {
+    "#src/*": "./src/*.mjs",
+    "#transforms/*": "./src/transforms/*.mjs"
+  },
+  "devDependencies": {
+    "@common-fp/eslint-config": "workspace:*",
+    "@common-fp/prettier-config": "workspace:*",
+    "chai": "^5.1.2",
+    "common-fp": "workspace:*",
+    "dedent": "^1.7.0",
+    "eslint": "^9.32.0",
+    "mocha": "^11.7.2",
+    "prettier": "catalog:"
+  },
+  "prettier": "@common-fp/prettier-config",
+  "dependencies": {
+    "change-case": "^5.4.4",
+    "magic-string": "^0.30.17",
+    "parse-imports-exports": "^0.2.4",
+    "unplugin": "^2.3.10"
+  },
+  "mocha": {
+    "ui": "tdd"
+  }
+}

@@ -7,6 +7,7 @@ import { encode } from 'js-base64'
 
 let varsAreInitialized = false
 let pEspree
+let pTransformImportPlugin
 let pRemapping
 let pRollup
 let pRollupFs
@@ -28,8 +29,14 @@ self.onmessage = async ({ data }) => {
 
 const buildCodeToRun = async argObj => {
   const { browser, editorCode, tsCompiledCode, tsSourceMap } = argObj
-  const [espree, remapping, { rollup }, rollupFs, runExampleStr] =
-    await getVars()
+  const [
+    espree,
+    remapping,
+    { rollup },
+    rollupFs,
+    runExampleStr,
+    transformImportPlugin,
+  ] = await getVars()
 
   const codeToWrap = tsCompiledCode || editorCode
   const { sourcemap, wrappedCode } = wrapExample(codeToWrap, espree)
@@ -45,7 +52,7 @@ const buildCodeToRun = async argObj => {
   const logDuration = makeLog.duration('info')
   const bundle = await rollup({
     input: '/run-example.mjs',
-    plugins: [memResolverPlugin],
+    plugins: [memResolverPlugin, transformImportPlugin()],
   })
 
   const { output } = await bundle.generate({
@@ -86,10 +93,27 @@ async function getVars() {
     pRollup = import('@rollup/browser')
     pRollupFs = ky.get('/bundles/rollup-fs.json').json()
     pRunExampleStr = ky.get('/bundles/run-example.js').text()
+    pTransformImportPlugin = import(
+      '@common-fp/unplugin-transform-import/rollup-browser'
+    ).then(mod => mod.default)
 
-    await Promise.all([pEspree, pRemapping, pRollup, pRollupFs, pRunExampleStr])
+    await Promise.all([
+      pEspree,
+      pRemapping,
+      pRollup,
+      pRollupFs,
+      pRunExampleStr,
+      pTransformImportPlugin,
+    ])
     logDuration('initialize vars')
   }
 
-  return Promise.all([pEspree, pRemapping, pRollup, pRollupFs, pRunExampleStr])
+  return Promise.all([
+    pEspree,
+    pRemapping,
+    pRollup,
+    pRollupFs,
+    pRunExampleStr,
+    pTransformImportPlugin,
+  ])
 }

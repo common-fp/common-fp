@@ -14,7 +14,7 @@
     "lint-dist": "eslint 'dist/**/*.cjs'",
     "prepack": "sh '../../scripts/prepack.sh' common-fp",
     "postpack": "sh '../../scripts/postpack.sh'",
-    "test-full-cli": "testSupportedNodeVersions mocha --ui tdd --require test/init.mjs --recursive test/cases",
+    "test-full-cli": "testSupportedNodeVersions mocha --recursive test/cases",
     "test-full": "pnpm test-full-cli > ../../test-results/common-fp.txt 2>&1",
     "test-lite": "mocha --recursive test/cases",
     "test-one": "mocha",

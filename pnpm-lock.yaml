@@ -177,6 +177,9 @@ importers:
       '@common-fp/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@common-fp/unplugin-transform-import':
+        specifier: workspace:*
+        version: link:../unplugin-transform-import
       '@eslint/js':
         specifier: ^9.16.0
         version: 9.32.0
@@ -764,6 +767,9 @@ importers:
       '@common-fp/test-utils':
         specifier: workspace:^
         version: link:../test-utils
+      '@common-fp/unplugin-transform-import':
+        specifier: workspace:*
+        version: link:../unplugin-transform-import
       '@rollup/plugin-node-resolve':
         specifier: ^16.0.0
         version: 16.0.0(rollup@4.29.1)
@@ -852,6 +858,86 @@ importers:
       '@common-fp/prettier-config':
         specifier: workspace:*
         version: link:../prettier-config
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+
+  pkg/unplugin-import-transform:
+    dependencies:
+      change-case:
+        specifier: ^5.4.4
+        version: 5.4.4
+      magic-string:
+        specifier: ^0.30.17
+        version: 0.30.17
+      parse-imports-exports:
+        specifier: ^0.2.4
+        version: 0.2.4
+      unplugin:
+        specifier: ^2.3.10
+        version: 2.3.10
+    devDependencies:
+      '@common-fp/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@common-fp/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier-config
+      chai:
+        specifier: ^5.1.2
+        version: 5.1.2
+      common-fp:
+        specifier: workspace:*
+        version: link:../common-fp
+      dedent:
+        specifier: ^1.7.0
+        version: 1.7.0
+      eslint:
+        specifier: ^9.32.0
+        version: 9.32.0(jiti@2.5.1)
+      mocha:
+        specifier: ^11.7.2
+        version: 11.7.2
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+
+  pkg/unplugin-transform-import:
+    dependencies:
+      change-case:
+        specifier: ^5.4.4
+        version: 5.4.4
+      magic-string:
+        specifier: ^0.30.17
+        version: 0.30.17
+      parse-imports-exports:
+        specifier: ^0.2.4
+        version: 0.2.4
+      unplugin:
+        specifier: ^2.3.10
+        version: 2.3.10
+    devDependencies:
+      '@common-fp/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@common-fp/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier-config
+      chai:
+        specifier: ^5.1.2
+        version: 5.1.2
+      common-fp:
+        specifier: workspace:*
+        version: link:../common-fp
+      dedent:
+        specifier: ^1.7.0
+        version: 1.7.0
+      eslint:
+        specifier: ^9.32.0
+        version: 9.32.0(jiti@2.5.1)
+      mocha:
+        specifier: ^11.7.2
+        version: 11.7.2
       prettier:
         specifier: 'catalog:'
         version: 3.6.2
@@ -1432,6 +1518,9 @@ packages:
 
   '@jridgewell/gen-mapping@0.3.12':
     resolution: {integrity: sha512-OuLGC46TjB5BbN1dH8JULVVZY4WTdkF7tV9Ys6wLL1rubZnCMstOhNHueU5bLCrnRuDhKPDM4g6sw4Bel5Gzqg==}
+
+  '@jridgewell/remapping@2.3.5':
+    resolution: {integrity: sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -2637,6 +2726,14 @@ packages:
 
   dedent@1.6.0:
     resolution: {integrity: sha512-F1Z+5UCFpmQUzJa11agbyPVMbpgT/qA3/SKyJ1jyBgm7dUcUEa8v9JwDkerSQXfakBwFljIxhOJqGkjUwZ9FSA==}
+    peerDependencies:
+      babel-plugin-macros: ^3.1.0
+    peerDependenciesMeta:
+      babel-plugin-macros:
+        optional: true
+
+  dedent@1.7.0:
+    resolution: {integrity: sha512-HGFtf8yhuhGhqO07SV79tRp+br4MnbdjeVxotpn1QBl30pcLLCQjX5b2295ll0fv8RKDKsmWYrl05usHM9CewQ==}
     peerDependencies:
       babel-plugin-macros: ^3.1.0
     peerDependenciesMeta:
@@ -3865,6 +3962,11 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     hasBin: true
 
+  mocha@11.7.2:
+    resolution: {integrity: sha512-lkqVJPmqqG/w5jmmFtiRvtA2jkDyNVUcefFJKb2uyX4dekk8Okgqop3cgbFiaIvj8uCRJVTP5x9dfxGyXm2jvQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    hasBin: true
+
   monocart-coverage-reports@2.12.6:
     resolution: {integrity: sha512-96CMC4B+Rw5Yi8OH2Aot+aMYIw84fK3PNJs7nP9Yw07I0+k0lY1GGiPOJTt123GMDdSpS32lPUIMu/OyqOfBCA==}
     hasBin: true
@@ -4180,6 +4282,10 @@ packages:
 
   picomatch@4.0.2:
     resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
+    engines: {node: '>=12'}
+
+  picomatch@4.0.3:
+    resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
 
   possible-typed-array-names@1.0.0:
@@ -4926,6 +5032,10 @@ packages:
     resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
     engines: {node: '>=18'}
 
+  unplugin@2.3.10:
+    resolution: {integrity: sha512-6NCPkv1ClwH+/BGE9QeoTIl09nuiAt0gS28nn1PvYXsGKRwM2TCbFA2QiilmehPDTXIe684k4rZI1yl3A1PCUw==}
+    engines: {node: '>=18.12.0'}
+
   unrs-resolver@1.11.1:
     resolution: {integrity: sha512-bSjt9pjaEBnNiGgc9rUiHGKv5l4/TGzDmYw3RhnkJGtLhbnnA/5qJj7x3dNDCRx/PJxu774LlH8lCOlB4hEfKg==}
 
@@ -4978,6 +5088,9 @@ packages:
   webpack-sources@3.3.3:
     resolution: {integrity: sha512-yd1RBzSGanHkitROoPFd6qsrxt+oFhg/129YzheDGqeustzX0vTZJZsSsQjVQC4yzBQ56K55XU8gaNCtIzOnTg==}
     engines: {node: '>=10.13.0'}
+
+  webpack-virtual-modules@0.6.2:
+    resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
   webpack@5.101.0:
     resolution: {integrity: sha512-B4t+nJqytPeuZlHuIKTbalhljIFXeNRqrUGAQgTGlfOl2lXXKXw+yZu6bicycP+PUlM44CxBjCFD6aciKFT3LQ==}
@@ -5534,6 +5647,11 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.12':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.4
+      '@jridgewell/trace-mapping': 0.3.29
+
+  '@jridgewell/remapping@2.3.5':
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.12
       '@jridgewell/trace-mapping': 0.3.29
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -6838,6 +6956,8 @@ snapshots:
       mimic-response: 3.1.0
 
   dedent@1.6.0: {}
+
+  dedent@1.7.0: {}
 
   deep-eql@5.0.2: {}
 
@@ -8356,6 +8476,29 @@ snapshots:
       yargs-parser: 21.1.1
       yargs-unparser: 2.0.0
 
+  mocha@11.7.2:
+    dependencies:
+      browser-stdout: 1.3.1
+      chokidar: 4.0.1
+      debug: 4.4.1(supports-color@8.1.1)
+      diff: 7.0.0
+      escape-string-regexp: 4.0.0
+      find-up: 5.0.0
+      glob: 10.4.5
+      he: 1.2.0
+      js-yaml: 4.1.0
+      log-symbols: 4.1.0
+      minimatch: 9.0.5
+      ms: 2.1.3
+      picocolors: 1.1.1
+      serialize-javascript: 6.0.2
+      strip-json-comments: 3.1.1
+      supports-color: 8.1.1
+      workerpool: 9.3.3
+      yargs: 17.7.2
+      yargs-parser: 21.1.1
+      yargs-unparser: 2.0.0
+
   monocart-coverage-reports@2.12.6:
     dependencies:
       acorn: 8.15.0
@@ -8650,6 +8793,8 @@ snapshots:
   picomatch@2.3.1: {}
 
   picomatch@4.0.2: {}
+
+  picomatch@4.0.3: {}
 
   possible-typed-array-names@1.0.0: {}
 
@@ -9559,6 +9704,13 @@ snapshots:
 
   unicorn-magic@0.3.0: {}
 
+  unplugin@2.3.10:
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      acorn: 8.15.0
+      picomatch: 4.0.3
+      webpack-virtual-modules: 0.6.2
+
   unrs-resolver@1.11.1:
     dependencies:
       napi-postinstall: 0.3.3
@@ -9643,6 +9795,8 @@ snapshots:
       - utf-8-validate
 
   webpack-sources@3.3.3: {}
+
+  webpack-virtual-modules@0.6.2: {}
 
   webpack@5.101.0(esbuild@0.24.2):
     dependencies:
