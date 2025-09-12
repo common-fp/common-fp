@@ -21,7 +21,14 @@ import './tooltip.scss'
 const TooltipCtx = createContext()
 
 const Tooltip = props => {
-  const { children, closeDelay = true, mouseOnly, openDelay, placement } = props
+  const {
+    children,
+    closeDelay = true,
+    enabled = true,
+    mouseOnly,
+    openDelay,
+    placement,
+  } = props
   const [isOpen, setIsOpen] = useState(false)
   const arrowRef = useRef()
   const {
@@ -41,10 +48,11 @@ const Tooltip = props => {
       close: closeDelay ? 300 : 0,
     },
     handleClose: safePolygon(),
+    enabled,
     mouseOnly: true,
   })
   const click = useClick(floatingCtx, {
-    enabled: !mouseOnly,
+    enabled: enabled && !mouseOnly,
     ignoreMouse: true,
   })
   const { getReferenceProps, getFloatingProps } = useInteractions([
