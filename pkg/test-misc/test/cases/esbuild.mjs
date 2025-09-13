@@ -2,6 +2,7 @@ import { expect } from 'chai'
 import { deleteAsync } from 'del'
 import * as esbuild from 'esbuild'
 import * as _ from 'common-fp'
+import transformImportPlugin from '@common-fp/unplugin-transform-import/esbuild'
 import { fromTestDir, getBundleDirName } from '../utils.mjs'
 
 const bundleDirName = getBundleDirName('esbuild')
@@ -40,6 +41,39 @@ suite('tree shaking works in esbuild', () => {
     ])
   })
 
+  test('root module with plugin', async () => {
+    const result = await build('root', [transformImportPlugin()])
+
+    expect(result.errors).to.deep.equal([])
+    expect(result.warnings).to.deep.equal([])
+    expect(result.metafile.outputs).has.all.keys([
+      `bundles/${bundleDirName}/root.mjs`,
+    ])
+
+    // here we show that by using the plugin, esbuild has reduced the number of
+    // modules processed to be greatly reduced, and equal to 'subpath'
+    expect(result.metafile.inputs).has.all.keys([
+      '../../shared-internals/dist/deps/type-detect.mjs',
+      '../../shared-internals/dist/get-type.mjs',
+      '../../shared-internals/dist/assert-arg-is-type.mjs',
+      '../../common-fp/dist/add.mjs',
+      'entry-root.mjs',
+    ])
+
+    const rootOutput =
+      result.metafile.outputs[`bundles/${bundleDirName}/root.mjs`]
+    expect(rootOutput.imports).to.deep.equal([])
+    expect(rootOutput.exports).to.deep.equal([])
+    expect(rootOutput.entryPoint).to.equal('entry-root.mjs')
+    expect(rootOutput.inputs).has.all.keys([
+      '../../shared-internals/dist/deps/type-detect.mjs',
+      '../../shared-internals/dist/get-type.mjs',
+      '../../shared-internals/dist/assert-arg-is-type.mjs',
+      '../../common-fp/dist/add.mjs',
+      'entry-root.mjs',
+    ])
+  })
+
   test('subpath', async () => {
     const result = await build('subpath')
     expect(result.errors).to.deep.equal([])
@@ -70,7 +104,7 @@ suite('tree shaking works in esbuild', () => {
   })
 })
 
-async function build(name) {
+async function build(name, plugins = []) {
   const result = await esbuild.build({
     absWorkingDir: fromTestDir(''),
     entryPoints: [fromTestDir(`entry-${name}.mjs`)],
@@ -78,6 +112,7 @@ async function build(name) {
     logLevel: 'error',
     outfile: fromTestDir(`bundles/${bundleDirName}/${name}.mjs`),
     metafile: true,
+    plugins,
   })
 
   // we filter these out because even though esbuild says "types" is unused,

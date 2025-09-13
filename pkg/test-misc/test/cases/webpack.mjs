@@ -1,6 +1,7 @@
 import { deleteAsync } from 'del'
 import { expect } from 'chai'
 import webpack from 'webpack'
+import transformImportPlugin from '@common-fp/unplugin-transform-import/webpack'
 import { fromTestDir, getBundleDirName } from '../utils.mjs'
 
 const bundleDirName = getBundleDirName('webpack')
@@ -16,6 +17,28 @@ suite('tree shaking works in webpack', () => {
     // this assertion shows the number of modules webpack processes in order to
     // tree-shake down to its output.  Compare this to the subpath test.
     expect(stats.compilation.modules.size).to.be.above(100)
+    expect(getChunkModuleIds(stats)).to.deep.equal([
+      '../../common-fp/dist/add.mjs',
+      '../../shared-internals/dist/assert-arg-is-type.mjs',
+      '../../shared-internals/dist/deps/type-detect.mjs',
+      '../../shared-internals/dist/get-type.mjs',
+      './entry-root.mjs',
+    ])
+  })
+
+  test('root module with plugin', async () => {
+    const stats = await build('root', [transformImportPlugin()])
+
+    const compilationModules = getCompilationModuleFpaths(stats)
+    // here we show that by using the plugin, webpack has reduced the number of
+    // modules processed to be greatly reduced, and equal to 'subpath'
+    expect(compilationModules).to.deep.equal([
+      'test-misc/test/entry-root.mjs',
+      'common-fp/dist/add.mjs',
+      'shared-internals/dist/assert-arg-is-type.mjs',
+      'shared-internals/dist/get-type.mjs',
+      'shared-internals/dist/deps/type-detect.mjs',
+    ])
     expect(getChunkModuleIds(stats)).to.deep.equal([
       '../../common-fp/dist/add.mjs',
       '../../shared-internals/dist/assert-arg-is-type.mjs',
@@ -50,7 +73,7 @@ suite('tree shaking works in webpack', () => {
   })
 })
 
-async function build(name) {
+async function build(name, plugins = []) {
   return new Promise((res, rej) => {
     try {
       const config = {
@@ -62,6 +85,7 @@ async function build(name) {
           filename: `${name}.mjs`,
           path: fromTestDir(`bundles/${bundleDirName}`),
         },
+        plugins,
       }
       webpack(config, (err, stats) => {
         try {
