@@ -4,7 +4,7 @@ import ShCodeBlock from './sh'
 import './index.scss'
 
 const CodeBlock = props => {
-  const { className, jsTs, sh, debugId, showTopPanel = true } = props
+  const { className, jsTs, sh, debugId } = props
 
   if (!jsTs && !sh) {
     throw new Error(`no code given for ${debugId}`)
@@ -18,13 +18,11 @@ const CodeBlock = props => {
         className="tablet-and-larger"
         code={jsTs.tabletAndLarger}
         debugId={debugId}
-        showTopPanel={showTopPanel}
       />
       <JsTsCodeBlock
         className="mobile-and-smaller"
         code={jsTs.mobileAndSmaller}
         debugId={debugId}
-        showTopPanel={showTopPanel}
       />
     </>
   )

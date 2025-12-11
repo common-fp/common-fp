@@ -13,7 +13,7 @@ import hljs from '@/utils/hljs'
 import makeToggleLanguage from './make-toggle-language'
 import { getTryItUrl, observeWhenComponentIsRendered } from './utils'
 
-const JsTsCodeBlock = ({ className, code, debugId, showTopPanel = true }) => {
+const JsTsCodeBlock = ({ className, code, debugId }) => {
   const [isAnimating, setIsAnimating] = useState(false)
   const [isRendered, setIsRendered] = useState(false)
 
@@ -93,36 +93,34 @@ const JsTsCodeBlock = ({ className, code, debugId, showTopPanel = true }) => {
         'client-controlled': siteCtx.isClientControlled,
       })}
     >
-      {showTopPanel && (
-        <div className="top-panel">
-          <div className="tab-list">
-            <>
-              <button
-                ref={elTabJs}
-                aria-label="View code in JavaScript"
-                className={cn('tab js', { active: isActive.js })}
-                onClick={onTabJsClicked}
-              >
-                .js
-              </button>
-              <button
-                ref={elTabTs}
-                aria-label="View code in TypeScript"
-                className={cn('tab ts', { active: isActive.ts })}
-                onClick={onTabTsClicked}
-              >
-                .ts
-              </button>
-            </>
-          </div>
-
-          <div className="tab-list actions">
-            <a href={tryItUrl} className="tab try-it" target="_blank">
-              <span className="text">Try It</span>
-            </a>
-          </div>
+      <div className="top-panel">
+        <div className="tab-list">
+          <>
+            <button
+              ref={elTabJs}
+              aria-label="View code in JavaScript"
+              className={cn('tab js', { active: isActive.js })}
+              onClick={onTabJsClicked}
+            >
+              .js
+            </button>
+            <button
+              ref={elTabTs}
+              aria-label="View code in TypeScript"
+              className={cn('tab ts', { active: isActive.ts })}
+              onClick={onTabTsClicked}
+            >
+              .ts
+            </button>
+          </>
         </div>
-      )}
+
+        <div className="tab-list actions">
+          <a href={tryItUrl} className="tab try-it" target="_blank">
+            <span className="text">Try It</span>
+          </a>
+        </div>
+      </div>
       <pre ref={elPre}>
         {highlightedCode.js && (
           <code
