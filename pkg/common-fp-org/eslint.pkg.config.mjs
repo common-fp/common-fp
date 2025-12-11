@@ -42,22 +42,6 @@ const nextPageOverrides = {
   },
 }
 
-const startingCodeOverrides = {
-  files: ['app/try-it/cmpt/editor/codemirror/initial-code.js'],
-  languageOptions: {
-    globals: {
-      show: 'readonly',
-    },
-  },
-}
-
-// when we import these files, we're importing the source of them
-const sourceLoaderOverrides = {
-  settings: {
-    'import-x/ignore': [/\/initial-code.(js|ts)$/],
-  },
-}
-
 export default [
   {
     settings: {
@@ -90,10 +74,8 @@ export default [
       'react/jsx-no-target-blank': 'off',
     },
   },
-  startingCodeOverrides,
   codeExampleOverrides,
   nextPageOverrides,
-  sourceLoaderOverrides,
   {
     ignores: ['app/built', 'app/deps', 'app/bundles', 'public/bundles'],
   },

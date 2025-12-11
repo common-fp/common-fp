@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef } from 'react'
-import initialCodeJs from './initial-code.js'
-import initialCodeTs from './initial-code.ts'
+import homeExamples from '@/built/code-examples/pages/home'
 import { EditorCtx } from '../context'
 import { SiteCtx } from '@/site-context'
 import LoadingIcon from '@/cmpt/loading-icon'
 import { simpleAnimate, waitMs } from '@/utils'
+import { tabletMinPx } from '@/utils/style-variables'
 import getEditorDataFromUrl from '@/utils/get-editor-data-from-url'
 import { loadingContainerHeight } from './vars.module.scss'
 import {
@@ -17,10 +17,7 @@ import {
 
 import './index.scss'
 
-const initialCode = {
-  js: initialCodeJs.trim(),
-  ts: initialCodeTs.trim(),
-}
+const initialCode = homeExamples.andUse
 
 const Codemirror = () => {
   const cmRef = useRef()
@@ -57,7 +54,8 @@ const Codemirror = () => {
     async function initView() {
       try {
         const editorDataFromUrl = getEditorDataFromUrl()
-        const code = editorDataFromUrl.code || initialCode[siteCtx.language]
+        const code =
+          editorDataFromUrl.code || getResponsiveInitialCode(siteCtx.language)
 
         const initAndShowEditor = async view => {
           try {
@@ -140,6 +138,13 @@ const Codemirror = () => {
       </div>
     </>
   )
+}
+
+function getResponsiveInitialCode(language) {
+  const responsiveKey =
+    window.innerWidth >= tabletMinPx ? 'tabletAndLarger' : 'mobileAndSmaller'
+
+  return initialCode[responsiveKey].full[language].trim()
 }
 
 export default Codemirror

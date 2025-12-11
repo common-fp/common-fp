@@ -22,7 +22,6 @@ const config = {
       {
         test: [
           /\/editor-types.d.ts$/,
-          /\/initial-code\.(j|t)s$/,
           /\/code\/[^/]+_(tablet-and-larger|mobile-and-smaller)_/,
         ],
         use: [{ loader: fromRoot('misc/source-loader.mjs') }],

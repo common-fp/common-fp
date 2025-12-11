@@ -31,4 +31,10 @@ $mobile-small-max: $mobile-min - 0.1;
   transitionDur: $transition-dur;
   transitionDurSlow: $transition-dur-slow;
   warningDark: $warning-dark;
+
+  // viewport vars
+  contentSize: $content-size;
+  desktopMin: $desktop-min;
+  tabletMin: $desktop-min;
+  mobileMin: $desktop-min;
 }
