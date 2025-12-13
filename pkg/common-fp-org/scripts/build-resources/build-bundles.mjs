@@ -1,5 +1,3 @@
-import { fileURLToPath } from 'url'
-import cpy from 'cpy'
 import { deleteAsync } from 'del'
 import * as esbuild from 'esbuild'
 import { makeDirectory } from 'make-dir'
@@ -19,7 +17,6 @@ const buildBundles = async () => {
   await makeDirectory(publicBundlesPath)
   await Promise.all([
     buildExampleSetup(),
-    copyRollup(),
     buildRollupFs(),
     buildClientScriptDeps(),
   ])
@@ -33,11 +30,6 @@ async function buildExampleSetup() {
     external: ['/wrapped-example.mjs'],
   }
   await esbuild.build(opts)
-}
-
-async function copyRollup() {
-  const bundle = fileURLToPath(import.meta.resolve('@rollup/browser'))
-  await cpy(bundle, fromRoot('public/bundles'))
 }
 
 async function buildClientScriptDeps() {
