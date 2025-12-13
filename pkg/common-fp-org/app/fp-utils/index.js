@@ -59,6 +59,20 @@ const pick = keys => obj => {
 
 const prepend = l => r => l + r
 
+const prune = pruneArg => {
+  const charsToPrune = new Set(pruneArg)
+
+  return aString => {
+    let startIdx = 0
+    while (charsToPrune.has(aString[startIdx])) startIdx += 1
+
+    let endIdx = aString.length - 1
+    while (charsToPrune.has(aString[endIdx])) endIdx -= 1
+
+    return aString.slice(startIdx, endIdx + 1)
+  }
+}
+
 const reduce = (fn, initial) => arr => {
   return arr.reduce(fn, initial)
 }
@@ -92,6 +106,7 @@ export {
   peek,
   pick,
   prepend,
+  prune,
   reduce,
   reduceWhile,
   returnFirstArg,

@@ -25,3 +25,10 @@
   font-weight: 400;
   src: url('/fonts/NotoSansMono.ttf') format('truetype');
 }
+
+:export {
+  nunitoSans: '/fonts/NunitoSans.ttf';
+  nunitoSansItalic: '/fonts/NunitoSans-Italic.ttf';
+  quickSand: '/fonts/Quicksand.ttf';
+  notoSansMono: '/fonts/NotoSansMono.ttf';
+}
