@@ -12,7 +12,7 @@
     "build-resources": "node --no-warnings=ExperimentalWarning scripts/build-resources/index.mjs",
     "start": "next start",
     "lint": "eslint 'misc/**/*.mjs' 'scripts/**/*.mjs' code-examples app next.config.mjs",
-    "preview": "serve out",
+    "preview": "serve --ssl-cert ./certificates/localhost.pem --ssl-key ./certificates/localhost-key.pem out",
     "test-cli": "mocha --recursive test/cases",
     "test": "pnpm test-cli > ../../test-results/common-fp-org.txt",
     "test-one": "mocha",
