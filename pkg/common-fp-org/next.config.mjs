@@ -35,7 +35,6 @@ const config = {
     return config
   },
   sassOptions: {
-    silenceDeprecations: ['legacy-js-api'],
     functions: {
       'encodeURIComponent($str)': str => {
         return new SassString(encodeURIComponent(str.dartValue))
