@@ -6,30 +6,33 @@ import renderSanitizedTsTooltip from './render-sanitized-ts-tooltip'
 const compartment = new Compartment()
 let tsFacetWorkerExt
 const tsOnlyExts = {}
+if (typeof window !== 'undefined')
+  initTsOnlyExts(document.documentElement.dataset.lang)
 
-const getTsOnlyExts = async language => {
-  await initTsOnlyExts(language)
+const getTsOnlyExts = async langId => {
+  await initTsOnlyExts(langId)
 
-  return tsOnlyExts[language]
+  return tsOnlyExts[langId]
 }
 
-async function initTsOnlyExts(lang) {
-  if (!tsOnlyExts[lang]) {
-    if (lang === 'js') tsOnlyExts.js = []
-    else {
-      const worker = await getTsEditorWorker()
+async function initTsOnlyExts(langId) {
+  if (tsOnlyExts[langId]) return
 
-      const { tsFacetWorker, tsSyncWorker, tsHoverWorker } = await import(
-        '@/bundles/codemirror-ts_v2-3-1'
-      )
-      tsFacetWorkerExt = tsFacetWorker.of({ worker, path: 'example.ts' })
+  if (langId === 'js') tsOnlyExts.js = []
+  else {
+    const [worker, { tsFacetWorker, tsSyncWorker, tsHoverWorker }] =
+      await Promise.all([
+        getTsEditorWorker(),
+        import('@/bundles/codemirror-ts_v2-3-1'),
+      ])
 
-      tsOnlyExts.ts = [
-        tsFacetWorkerExt,
-        tsSyncWorker(),
-        tsHoverWorker({ renderTooltip: renderSanitizedTsTooltip }),
-      ]
-    }
+    tsFacetWorkerExt = tsFacetWorker.of({ worker, path: 'example.ts' })
+
+    tsOnlyExts.ts = [
+      tsFacetWorkerExt,
+      tsSyncWorker(),
+      tsHoverWorker({ renderTooltip: renderSanitizedTsTooltip }),
+    ]
   }
 }
 

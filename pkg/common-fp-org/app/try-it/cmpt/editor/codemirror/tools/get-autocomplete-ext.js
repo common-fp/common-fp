@@ -1,32 +1,40 @@
 import { Compartment } from '@codemirror/state'
+import { autocompletion } from '@codemirror/autocomplete'
 
 const compartment = new Compartment()
-const pAutocompleteExt = {}
+const autocompleteExt = {}
+if (typeof window !== 'undefined')
+  initAutocompleteExt(document.documentElement.dataset.lang)
 
-const getAutocompleteExt = async language => {
-  if (pAutocompleteExt[language]) return pAutocompleteExt[language]
+const getAutocompleteExt = async langId => {
+  initAutocompleteExt(langId)
 
-  pAutocompleteExt[language] = new Promise(async (resolve, reject) => {
+  return await autocompleteExt[langId]
+}
+
+async function initAutocompleteExt(langId) {
+  if (autocompleteExt[langId]) return autocompleteExt[langId]
+
+  autocompleteExt[langId] = new Promise(async (resolve, reject) => {
     try {
       const arg = {
         activateOnTyping: false,
         icons: false,
       }
-      if (language === 'ts') {
+      if (langId === 'ts') {
         const { tsAutocompleteWorker } = await import(
           '@/bundles/codemirror-ts_v2-3-1'
         )
         arg.override = [tsAutocompleteWorker()]
       }
 
-      const { autocompletion } = await import('@codemirror/autocomplete')
       resolve(autocompletion(arg))
     } catch (err) {
       reject(err)
     }
   })
 
-  return await pAutocompleteExt[language]
+  return await autocompleteExt[langId]
 }
 
 export default getAutocompleteExt

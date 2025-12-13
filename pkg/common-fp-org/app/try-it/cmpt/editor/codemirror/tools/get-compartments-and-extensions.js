@@ -16,7 +16,7 @@ import getKeymapExts, { compartment as keymapCmpt } from './get-keymap-exts'
 import getAutocompleteExt, {
   compartment as autocompleteCmpt,
 } from './get-autocomplete-ext'
-import getLangExt, { compartment as langCmpt } from './get-lang-ext'
+import langExt, { compartment as langCmpt } from './lang-ext'
 import getLintExt, { compartment as lintCmpt } from './get-lint-ext'
 import getTsOnlyExts, { compartment as tsOnlyCmpt } from './get-ts-only-exts'
 import getViewIsInitializedExt from './get-view-is-initialized-ext'
@@ -55,7 +55,7 @@ const getCompartmentsAndExtensions = async ({
     highlightSelectionMatches(),
     keymapCmpt.of(getKeymapExts({ copyToUrl, performRun })),
     autocompleteCmpt.of(await getAutocompleteExt(langId)),
-    langCmpt.of(await getLangExt(langId)),
+    langCmpt.of(langExt[langId]),
     tsOnlyCmpt.of(await getTsOnlyExts(langId)),
     lintCmpt.of(await getLintExt(langId)),
     cfpFocusedExts,

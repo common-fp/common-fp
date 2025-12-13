@@ -1,3 +1,4 @@
+import { wrap as comlinkWrap } from 'comlink'
 import makeLog from '@/utils/make-log'
 
 let worker
@@ -15,8 +16,7 @@ const getTsEditorWorker = async () => {
           type: 'module',
         }
       )
-      const Comlink = await import('comlink')
-      worker = Comlink.wrap(innerWorker)
+      worker = comlinkWrap(innerWorker)
       await worker.initialize()
       logDuration('init ts editor worker')
       resolve(worker)

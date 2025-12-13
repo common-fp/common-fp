@@ -1,4 +1,5 @@
 import { Compartment } from '@codemirror/state'
+import { esLint as cmEslint } from '@codemirror/lang-javascript'
 import { linter } from '@codemirror/lint'
 import cfpOrg from '@common-fp/eslint-plugin-cfp-org'
 import baseEditorEslintConfig from './base-editor-eslint-config'
@@ -8,6 +9,8 @@ const lintExt = {}
 let linterInstance
 let jsEslintConfig
 let tsFacetWorker
+if (typeof window !== 'undefined')
+  initLintExt(document.documentElement.dataset.lang)
 
 const getLintExt = async langId => {
   initLintExt(langId)
@@ -45,9 +48,13 @@ function initLintExt(langId) {
   lintExt[langId] = new Promise(async (resolve, reject) => {
     try {
       if (langId === 'js') {
-        const { esLint: cmEslint } = await import('@codemirror/lang-javascript')
-        const jsEslint = (await import('@eslint/js')).default
-        const { Linter } = await import('eslint-linter-browserify')
+        const [eslintJsMod, eslintLinterBrowserifyMod] = await Promise.all([
+          import('@eslint/js'),
+          import('eslint-linter-browserify'),
+        ])
+
+        const jsEslint = eslintJsMod.default
+        const { Linter } = eslintLinterBrowserifyMod
         jsEslintConfig ??= createJsEslintConfig(jsEslint)
         linterInstance ??= new Linter()
 

@@ -1,6 +1,11 @@
-import { compartment as langCmpt } from './get-lang-ext'
+import prettier from 'prettier/standalone'
+import estreePlugin from 'prettier/plugins/estree'
+import fastDiff from 'fast-diff'
+import { compartment as langCmpt } from './lang-ext'
 
 const plugins = {}
+if (typeof window !== 'undefined')
+  initPlugins(document.documentElement.dataset.lang)
 
 const getPrettierOptions = async langId => {
   initPlugins(langId)
@@ -41,7 +46,6 @@ const format = ({ state, dispatch }) => {
 }
 
 async function getChanges(code, formattedCode) {
-  const fastDiff = (await import('fast-diff')).default
   const changeType = {
     delete: fastDiff.DELETE,
     equal: fastDiff.EQUAL,
@@ -83,7 +87,6 @@ async function getChanges(code, formattedCode) {
 }
 
 async function formatCode(code, langId) {
-  const prettier = (await import('prettier/standalone')).default
   const prettierOptions = await getPrettierOptions(langId)
   return await prettier.format(code, {
     semi: false,
@@ -98,13 +101,12 @@ function initPlugins(langId) {
 
   plugins[langId] = new Promise(async (resolve, reject) => {
     try {
-      const estree = (await import('prettier/plugins/estree')).default
       if (['json', 'js'].includes(langId)) {
-        const babel = (await import('prettier/plugins/babel')).default
-        resolve([estree, babel])
+        const babelPlugin = (await import('prettier/plugins/babel')).default
+        resolve([estreePlugin, babelPlugin])
       } else {
-        const typescript = (await import('prettier/plugins/typescript')).default
-        resolve([estree, typescript])
+        const tsPlugin = (await import('prettier/plugins/typescript')).default
+        resolve([estreePlugin, tsPlugin])
       }
     } catch (err) {
       reject(err)

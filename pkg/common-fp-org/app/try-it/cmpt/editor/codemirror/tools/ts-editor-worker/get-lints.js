@@ -1,3 +1,5 @@
+import { Linter } from 'eslint-linter-browserify'
+import tsEslintWebUtils from '@/bundles/typescript-eslint-web-utils_v8-39-1'
 import createEslintConfig from './create-eslint-config'
 import { codemirrorTsWorkerApi, getTsEnvironment } from './utils'
 
@@ -15,10 +17,7 @@ const getLints = async () => {
   const tsEnvironment = await getTsEnvironment()
 
   const code = tsEnvironment.sys.readFile('example.ts')
-  const tsEslintWebUtils = (
-    await import('@/bundles/typescript-eslint-web-utils_v8-39-1')
-  ).default
-  const { Linter } = await import('eslint-linter-browserify')
+
   linter ??= new Linter()
   eslintConfig ??= createEslintConfig({ tsEnvironment, tsEslintWebUtils })
   const toCmLintFormat = makeToCmLintFormat(code)

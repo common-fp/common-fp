@@ -1,25 +1,26 @@
 import getAutocompleteExt from './get-autocomplete-ext'
-import getLangExt from './get-lang-ext'
 import getLintExt from './get-lint-ext'
 import getTsOnlyExts, { tsFacetWorkerExt } from './get-ts-only-exts'
 import forceLint from './force-lint'
+import langExt from './lang-ext'
 
 export default async (language, { compartments, view }) => {
   try {
-    const lang = language
+    const langId = language
     const cmpt = compartments
 
-    const [autocompleteExt, langExt, lintExt, tsOnlyExts] = await Promise.all([
-      getAutocompleteExt(lang),
-      getLangExt(lang),
-      getLintExt(lang),
-      getTsOnlyExts(lang),
-    ])
+    const [autocompleteExt, curLangExt, lintExt, tsOnlyExts] =
+      await Promise.all([
+        getAutocompleteExt(langId),
+        langExt[langId],
+        getLintExt(langId),
+        getTsOnlyExts(langId),
+      ])
 
     view.dispatch({
       effects: [
         cmpt.autocomplete.reconfigure(autocompleteExt),
-        cmpt.language.reconfigure(langExt),
+        cmpt.language.reconfigure(curLangExt),
         cmpt.lint.reconfigure(lintExt),
         cmpt.tsOnly.reconfigure(tsOnlyExts),
       ],
