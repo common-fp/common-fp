@@ -15,7 +15,7 @@ const buildRollupFs = async () => {
 
   const rollupFs = { ...cfp, ...sharedInternals }
   await fsp.writeFile(
-    fromRoot('public/bundles/rollup-fs.json'),
+    fromRoot('app/built/rollup-fs.json'),
     JSON.stringify(rollupFs)
   )
 }

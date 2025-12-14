@@ -1,6 +1,7 @@
 import ky from 'ky'
 import randomstring from 'randomstring'
 import makeLog from '@/utils/make-log'
+import bundleFpaths from '@/built/bundle-fpaths.json'
 import makeMemResolverPlugin from './make-mem-resolver-plugin'
 import wrapExample from './wrap-example'
 import { encode } from 'js-base64'
@@ -89,13 +90,13 @@ async function getVars() {
     const logDuration = makeLog.duration('info')
     varsAreInitialized = true
     pEspree = import('espree')
-    pRemapping = import('@ampproject/remapping').then(mod => mod.default)
+    pRemapping = getDefault(import('@ampproject/remapping'))
     pRollup = import('@rollup/browser')
-    pRollupFs = ky.get('/bundles/rollup-fs.json').json()
-    pRunExampleStr = ky.get('/bundles/run-example.js').text()
-    pTransformImportPlugin = import(
-      '@common-fp/unplugin-transform-import/rollup-browser'
-    ).then(mod => mod.default)
+    pRollupFs = getDefault(import('@/built/rollup-fs.json'))
+    pRunExampleStr = ky.get(bundleFpaths.runExample).text()
+    pTransformImportPlugin = getDefault(
+      import('@common-fp/unplugin-transform-import/rollup-browser')
+    )
 
     await Promise.all([
       pEspree,
@@ -116,4 +117,8 @@ async function getVars() {
     pRunExampleStr,
     pTransformImportPlugin,
   ])
+}
+
+function getDefault(pImportedModule) {
+  return pImportedModule.then(mod => mod.default)
 }

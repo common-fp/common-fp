@@ -1,11 +1,12 @@
 'use client'
 
 import Script from 'next/script'
+import bundleFpaths from '@/built/bundle-fpaths.json'
 
 const ClientScripts = () => {
   return (
     <Script
-      src="/bundles/initial-client-scripts.js"
+      src={bundleFpaths.initialClientScripts}
       strategy="beforeInteractive"
     />
   )
