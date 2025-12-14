@@ -13,7 +13,7 @@ const fontPaths = [
 
 const PreloadResources = () => {
   for (const fp of fontPaths) {
-    ReactDOM.preload(fp, { as: 'font', type: 'font/ttf' })
+    ReactDOM.preload(fp, { as: 'font', type: 'font/woff2' })
   }
 
   return null
