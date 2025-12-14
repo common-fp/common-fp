@@ -2,6 +2,7 @@ import { Compartment } from '@codemirror/state'
 import { esLint as cmEslint } from '@codemirror/lang-javascript'
 import { linter } from '@codemirror/lint'
 import cfpOrg from '@common-fp/eslint-plugin-cfp-org'
+import { Linter } from 'eslint-linter-browserify'
 import baseEditorEslintConfig from './base-editor-eslint-config'
 
 const compartment = new Compartment()
@@ -48,13 +49,7 @@ function initLintExt(langId) {
   lintExt[langId] = new Promise(async (resolve, reject) => {
     try {
       if (langId === 'js') {
-        const [eslintJsMod, eslintLinterBrowserifyMod] = await Promise.all([
-          import('@eslint/js'),
-          import('eslint-linter-browserify'),
-        ])
-
-        const jsEslint = eslintJsMod.default
-        const { Linter } = eslintLinterBrowserifyMod
+        const jsEslint = (await import('@eslint/js')).default
         jsEslintConfig ??= createJsEslintConfig(jsEslint)
         linterInstance ??= new Linter()
 

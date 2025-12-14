@@ -4,7 +4,6 @@ import ky from 'ky'
 import { minify } from 'terser'
 import makeCompatible from './make-compatible.mjs'
 import { fromRoot } from '../../utils/index.mjs'
-import { fileExists } from '../utils.mjs'
 
 const buildCompatibleTsEslintBundle = async () => {
   const version = '8.39.1'
@@ -12,8 +11,6 @@ const buildCompatibleTsEslintBundle = async () => {
   const bundleFPath = fromRoot(
     `app/bundles/typescript-eslint-web-utils_v${kebabCase(version)}.js`
   )
-
-  if (await fileExists(bundleFPath)) return
 
   const originalJs = await ky
     .get(

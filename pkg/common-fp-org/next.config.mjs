@@ -6,6 +6,7 @@ const { dirname } = import.meta
 const fromRoot = fpath => path.resolve(dirname, fpath)
 
 const isDeveloping = process.env.IS_DEVELOPING === 'true'
+const isPreview = process.env.IS_PREVIEW === 'true'
 
 const enabled = (process.env.ANALYZE || '').toLowerCase() === 'true'
 const withBundleAnalyzer = makeWithBundleAnalyzer({ enabled })
@@ -31,6 +32,12 @@ const config = {
         use: [{ loader: fromRoot('misc/modify-ts-loader.mjs') }],
       }
     )
+
+    // this helps with understanding dependencies and when they're loaded
+    if (isPreview) {
+      config.optimization.chunkIds = 'named'
+      config.optimization.moduleIds = 'named'
+    }
 
     return config
   },

@@ -1,7 +1,19 @@
+import typescript from 'typescript'
 import { Linter } from 'eslint-linter-browserify'
-import tsEslintWebUtils from '@/bundles/typescript-eslint-web-utils_v8-39-1'
 import createEslintConfig from './create-eslint-config'
 import { codemirrorTsWorkerApi, getTsEnvironment } from './utils'
+
+// this hack is necessary because typescript-eslint's website bundle expects
+// typescript to exist on window.ts
+// https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/website-eslint/src/mock/typescript.js
+let tsEslintWebUtils
+initTsEslint()
+async function initTsEslint() {
+  globalThis.ts = typescript
+  tsEslintWebUtils = (
+    await import('@/bundles/typescript-eslint-web-utils_v8-39-1')
+  ).default
+}
 
 let linter
 let eslintConfig
