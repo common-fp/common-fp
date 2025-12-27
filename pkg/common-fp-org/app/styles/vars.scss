@@ -12,18 +12,18 @@ html {
 }
 
 html:not([data-theme='light']) {
-  --bg: #191919;
-  --bg-off: color-mix(in srgb, var(--bg), var(--fg) 8%); // #2b2b2b
-  --bg-off-2: color-mix(in srgb, var(--bg), var(--fg) 16%); // #3b3b3b
-  --bg-off-3: color-mix(in srgb, var(--bg), var(--fg) 24%); // #505050
-  --bg-off-4: color-mix(in srgb, var(--bg), var(--fg) 34%); // #676767
-  --bg-off-5: color-mix(in srgb, var(--bg), var(--fg) 48%); // #878787
+  --bg: #121212;
+  --bg-off: color-mix(in srgb, var(--bg), var(--fg) 8%);
+  --bg-off-2: color-mix(in srgb, var(--bg), var(--fg) 16%);
+  --bg-off-3: color-mix(in srgb, var(--bg), var(--fg) 24%);
+  --bg-off-4: color-mix(in srgb, var(--bg), var(--fg) 34%);
+  --bg-off-5: color-mix(in srgb, var(--bg), var(--fg) 48%);
   --fg: white;
-  --fg-off: color-mix(in srgb, var(--fg), var(--bg) 8%); // #ededed
-  --fg-off-2: color-mix(in srgb, var(--fg), var(--bg) 16%); // #dadada
-  --fg-off-3: color-mix(in srgb, var(--fg), var(--bg) 24%); // #c8c8c8
-  --fg-off-4: color-mix(in srgb, var(--fg), var(--bg) 34%); // #b1b1b1
-  --fg-off-5: color-mix(in srgb, var(--fg), var(--bg) 48%); // #919191
+  --fg-off: color-mix(in srgb, var(--fg), var(--bg) 8%);
+  --fg-off-2: color-mix(in srgb, var(--fg), var(--bg) 16%);
+  --fg-off-3: color-mix(in srgb, var(--fg), var(--bg) 24%);
+  --fg-off-4: color-mix(in srgb, var(--fg), var(--bg) 34%);
+  --fg-off-5: color-mix(in srgb, var(--fg), var(--bg) 48%);
   --primary: #9793ff;
   --accent: #ff9736;
   --error: #{v.$error-dark};
@@ -34,17 +34,17 @@ html:not([data-theme='light']) {
 
 html[data-theme='light'] {
   --bg: #ffffff;
-  --bg-off: color-mix(in srgb, var(--bg), var(--fg) 14%); // #dddddd
-  --bg-off-2: color-mix(in srgb, var(--bg), var(--fg) 28%); // #bbbbbb
-  --bg-off-3: color-mix(in srgb, var(--bg), var(--fg) 34%); // #adadad
-  --bg-off-4: color-mix(in srgb, var(--bg), var(--fg) 44%); // #959595
-  --bg-off-5: color-mix(in srgb, var(--bg), var(--fg) 54%); // #7c7c7c
+  --bg-off: color-mix(in srgb, var(--bg), var(--fg) 12%);
+  --bg-off-2: color-mix(in srgb, var(--bg), var(--fg) 28%);
+  --bg-off-3: color-mix(in srgb, var(--bg), var(--fg) 34%);
+  --bg-off-4: color-mix(in srgb, var(--bg), var(--fg) 44%);
+  --bg-off-5: color-mix(in srgb, var(--bg), var(--fg) 54%);
   --fg: #0d0d0d;
-  --fg-off: color-mix(in srgb, var(--fg), var(--bg) 8%); // #202020
-  --fg-off-2: color-mix(in srgb, var(--fg), var(--bg) 16%); // #343434
-  --fg-off-3: color-mix(in srgb, var(--fg), var(--bg) 24%); // #474747
-  --fg-off-4: color-mix(in srgb, var(--fg), var(--bg) 34%); // #5f5f5f
-  --fg-off-5: color-mix(in srgb, var(--fg), var(--bg) 48%); // #818181
+  --fg-off: color-mix(in srgb, var(--fg), var(--bg) 8%);
+  --fg-off-2: color-mix(in srgb, var(--fg), var(--bg) 16%);
+  --fg-off-3: color-mix(in srgb, var(--fg), var(--bg) 24%);
+  --fg-off-4: color-mix(in srgb, var(--fg), var(--bg) 34%);
+  --fg-off-5: color-mix(in srgb, var(--fg), var(--bg) 48%);
   --primary: #3742c4;
   --accent: #dd8100;
   --error: #{v.$error-light};
