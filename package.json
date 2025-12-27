@@ -39,7 +39,7 @@
     "make-dir": "^5.0.0",
     "prettier": "catalog:",
     "simple-git-hooks": "^2.13.1",
-    "turbo": "^2.5.6"
+    "turbo": "^2.7.2"
   },
   "simple-git-hooks": {
     "pre-commit": "printf 'running prettier...\\n\\n' && pnpm turbo run --concurrency '100%' --output-logs errors-only prettier-write"
