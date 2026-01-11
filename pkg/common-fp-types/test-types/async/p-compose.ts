@@ -35,6 +35,6 @@ describe('async/p-compose', () => {
   test('unknown fns with asserted return type', () => {
     expect(
       pCompose([inc, double, toString] as UnknownFunction[])
-    ).type.toBeAssignableWith<(n: number) => Promise<string>>()
+    ).type.toBeAssignableFrom<(n: number) => Promise<string>>()
   })
 })

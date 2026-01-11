@@ -46,12 +46,7 @@ describe('array/discard-first-while', () => {
     >()
 
     const resLiteralInferred = discardWhileGt1([1, 2])
-    // @tstyche if { target: [">=5.3"] }
     expect(resLiteralInferred).type.toBe<(1 | 2)[]>()
-
-    const resLiteralExplicit = discardWhileGt1([1, 2] as [1, 2])
-    // @tstyche if { target: ["<5.3"] }
-    expect(resLiteralExplicit).type.toBe<(1 | 2)[]>()
 
     const resGeneral = discardWhileGt1([1, 2] as [number, number])
     expect(resGeneral).type.toBe<number[]>()
@@ -67,11 +62,6 @@ describe('array/discard-first-while', () => {
     const discardWhileGt1 = discardFirstWhile(gt1)
 
     const resInferred = discardWhileGt1([1, 'a'])
-    // @tstyche if { target: [">=5.3"] }
     expect(resInferred).type.toBe<(1 | 'a')[]>()
-
-    const resExplicit = discardWhileGt1([1, 'a'] as [1, 'a'])
-    // @tstyche if { target: ["<5.3"] }
-    expect(resExplicit).type.toBe<(1 | 'a')[]>()
   })
 })

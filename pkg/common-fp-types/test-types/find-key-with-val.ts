@@ -12,16 +12,7 @@ describe('find-key-with-val', () => {
     const findA = findKeyWithVal('a')
 
     test('returned function', () => {
-      // @tstyche if { target: [">=5.1"] }
       expect(findA).type.toBe<{
-        <C extends Sequence<string> | KeyedCollection<unknown, string>>(
-          collection: C
-        ): C extends KeyedCollection ? CollectionKey<C> | undefined
-        : number | undefined
-      }>()
-
-      // @tstyche if { target: ["<5.1"] }
-      expect(findA).type.toBeAssignableTo<{
         <C extends Sequence<string> | KeyedCollection<unknown, string>>(
           collection: C
         ): C extends KeyedCollection ? CollectionKey<C> | undefined

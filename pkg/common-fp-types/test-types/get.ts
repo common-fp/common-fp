@@ -35,7 +35,9 @@ describe('get', () => {
     const getLength = get('length' as string)
 
     test('returned function', () => {
-      expect(getLength).type.toBe<<O>(anything: O) => ValueAtKey<O, string>>()
+      expect(getLength).type.toBe<
+        <const O>(anything: O) => ValueAtKey<O, string>
+      >()
     })
 
     test('result', () => {

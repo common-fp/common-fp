@@ -6,7 +6,7 @@ describe('array/flatten-to-depth', () => {
 
   test('returned function', () => {
     expect(flattenTwoLevels).type.toBe<
-      <V>(anArray: ReadonlyArray<V>) => FlatArray<V[], 2>[]
+      <const V>(anArray: ReadonlyArray<V>) => FlatArray<V[], 2>[]
     >()
   })
 
