@@ -8,7 +8,7 @@ describe('get-at-path', () => {
   test('literal path', () => {
     const getAtAbc = getAtPath(['a', 'b', 'c'] as const)
     expect(getAtAbc).type.toBe<
-      <A>(anything: A) => ValueAtPath<A, ['a', 'b', 'c']>
+      <const A>(anything: A) => ValueAtPath<A, ['a', 'b', 'c']>
     >()
 
     const res = getAtAbc(objLiteral)
@@ -17,6 +17,6 @@ describe('get-at-path', () => {
 
   test('general path', () => {
     const getAtAbc = getAtPath(['a', 'b', 'c'] as string[])
-    expect(getAtAbc).type.toBe<<C>(anything: C) => unknown>()
+    expect(getAtAbc).type.toBe<<const A>(anything: A) => unknown>()
   })
 })

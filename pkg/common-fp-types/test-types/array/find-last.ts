@@ -46,11 +46,6 @@ describe('array/find-last', () => {
     >()
 
     const resInferred = findLastA(['a', 'b'])
-    // @tstyche if { target: [">=5.3"] }
     expect(resInferred).type.toBe<'a' | 'b' | undefined>()
-
-    const resExplicit = findLastA(['a', 'b'] as ['a', 'b'])
-    // @tstyche if { target: ["<5.3"] }
-    expect(resExplicit).type.toBe<'a' | 'b' | undefined>()
   })
 })

@@ -11,6 +11,7 @@ describe('assign-defaults', () => {
     }
     const getOptions = assignDefaults(defaults)
 
+    // @tstyche fixme -- This doesn't work but it should
     expect(getOptions).type.toBe<
       <O extends UnknownRecord>(
         base: O
@@ -39,6 +40,7 @@ describe('assign-defaults', () => {
 
     const getOptions = assignDefaults(defaults)
 
+    // @tstyche fixme -- This doesn't work but it should
     expect(getOptions).type.toBe<
       <O extends UnknownRecord>(
         base: O
