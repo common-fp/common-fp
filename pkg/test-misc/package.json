@@ -41,7 +41,7 @@
     "mocha": "^11.7.1",
     "prettier": "catalog:",
     "rollup": "^4.29.1",
-    "tstyche": "^4.3.0",
+    "tstyche": "catalog:",
     "typescript": "^5.9.2",
     "webpack": "^5.101.0"
   },

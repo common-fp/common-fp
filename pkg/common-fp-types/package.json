@@ -43,7 +43,7 @@
     "make-dir": "^5.0.0",
     "mocha": "^11.7.1",
     "prettier": "catalog:",
-    "tstyche": "^6.0.0",
+    "tstyche": "catalog:",
     "typescript-eslint": "^8.39.0"
   },
   "bugs": {

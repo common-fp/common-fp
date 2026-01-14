@@ -3,6 +3,7 @@ packages:
 
 catalog:
   prettier: ^3.6.2
+  tstyche: ^6.0.2
 
 onlyBuiltDependencies:
   - '@parcel/watcher'

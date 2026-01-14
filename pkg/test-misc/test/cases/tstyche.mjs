@@ -7,7 +7,7 @@ const { dirname } = import.meta
 
 const fromRepoRoot = fpath => path.resolve(dirname, '../../..', fpath)
 const requiredTstycheProps = Object.entries({
-  target: ['>=5.0'],
+  target: '>=5.4',
   checkSuppressedErrors: true,
 })
 
