@@ -31,8 +31,7 @@
     "eslint": "^9.32.0",
     "globby": "^14.0.2",
     "make-dir": "^5.0.0",
-    "prettier": "catalog:",
-    "typescript": "^5.9.2"
+    "prettier": "catalog:"
   },
   "keywords": [
     "common",

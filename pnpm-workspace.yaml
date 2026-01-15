@@ -4,6 +4,7 @@ packages:
 catalog:
   prettier: ^3.6.2
   tstyche: ^6.0.2
+  typescript: ^5.9.3
 
 onlyBuiltDependencies:
   - '@parcel/watcher'

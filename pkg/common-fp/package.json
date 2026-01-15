@@ -85,7 +85,7 @@
     "nvexeca": "^11.0.4",
     "prettier": "catalog:",
     "tsx": "^4.19.3",
-    "typescript": "^5.9.2"
+    "typescript": "catalog:"
   },
   "bugs": {
     "url": "https://github.com/common-fp/common-fp/issues"
