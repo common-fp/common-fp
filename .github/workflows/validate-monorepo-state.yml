@@ -13,9 +13,9 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
@@ -23,7 +23,7 @@ jobs:
       - uses: ./.github/actions/turbo-cache
       - uses: ./.github/actions/tstyche-cache
       - run: pnpm install && pnpm validate
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
         with:
           name: 'test-results'
