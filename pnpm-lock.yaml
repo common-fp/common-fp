@@ -42,8 +42,8 @@ importers:
         specifier: ^14.0.2
         version: 14.0.2
       lean-package:
-        specifier: ^1.4.0
-        version: 1.4.0
+        specifier: ^1.5.0
+        version: 1.5.0
       listr2:
         specifier: ^9.0.2
         version: 9.0.2
@@ -3759,8 +3759,8 @@ packages:
     resolution: {integrity: sha512-zYEr/gh7uLW2l4su11bmQ2M9xLgQLjyvx58UyNM/6nuqyWFHPX5ktMjvpev3F8QWdjSsHUpnWew4PBCswBNuMQ==}
     engines: {node: '>=18'}
 
-  lean-package@1.4.0:
-    resolution: {integrity: sha512-BNTRkMZnztEtrVY/IOy/BUiB3rr1YpNRZQDshFq7FEaLq0rhupRBT4VdpjEz7mJxYjotflkDxD6HneVjIsLt4Q==}
+  lean-package@1.5.0:
+    resolution: {integrity: sha512-2h5rmZKi9UnIF4xzQ/2slRmCUSB/Sn0jwhFNqqZFxNJz1qXs+rXikQF0RLGVHuuVn4XuIPQBPGVlvgKtQouIRw==}
     hasBin: true
 
   levn@0.4.1:
@@ -8347,7 +8347,7 @@ snapshots:
 
   ky@1.7.4: {}
 
-  lean-package@1.4.0: {}
+  lean-package@1.5.0: {}
 
   levn@0.4.1:
     dependencies:
