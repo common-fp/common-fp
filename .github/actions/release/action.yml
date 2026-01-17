@@ -13,9 +13,6 @@ inputs:
   tag:
     description: The tag name to be associated with the release
     required: true
-  npmToken:
-    description: Pass secrets.NPM_TOKEN
-    required: true
   githubToken:
     description: Pass secrets.GITHUB_TOKEN
     required: true
@@ -31,8 +28,6 @@ runs:
         --access public \
         --tag "${{ contains(inputs.tag, '-beta.') && 'beta' || 'latest' }}" \
         "${{ inputs.packed }}"
-      env:
-        NODE_AUTH_TOKEN: ${{ inputs.npmToken }}
     - uses: joutvhu/create-tag@v1
       with:
         tag_name: ${{ inputs.tag }}
