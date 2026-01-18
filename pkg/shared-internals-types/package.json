@@ -50,7 +50,7 @@
   },
   "homepage": "https://github.com/common-fp/common-fp/tree/dev/pkg/shared-internals-types",
   "peerDependencies": {
-    "typescript": "5.x"
+    "typescript": "^5.4.0"
   },
   "files": [
     "dist"

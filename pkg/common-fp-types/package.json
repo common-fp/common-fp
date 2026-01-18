@@ -67,7 +67,7 @@
     "@common-fp/shared-types": "workspace:^"
   },
   "peerDependencies": {
-    "typescript": "5.x"
+    "typescript": "^5.4.0"
   },
   "prettier": "@common-fp/prettier-config",
   "mocha": {
