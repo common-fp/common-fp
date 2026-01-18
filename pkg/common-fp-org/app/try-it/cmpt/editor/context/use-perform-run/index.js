@@ -3,12 +3,14 @@ import { makeWaitMs, simpleAnimate } from '@/utils'
 import useRunCode from './use-run-code'
 import useLint from './use-lint'
 import useLintRuntimeError from './use-lint-runtime-error'
+import useWarmupRun from './use-warmup-run'
 
 const usePerformRun = argObj => {
   const { isRunning, resultRef, setIsRunning, view, setWasRunSuccessful } =
     argObj
   const runCode = useRunCode()
   const lint = useLint({ view })
+  const warmupRun = useWarmupRun({ lint, resultRef, runCode, view })
   const lintRuntimeError = useLintRuntimeError({ view })
 
   return useCallbackOne(async () => {
@@ -17,6 +19,7 @@ const usePerformRun = argObj => {
     try {
       const resultEl = resultRef.current
       setIsRunning(true)
+      await warmupRun
       const editorCode = view.state.doc.toString()
 
       const lintThenRun = async () => {
