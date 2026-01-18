@@ -1,7 +1,7 @@
 {
   "name": "common-fp",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "FP utilities for the commoner",
   "sideEffects": false,
   "scripts": {
