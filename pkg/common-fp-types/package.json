@@ -2,7 +2,7 @@
   "name": "common-fp-types",
   "sideEffects": false,
   "description": "Types for common-fp",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "type": "module",
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",

@@ -1,7 +1,7 @@
 {
   "name": "@common-fp/shared-internals-types",
   "description": "Types for @common-fp/shared-internals",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": false,
   "sideEffects": false,
   "type": "module",
