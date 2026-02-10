@@ -7,9 +7,6 @@
   "author": "Phil Olson",
   "license": "SEE LICENSE IN license.txt",
   "type": "module",
-  "exports": {
-    "./config": "./config.mjs"
-  },
   "scripts": {
     "ensure-test-results": "mkdir -p test-results",
     "init-repo": "sh ./scripts/init.sh",
