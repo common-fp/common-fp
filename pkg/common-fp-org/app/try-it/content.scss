@@ -1,5 +1,15 @@
 @use '@/styles/mixins/viewport-sizes' as vs;
 
-.content.content-frame {
-  padding-top: 0;
+.page_try-it {
+  code,
+  pre,
+  tt,
+  kbd,
+  samp {
+    font-family: 'Noto Sans Mono Full', monospace;
+  }
+
+  &.content.content-frame {
+    padding-top: 0;
+  }
 }

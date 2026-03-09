@@ -1,0 +1,43 @@
+@use './font-src' as fs;
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: fs.$nunito-sans;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: fs.$nunito-sans-italic;
+}
+
+@font-face {
+  font-family: 'Nunito Sans Full';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/nunito-sans-full.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: 400;
+  src: fs.$quicksand;
+}
+
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: fs.$noto-sans-mono;
+}
+
+@font-face {
+  font-family: 'Noto Sans Mono Full';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/noto-sans-mono-full.woff2') format('woff2');
+}

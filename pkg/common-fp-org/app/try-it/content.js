@@ -4,7 +4,7 @@ import './content.scss'
 
 const Content = () => {
   return (
-    <main className="content content-frame">
+    <main className="content content-frame page_try-it">
       <Editor />
     </main>
   )

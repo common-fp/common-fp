@@ -16,7 +16,7 @@ const theme = EditorView.theme({
   '&': {
     backgroundColor: 'var(--bg-off)',
     color: 'var(--fg)',
-    fontFamily: '"Noto Sans Mono", monospace',
+    fontFamily: '"Noto Sans Mono Full", monospace',
     fontSize: 'var(--cm-font-size)',
     paddingTop: '8px',
   },
@@ -32,7 +32,7 @@ const theme = EditorView.theme({
     borderLeftColor: 'var(--fg)',
   },
   '.cm-scroller': {
-    fontFamily: '"Noto Sans Mono", monospace',
+    fontFamily: '"Noto Sans Mono Full", monospace',
     paddingBottom: '8px',
     paddingRight: '8px',
   },
