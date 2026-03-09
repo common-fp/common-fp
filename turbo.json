@@ -26,7 +26,6 @@
     "test-full": {
       "dependsOn": ["^build", "//#ensure-test-results"]
     },
-    // root tasks
     "//#ensure-test-results": {
       "cache": false,
       "inputs": ["turbo.jsonc"]

@@ -2,7 +2,6 @@
   "$schema": "../../node_modules/turbo/schema.json",
   "extends": ["//"],
   "tasks": {
-    // todo - move app/{built/*,deps,bundles} into built/{*,deps,bundles}
     "build-resources": {
       "dependsOn": ["^build"],
       "outputs": ["app/built", "app/deps", "app/bundles", "public/bundles"]
