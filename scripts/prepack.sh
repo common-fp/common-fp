@@ -3,7 +3,7 @@
 pkgName="${1}"
 
 pnpm install --filter "${pkgName}"
-pnpm build --filter "${pkgName}"
+pnpm --if-present build --filter "${pkgName}"
 
 cp package.json package.json.bak
 pnpm lean-package --copy 'sideEffects' --input package.json --output package.json

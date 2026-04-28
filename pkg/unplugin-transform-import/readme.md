@@ -1,4 +1,4 @@
-# Unplugin - Transform Import
+# Unplugin - Transform Import - Beta
 
 This is an unplugin which transforms named imports to subpath exports.
 
@@ -12,7 +12,16 @@ import { mapValues } from 'common-fp'
 import mapValues from 'common-fp/map-values'
 ```
 
-## Why
+<br />
+
+## Note
+
+This isn't meant for public use yet. I'm publishing it for personal use since
+gitpkg is down.
+
+<br />
+
+## Why did I make this package?
 
 [Barrel files][what-is-barrel-file] are convenient to use but hard on bundlers.
 By transforming imports, we can write convenient code while telling bundlers to
