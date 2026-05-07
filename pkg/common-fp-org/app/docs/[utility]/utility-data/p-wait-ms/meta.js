@@ -15,5 +15,6 @@ const signatures = [
     </>
   ),
 ]
+const srcDir = 'async'
 
-export { labels, name, signatures }
+export { labels, name, signatures, srcDir }

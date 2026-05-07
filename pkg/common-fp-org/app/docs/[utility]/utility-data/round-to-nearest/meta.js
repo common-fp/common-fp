@@ -39,5 +39,6 @@ const signatures = [
     </>
   ),
 ]
+const srcDir = 'number'
 
-export { labels, name, signatures }
+export { labels, name, signatures, srcDir }

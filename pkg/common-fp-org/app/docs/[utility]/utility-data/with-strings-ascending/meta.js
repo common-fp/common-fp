@@ -15,5 +15,6 @@ const signatures = [
     </>
   ),
 ]
+const srcDir = 'compare/strings'
 
-export { labels, name, signatures }
+export { labels, name, signatures, srcDir }

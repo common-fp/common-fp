@@ -16,6 +16,5 @@ const signatures = [
     </>
   ),
 ]
-const srcDir = 'array'
 
-export { labels, name, signatures, srcDir }
+export { labels, name, signatures }

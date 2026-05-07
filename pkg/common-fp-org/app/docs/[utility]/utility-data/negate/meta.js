@@ -13,5 +13,6 @@ const signatures = [
     </>
   ),
 ]
+const srcDir = 'function'
 
-export { labels, name, signatures }
+export { labels, name, signatures, srcDir }
