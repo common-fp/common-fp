@@ -29,7 +29,7 @@ suite('async/p-compose', () => {
     const fnArray = []
     pCompose(fnArray)
     expect(si.assertArgIsArrayOfType.argsPerCall).to.deep.equal([
-      [fnArray, 'fnArray', 'function', 'compose'],
+      [fnArray, 'fnArray', 'function', 'pCompose'],
     ])
   })
 })

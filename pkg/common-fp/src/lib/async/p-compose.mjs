@@ -1,7 +1,7 @@
 import { assertArgIsArrayOfType } from '@common-fp/shared-internals'
 
-const compose = fnArray => {
-  assertArgIsArrayOfType(fnArray, 'fnArray', 'function', 'compose')
+const pCompose = fnArray => {
+  assertArgIsArrayOfType(fnArray, 'fnArray', 'function', 'pCompose')
 
   return async (...args) => {
     if (!fnArray.length) return args[0]
@@ -15,4 +15,4 @@ const compose = fnArray => {
   }
 }
 
-export default compose
+export default pCompose

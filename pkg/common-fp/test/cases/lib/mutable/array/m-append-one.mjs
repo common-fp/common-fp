@@ -17,7 +17,7 @@ suite('mutable/array/m-append-one', () => {
     const ab = ['a', 'b']
     mAppendOne('c')(ab)
     expect(si.assertArgIsType.argsPerCall).to.deep.equal([
-      [ab, 'anArray', 'array', 'mAppend'],
+      [ab, 'anArray', 'array', 'mAppendOne'],
     ])
   })
 })

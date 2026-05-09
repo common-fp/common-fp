@@ -20,7 +20,7 @@ suite('function/invokeWith', () => {
   test('shared internals are called as expected', () => {
     invokeWith(1)(add2)
     expect(si.assertArgIsType.argsPerCall).to.deep.equal([
-      [add2, 'fn', 'function', 'invoke'],
+      [add2, 'fn', 'function', 'invokeWith'],
     ])
   })
 })
