@@ -16,7 +16,7 @@ const what = {
         <p className="note">
           {`
             If this is confusing, please look at the examples.  Sometimes it's
-            easier to to show than tell.
+            easier to show than tell.
           `}
         </p>
       </>
